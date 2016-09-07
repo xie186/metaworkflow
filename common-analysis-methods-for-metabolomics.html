@@ -8,7 +8,7 @@
   <title>Meta-Workflow</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.1.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Miao YU">
 
-<meta name="date" content="2016-08-28">
+<meta name="date" content="2016-09-07">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -120,16 +120,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.2" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#pls-da"><i class="fa fa-check"></i><b>7.2</b> PLS-DA</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="demo.html"><a href="demo.html"><i class="fa fa-check"></i><b>8</b> Demo</a><ul>
-<li class="chapter" data-level="8.1" data-path="demo.html"><a href="demo.html#raw-data-pretreatment-1"><i class="fa fa-check"></i><b>8.1</b> Raw data pretreatment</a></li>
-<li class="chapter" data-level="8.2" data-path="demo.html"><a href="demo.html#peaks-selection-1"><i class="fa fa-check"></i><b>8.2</b> Peaks selection</a></li>
-<li class="chapter" data-level="8.3" data-path="demo.html"><a href="demo.html#annotation-and-omics-analysis"><i class="fa fa-check"></i><b>8.3</b> Annotation and Omics analysis</a></li>
-<li class="chapter" data-level="8.4" data-path="demo.html"><a href="demo.html#algorithm-code-for-data-analysis"><i class="fa fa-check"></i><b>8.4</b> Algorithm code for data analysis</a></li>
-<li class="chapter" data-level="8.5" data-path="demo.html"><a href="demo.html#prepare-the-data"><i class="fa fa-check"></i><b>8.5</b> Prepare the data</a></li>
-<li class="chapter" data-level="8.6" data-path="demo.html"><a href="demo.html#pca-1"><i class="fa fa-check"></i><b>8.6</b> PCA</a></li>
-<li class="chapter" data-level="8.7" data-path="demo.html"><a href="demo.html#pls-da-1"><i class="fa fa-check"></i><b>8.7</b> PLS-DA</a></li>
-<li class="chapter" data-level="8.8" data-path="demo.html"><a href="demo.html#k-means"><i class="fa fa-check"></i><b>8.8</b> K means</a></li>
-<li class="chapter" data-level="8.9" data-path="demo.html"><a href="demo.html#hierarchical"><i class="fa fa-check"></i><b>8.9</b> Hierarchical</a></li>
-<li class="chapter" data-level="8.10" data-path="demo.html"><a href="demo.html#tree"><i class="fa fa-check"></i><b>8.10</b> Tree</a></li>
+<li class="chapter" data-level="8.1" data-path="demo.html"><a href="demo.html#data-input"><i class="fa fa-check"></i><b>8.1</b> Data input</a></li>
+<li class="chapter" data-level="8.2" data-path="demo.html"><a href="demo.html#find-the-peaks"><i class="fa fa-check"></i><b>8.2</b> Find the peaks</a></li>
+<li class="chapter" data-level="8.3" data-path="demo.html"><a href="demo.html#data-correction"><i class="fa fa-check"></i><b>8.3</b> Data correction</a></li>
+<li class="chapter" data-level="8.4" data-path="demo.html"><a href="demo.html#statistic-analysis"><i class="fa fa-check"></i><b>8.4</b> Statistic analysis</a></li>
+<li class="chapter" data-level="8.5" data-path="demo.html"><a href="demo.html#annotation"><i class="fa fa-check"></i><b>8.5</b> Annotation</a></li>
+<li class="chapter" data-level="8.6" data-path="demo.html"><a href="demo.html#omics-analysis-1"><i class="fa fa-check"></i><b>8.6</b> Omics analysis</a></li>
+<li class="chapter" data-level="8.7" data-path="demo.html"><a href="demo.html#metaboanalyst"><i class="fa fa-check"></i><b>8.7</b> MetaboAnalyst</a></li>
+<li class="chapter" data-level="8.8" data-path="demo.html"><a href="demo.html#visulizing-peaks"><i class="fa fa-check"></i><b>8.8</b> Visulizing Peaks</a></li>
+<li class="chapter" data-level="8.9" data-path="demo.html"><a href="demo.html#summary"><i class="fa fa-check"></i><b>8.9</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>9</b> Useful links</a></li>
 <li class="divider"></li>
@@ -156,6 +155,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 7</span> Common analysis methods for metabolomics</h1>
 <div id="pca" class="section level2">
 <h2><span class="header-section-number">7.1</span> PCA</h2>
+<p>In most cases, PCA is used as an exploratory data analysis(EDA) method. In most of those most cases, PCA is just served as visualization method. I mean, when I need to visualize some high-dimension data, I would use PCA.</p>
+<p>So, the basic idea behind PCA is compression. When you have 100 samples with concentrations of certain compound, you could plot the concentrations with samples’ ID. However, if you have 100 compounds to be analyzed, it would by hard to show the relationship between the samples. Actually, you need to show a matrix with sample and compounds (100 * 100 with the concentrations filled into the matrix) in an informal way.</p>
+<p>The PCA would say: OK, guys, I could convert your data into only 100 * 2 matrix with the loss of information minimized. Yeah, that is what the mathematical guys or computer programmer do. You just run the command of PCA. The new two “compounds” might have the cor-relationship between the original 100 compounds and retain the variances between them. After such projection, you would see the compressed relationship between the 100 samples. If some samples’ data are similar, they would be projected together in new two “compounds” plot. That is why PCA could be used for cluster and the new “compounds” could be referred as principal components(PCs).</p>
+<p>However, you might ask why only two new compounds could finished such task. I have to say, two PCs are just good for visualization. In most cases, we need to collect PCs standing for more than 80% variances in our data if you want to recovery the data with PCs. If each compound have no relationship between each other, the PCs are still those 100 compounds. So you have found a property of the PCs: PCs are orthogonal between each other.</p>
+<p>Another issue is how to find the relationship between the compounds. We could use PCA to find the relationship between samples. However, we could also extract the influences of the compounds on certain PCs. You might find many compounds showed the same loading on the first PC. That means the concentrations pattern between the compounds are looked similar. So PCA could also be used to explore the relationship between the compounds.</p>
+<p>OK, next time you might recall PCA when you need it instead of other paper showed them.</p>
 </div>
 <div id="pls-da" class="section level2">
 <h2><span class="header-section-number">7.2</span> PLS-DA</h2>
