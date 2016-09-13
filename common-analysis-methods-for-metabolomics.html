@@ -25,7 +25,7 @@
 
 <meta name="author" content="Miao YU">
 
-<meta name="date" content="2016-09-09">
+<meta name="date" content="2016-09-13">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -117,7 +117,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6" data-path="omics-analysis.html"><a href="omics-analysis.html"><i class="fa fa-check"></i><b>6</b> Omics analysis</a></li>
 <li class="chapter" data-level="7" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html"><i class="fa fa-check"></i><b>7</b> Common analysis methods for metabolomics</a><ul>
 <li class="chapter" data-level="7.1" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#pca"><i class="fa fa-check"></i><b>7.1</b> PCA</a></li>
-<li class="chapter" data-level="7.2" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#pls-da"><i class="fa fa-check"></i><b>7.2</b> PLS-DA</a></li>
+<li class="chapter" data-level="7.2" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#cluster-analysis"><i class="fa fa-check"></i><b>7.2</b> Cluster Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="demo.html"><a href="demo.html"><i class="fa fa-check"></i><b>8</b> Demo</a><ul>
 <li class="chapter" data-level="8.1" data-path="demo.html"><a href="demo.html#data-input"><i class="fa fa-check"></i><b>8.1</b> Data input</a></li>
@@ -162,8 +162,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Another issue is how to find the relationship between the compounds. We could use PCA to find the relationship between samples. However, we could also extract the influences of the compounds on certain PCs. You might find many compounds showed the same loading on the first PC. That means the concentrations pattern between the compounds are looked similar. So PCA could also be used to explore the relationship between the compounds.</p>
 <p>OK, next time you might recall PCA when you need it instead of other paper showed them.</p>
 </div>
-<div id="pls-da" class="section level2">
-<h2><span class="header-section-number">7.2</span> PLS-DA</h2>
+<div id="cluster-analysis" class="section level2">
+<h2><span class="header-section-number">7.2</span> Cluster Analysis</h2>
+<p>After we got a lot of samples and analyzed the concentrations of many compounds in them, we may ask about the relationship between the samples. You might have the sampling information such as the date and the position and you could use boxplot or violin plot to explore the relationships among those categorical variables. However, you could also use the data to find some potential relationship.</p>
+<p>But how? if two samples’ data were almost the same, we might think those samples were from the same potential group. On the other hand, how do we define the “same” in the data?</p>
+<p>Cluster analysis told us that just define a “distances” to measure the similarity between samples. Mathematically, such distances would be shown in many different manners such as the sum of the absolute values of the differences between samples.</p>
+<p>For example, we analyzed the amounts of compound A, B and C in two samples and get the results:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Compounds(ng)</th>
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sample 1</td>
+<td align="left">10</td>
+<td align="left">13</td>
+<td align="left">21</td>
+</tr>
+<tr class="even">
+<td align="left">Sample 2</td>
+<td align="left">54</td>
+<td align="left">23</td>
+<td align="left">16</td>
+</tr>
+</tbody>
+</table>
+<p>The distance could be:</p>
+<p><span class="math display">\[
+distance = |10-54|+|13-23|+|21-16| = 59
+\]</span></p>
+<p>Also you could use the sum of squares or other way to stand for the similarity. After you defined a “distance”, you could get the distances between all of pairs for your samples. If two samples’ distance was the smallest, put them together as one group. Then calculate the distances again to combine the small group into big group until all of the samples were include in one group. Then draw a dendrogram for those process.</p>
+<p>The following issue is that how to cluster samples? You might set a cut-off and directly get the group from the dendrogram. However, sometimes you were ordered to cluster the samples into certain numbers of groups such as three. In such situation, you need K means cluster analysis.</p>
+<p>The basic idea behind the K means is that generate three virtual samples and calculate the distances between those three virtual samples and all of the other samples. There would be three values for each samples. Choose the smallest values and class that sample into this group. Then your samples were classified into three groups. You need to calculate the center of those three groups and get three new virtual samples. Repeat such process until the group members unchanged and you get your samples classified.</p>
+<p>OK, the basic idea behind the cluster analysis could be summarized as define the distances, set your cut-off and find the group. By this way, you might show potential relationships among samples.</p>
 
 </div>
 </div>
