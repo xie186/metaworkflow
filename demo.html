@@ -8,7 +8,7 @@
   <title>Meta-Workflow</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -25,8 +25,8 @@
 
 <meta name="author" content="Miao YU">
 
+<meta name="date" content="2016-09-07">
 
-<meta name="date" content="2016-11-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -110,11 +110,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4" data-path="raw-data-pretreatment.html"><a href="raw-data-pretreatment.html"><i class="fa fa-check"></i><b>4</b> Raw data pretreatment</a></li>
 <li class="chapter" data-level="5" data-path="peaks-selection.html"><a href="peaks-selection.html"><i class="fa fa-check"></i><b>5</b> Peaks selection</a></li>
 <li class="chapter" data-level="6" data-path="omics-analysis.html"><a href="omics-analysis.html"><i class="fa fa-check"></i><b>6</b> Omics analysis</a></li>
-<li class="chapter" data-level="7" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html"><i class="fa fa-check"></i><b>7</b> Common analysis methods for metabolomics</a><ul>
-<li class="chapter" data-level="7.1" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#pca"><i class="fa fa-check"></i><b>7.1</b> PCA</a></li>
-<li class="chapter" data-level="7.2" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#cluster-analysis"><i class="fa fa-check"></i><b>7.2</b> Cluster Analysis</a></li>
-<li class="chapter" data-level="7.3" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html#plsda"><i class="fa fa-check"></i><b>7.3</b> PLSDA</a></li>
-</ul></li>
+<li class="chapter" data-level="7" data-path="common-analysis-methods-for-metabolomics.html"><a href="common-analysis-methods-for-metabolomics.html"><i class="fa fa-check"></i><b>7</b> Common analysis methods for metabolomics</a></li>
 <li class="chapter" data-level="8" data-path="demo.html"><a href="demo.html"><i class="fa fa-check"></i><b>8</b> Demo</a><ul>
 <li class="chapter" data-level="8.1" data-path="demo.html"><a href="demo.html#data-input"><i class="fa fa-check"></i><b>8.1</b> Data input</a></li>
 <li class="chapter" data-level="8.2" data-path="demo.html"><a href="demo.html#find-the-peaks"><i class="fa fa-check"></i><b>8.2</b> Find the peaks</a></li>
@@ -127,10 +123,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.9" data-path="demo.html"><a href="demo.html#summary"><i class="fa fa-check"></i><b>8.9</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>9</b> Useful links</a></li>
-<li class="chapter" data-level="10" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>10</b> Batch effect</a><ul>
-<li class="chapter" data-level="10.1" data-path="batch-effect.html"><a href="batch-effect.html#remove-batch-effect-without-optimation-for-xcms"><i class="fa fa-check"></i><b>10.1</b> Remove batch effect without optimation for xcms</a></li>
-<li class="chapter" data-level="10.2" data-path="batch-effect.html"><a href="batch-effect.html#remove-batch-effect-without-batch-information"><i class="fa fa-check"></i><b>10.2</b> Remove batch effect without batch information</a></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
 
@@ -226,7 +218,7 @@ xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles)</co
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.776 MB</code></pre>
+## Memory usage: 0.777 MB</code></pre>
 <p>Now you see there are 403 groups in the demo data, which meant 403 analytes are found across 4721 peaks.</p>
 </div>
 <div id="data-correction" class="section level2">
@@ -266,21 +258,21 @@ xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code><
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.776 MB</code></pre>
+## Memory usage: 0.777 MB</code></pre>
 <p>You see one more peak groups after the correction. After the retention time correction, we also need to correct the peak groups by filling the missing peaks. Such function calls <em>fillpeaks</em>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3 &lt;-<span class="st"> </span><span class="kw">fillPeaks</span>(xset2)</code></pre></div>
-<pre><code>## /home/travis/R/Library/faahKO/cdf/KO/ko15.CDF 
-## /home/travis/R/Library/faahKO/cdf/KO/ko16.CDF 
-## /home/travis/R/Library/faahKO/cdf/KO/ko18.CDF 
-## /home/travis/R/Library/faahKO/cdf/KO/ko19.CDF 
-## /home/travis/R/Library/faahKO/cdf/KO/ko21.CDF 
-## /home/travis/R/Library/faahKO/cdf/KO/ko22.CDF 
-## /home/travis/R/Library/faahKO/cdf/WT/wt15.CDF 
-## /home/travis/R/Library/faahKO/cdf/WT/wt16.CDF 
-## /home/travis/R/Library/faahKO/cdf/WT/wt18.CDF 
-## /home/travis/R/Library/faahKO/cdf/WT/wt19.CDF 
-## /home/travis/R/Library/faahKO/cdf/WT/wt21.CDF 
-## /home/travis/R/Library/faahKO/cdf/WT/wt22.CDF</code></pre>
+<pre><code>## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko15.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko16.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko18.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko19.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko21.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/KO/ko22.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt15.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt16.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt18.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt19.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt21.CDF 
+## /Library/Frameworks/R.framework/Versions/3.3/Resources/library/faahKO/cdf/WT/wt22.CDF</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
@@ -294,7 +286,7 @@ xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code><
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.917 MB</code></pre>
+## Memory usage: 0.918 MB</code></pre>
 <p>You see more peaks found.</p>
 </div>
 <div id="statistic-analysis" class="section level2">
@@ -537,7 +529,7 @@ gitbook.start({
 },
 "edit": {
 "link": "https://github.com/yufree/metaworkflow/edit/master/07-demo.Rmd",
-"text": "Edit"
+"text": null
 },
 "download": null,
 "toc": {
@@ -547,17 +539,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
