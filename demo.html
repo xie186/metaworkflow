@@ -26,7 +26,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2016-12-11">
+<meta name="date" content="2016-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
   
   
 <link rel="prev" href="common-analysis-methods-for-metabolomics.html">
-<link rel="next" href="batch-effect.html">
+
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -150,11 +150,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.10" data-path="demo.html"><a href="demo.html#optimation-of-xcms"><i class="fa fa-check"></i><b>7.10</b> Optimation of XCMS</a></li>
 <li class="chapter" data-level="7.11" data-path="demo.html"><a href="demo.html#summary"><i class="fa fa-check"></i><b>7.11</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="batch-effect.html"><a href="batch-effect.html"><i class="fa fa-check"></i><b>8</b> Batch effect</a><ul>
-<li class="chapter" data-level="8.0.1" data-path="batch-effect.html"><a href="batch-effect.html#detection-of-unmodeled-factors"><i class="fa fa-check"></i><b>8.0.1</b> Detection of unmodeled factors</a></li>
-<li class="chapter" data-level="8.0.2" data-path="batch-effect.html"><a href="batch-effect.html#construction-of-surrogate-variables"><i class="fa fa-check"></i><b>8.0.2</b> Construction of surrogate variables</a></li>
-<li class="chapter" data-level="8.0.3" data-path="batch-effect.html"><a href="batch-effect.html#case-study"><i class="fa fa-check"></i><b>8.0.3</b> Case study</a></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yufree/metaworkflow" target="blank">Published with bookdown</a></li>
 
@@ -212,368 +207,18 @@ cdfpath &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span 
 <p>Here is a demo for <em>xcmsSet</em>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cdffiles &lt;-<span class="st"> </span><span class="kw">list.files</span>(cdfpath, <span class="dt">recursive =</span> <span class="ot">TRUE</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
 xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(cdffiles)</code></pre></div>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:31 300:71 350:183 400:280 450:338 500:422 550:532 600:604</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:24 300:87 350:200 400:293 450:351 500:426 550:548 600:661</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:19 300:67 350:169 400:258 450:301 500:373 550:488 600:580</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:22 300:65 350:161 400:243 450:293 500:358 550:483 600:561</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:41 300:105 350:212 400:319 450:416 500:533 550:684 600:838</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:27 300:107 350:232 400:347 450:440 500:549 550:712 600:905</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:25 300:93 350:227 400:337 450:411 500:498 550:640 600:758</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:24 300:60 350:166 400:254 450:315 500:391 550:501 600:582</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
+<pre><code>## 250:38 300:103 350:226 400:338 450:431 500:529 550:674 600:847 
+## 250:43 300:128 350:275 400:394 450:500 500:637 550:835 600:1027 
+## 250:25 300:93 350:227 400:337 450:411 500:498 550:640 600:758 
+## 250:19 300:67 350:169 400:258 450:301 500:373 550:488 600:580 
+## 250:24 300:60 350:166 400:254 450:315 500:391 550:501 600:582 
+## 250:31 300:71 350:183 400:280 450:338 500:422 550:532 600:604 
+## 250:41 300:105 350:212 400:319 450:416 500:533 550:684 600:838 
+## 250:27 300:107 350:232 400:347 450:440 500:549 550:712 600:905 
+## 250:24 300:87 350:200 400:293 450:351 500:426 550:548 600:661 
+## 250:22 300:65 350:161 400:243 450:293 500:358 550:483 600:561 
 ## 250:28 300:69 350:157 400:229 450:282 500:364 550:493 600:592 
 ## 250:30 300:81 350:188 400:280 450:356 500:473 550:618 600:765</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## 250:38 300:103 350:226 400:338 450:431 500:529 550:674 600:847 
-## 250:43 300:128 350:275 400:394 450:500 500:637 550:835 600:1027</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
@@ -656,368 +301,18 @@ xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code><
 ## Memory usage: 0.776 MB</code></pre>
 <p>You see one more peak groups after the correction. After the retention time correction, we also need to correct the peak groups by filling the missing peaks. Such function calls <em>fillpeaks</em>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3 &lt;-<span class="st"> </span><span class="kw">fillPeaks</span>(xset2)</code></pre></div>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/KO/ko18.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/WT/wt16.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/WT/wt18.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/KO/ko21.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/KO/ko19.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/KO/ko22.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/WT/wt19.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/WT/wt15.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/KO/ko15.CDF 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/KO/ko16.CDF</code></pre>
-<pre><code>## Loading required package: xcms
-## Loading required package: mzR
-## Loading required package: Rcpp
-## Loading required package: BiocGenerics
-## Loading required package: parallel
-## 
-## Attaching package: &#39;BiocGenerics&#39;
-## 
-## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, xtabs
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-##     duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-##     is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-##     paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-##     Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-##     unique, unsplit, which, which.max, which.min
-## 
-## Loading required package: ProtGenerics
-## Loading required package: Biobase
-## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
-## 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/WT/wt21.CDF 
-## C:/Program Files/R/R-3.3.2/library/faahKO/cdf/WT/wt22.CDF</code></pre>
+<pre><code>## /home/travis/R/Library/faahKO/cdf/KO/ko15.CDF 
+## /home/travis/R/Library/faahKO/cdf/KO/ko16.CDF 
+## /home/travis/R/Library/faahKO/cdf/KO/ko18.CDF 
+## /home/travis/R/Library/faahKO/cdf/KO/ko19.CDF 
+## /home/travis/R/Library/faahKO/cdf/KO/ko21.CDF 
+## /home/travis/R/Library/faahKO/cdf/KO/ko22.CDF 
+## /home/travis/R/Library/faahKO/cdf/WT/wt15.CDF 
+## /home/travis/R/Library/faahKO/cdf/WT/wt16.CDF 
+## /home/travis/R/Library/faahKO/cdf/WT/wt18.CDF 
+## /home/travis/R/Library/faahKO/cdf/WT/wt19.CDF 
+## /home/travis/R/Library/faahKO/cdf/WT/wt21.CDF 
+## /home/travis/R/Library/faahKO/cdf/WT/wt22.CDF</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
@@ -1031,7 +326,7 @@ xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code><
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.918 MB</code></pre>
+## Memory usage: 0.917 MB</code></pre>
 <p>You see more peaks found.</p>
 </div>
 <div id="statistic-analysis" class="section level2">
@@ -1272,6 +567,23 @@ resultRetcorGroup &lt;-
 <p>This is the offline metaboliomics data process workflow. For each study, details would be different and F1 is always your best friend.</p>
 <p>Enjoy yourself in data mining!</p>
 
+<div id="refs" class="references">
+<div>
+<p>Du, Xiuxia, and Steven H Zeisel. 2013. “SPECTRAL DECONVOLUTION FOR GAS CHROMATOGRAPHY MASS SPECTROMETRY-BASED METABOLOMICS: CURRENT STATUS AND FUTURE PERSPECTIVES.” <em>Computational and Structural Biotechnology Journal</em> 4 (5): 1–10. doi:<a href="https://doi.org/10.5936/csbj.201301013">10.5936/csbj.201301013</a>.</p>
+</div>
+<div>
+<p>Kuligowski, Julia, Ángel Sánchez-Illana, Daniel Sanjuán-Herráez, Máximo Vento, and Guillermo Quintás. 2015. “Intra-Batch Effect Correction in Liquid Chromatography-Mass Spectrometry Using Quality Control Samples and Support Vector Regression (QC-SVRC).” <em>Analyst</em> 140 (22): 7810–7. doi:<a href="https://doi.org/10.1039/C5AN01638J">10.1039/C5AN01638J</a>.</p>
+</div>
+<div>
+<p>Lu, Xin, and Guowang Xu. 2008. “LC-MS Metabonomics Methodology in Biomarker Discovery.” In <em>Biomarker Methods in Drug Discovery and Development</em>, edited by Feng Wang, 291–315. Methods in Pharmacology and Toxicology. Humana Press. doi:<a href="https://doi.org/10.1007/978-1-59745-463-6_14">10.1007/978-1-59745-463-6_14</a>.</p>
+</div>
+<div>
+<p>van der Kloet, Frans M., Ivana Bobeldijk, Elwin R. Verheij, and Renger H. Jellema. 2009. “Analytical Error Reduction Using Single Point Calibration for Accurate and Precise Metabolomic Phenotyping.” <em>Journal of Proteome Research</em> 8 (11): 5132–41. doi:<a href="https://doi.org/10.1021/pr900499r">10.1021/pr900499r</a>.</p>
+</div>
+<div>
+<p>Wang, San-Yuan, Ching-Hua Kuo, and Yufeng J. Tseng. 2013. “Batch Normalizer: A Fast Total Abundance Regression Calibration Method to Simultaneously Adjust Batch and Injection Order Effects in Liquid Chromatography/Time-of-Flight Mass Spectrometry-Based Metabolomics Data and Comparison with Current Calibration Methods.” <em>Analytical Chemistry</em> 85 (2): 1037–46. doi:<a href="https://doi.org/10.1021/ac302877x">10.1021/ac302877x</a>.</p>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -1279,8 +591,8 @@ resultRetcorGroup &lt;-
           </div>
         </div>
       </div>
-<a href="common-analysis-methods-for-metabolomics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="batch-effect.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="common-analysis-methods-for-metabolomics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
