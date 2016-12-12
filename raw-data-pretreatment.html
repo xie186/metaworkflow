@@ -184,7 +184,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 Figure 3.1: Demo of GC/LC-MS data
 </p>
 </div>
-<p>Conversation from the mass-retention time matrix into a vector with selected MS peaks at certain retention time is the basic idea of the Raw data pretreatment.</p>
+<p>Conversation from the mass-retention time matrix into a vector with selected MS peaks at certain retention time is the basic idea of the Raw data pretreatment. The <strong>Centwave</strong> algorithm based on detection of regions of interest(ROI) and the following Continuous Wavelet Transform (CWT) for the peaks is preferred for high-resolution mass spectrum.</p>
 <p>With many groups of samples, you will get another data matrix with column standing for ions at cerntain retention time and row standing for samples after the Raw data pretreatment.</p>
 <div class="figure"><span id="fig:multidata"></span>
 <img src="images/multidata.png" alt="Demo of many GC/LC-MS data"  />
@@ -230,17 +230,17 @@ y &lt;-<span class="st"> </span>x*<span class="dv">10+1</span>
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)   1.0000     0.4452   2.246   0.0247 *  
+## (Intercept)   1.0000     0.4419   2.263   0.0236 *  
 ## x            10.0000     0.3162  31.623   &lt;2e-16 ***
-## Log(scale)    2.1720     0.0000     Inf   &lt;2e-16 ***
+## Log(scale)    2.1426     0.0000     Inf   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Scale: 8.776 
+## Scale: 8.522 
 ## 
 ## Gaussian distribution
 ## Number of Newton-Raphson Iterations: 1 
-## Log-likelihood: -3091 on 3 Df
+## Log-likelihood: -3062 on 3 Df
 ## Wald-statistic:  1000 on 1 Df, p-value: &lt; 2.22e-16</code></pre>
 </div>
 <div id="adjust-for-unwanted-variance-with-known-batch" class="section level2">
