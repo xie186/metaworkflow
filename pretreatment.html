@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="raw-data-pretreatment.html">
-<link rel="next" href="annotation.html">
+<link rel="prev" href="exprimental-designdoe.html">
+<link rel="next" href="raw-data-pretreatment.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -175,11 +175,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="peaks-selection" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Peaks selection</h1>
-<p>After we get corrected peaks across samples, the next step is finding the differences between two groups. Actually, you could perform ANOVA or Kruskal-Wallis Test for comparison among more than two groups. The basic idea behind statistic analysis is to find the meaningful differences between groups and extract such ions or peak groups.</p>
-<p>So how to find the differences? In most metabolomics software, such task is completed by a t-test and report p-value and fold changes. If you only compare two groups on one peaks, that’s OK. However, if you compare two groups on thousands of peaks, statistic textbook would tell you to notice the false discovery rate(FDR). For one comparasion, the confidence level is 0.05, which means 5% chances to get false positive result. For two comparasions, such chances would be <span class="math inline">\(1-0.95^2\)</span>. For 10 comparasions, such chances would be <span class="math inline">\(1-0.95^{10} = 0.4012631\)</span>. For 100 comparasions, such chances would be <span class="math inline">\(1-0.95^{100} = 0.9940795\)</span>. You would almost certainly to make mistakes for your results.</p>
-<p>In statistics, FDR control is always mentioned in omics studies. I suggested using q-values to control FDR. If q-value is less than 0.05, we should expect a lower than 5% chances we make the wrong selections for all of the comparisions.</p>
+<div id="pretreatment" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Pretreatment</h1>
+<p>Pretreatment will affect the results of metabolomics. For example, feces collected with 95% ethanol or FOBT would be more reproducible and stable.</p>
 
 </div>
             </section>
@@ -187,8 +185,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="raw-data-pretreatment.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="annotation.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="exprimental-designdoe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="raw-data-pretreatment.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -216,7 +214,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yufree/metaworkflow/edit/master/05-peakselection.Rmd",
+"link": "https://github.com/yufree/metaworkflow/edit/master/03-pretreatment.Rmd",
 "text": "Edit"
 },
 "download": null,
