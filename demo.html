@@ -247,7 +247,7 @@ xset</code></pre></div>
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.741 MB</code></pre>
+## Memory usage: 0.74 MB</code></pre>
 </div>
 <div id="find-the-peaks" class="section level2">
 <h2><span class="header-section-number">9.3</span> Find the peaks</h2>
@@ -275,7 +275,7 @@ xset</code></pre></div>
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.805 MB</code></pre>
+## Memory usage: 0.804 MB</code></pre>
 <p>Now you see there are 403 groups in the demo data, which meant 403 analytes are found across 4721 peaks.</p>
 </div>
 <div id="data-correction" class="section level2">
@@ -323,7 +323,7 @@ xset</code></pre></div>
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.741 MB</code></pre>
+## Memory usage: 0.74 MB</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># you need group the peaks again for this corrected data</span>
 xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code></pre></div>
 <pre><code>## Processing 3195 mz slices ... OK</code></pre>
@@ -341,10 +341,46 @@ xset2 &lt;-<span class="st"> </span><span class="kw">group</span>(xset2)</code><
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.805 MB</code></pre>
+## Memory usage: 0.804 MB</code></pre>
 <p>You see one more peak groups after the correction. After the retention time correction, we also need to correct the peak groups by filling the missing peaks. Such function calls <em>fillpeaks</em>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3 &lt;-<span class="st"> </span><span class="kw">fillPeaks</span>(xset2,<span class="dt">BPPARAM=</span><span class="kw">SnowParam</span>())
-xset3</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3 &lt;-<span class="st"> </span><span class="kw">fillPeaks</span>(xset2,<span class="dt">BPPARAM=</span><span class="kw">SnowParam</span>())</code></pre></div>
+<pre><code>## /home/travis/R/Library/faahKO/cdf/KO/ko15.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/KO/ko16.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/KO/ko18.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/KO/ko19.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/KO/ko21.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/KO/ko22.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/WT/wt15.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/WT/wt16.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/WT/wt18.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/WT/wt19.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/WT/wt21.CDF 
+## method:  bin 
+## step:  0.1 
+## /home/travis/R/Library/faahKO/cdf/WT/wt22.CDF 
+## method:  bin 
+## step:  0.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xset3</code></pre></div>
 <pre><code>## An &quot;xcmsSet&quot; object with 12 samples
 ## 
 ## Time range: 2502.9-4162.2 seconds (41.7-69.4 minutes)
@@ -358,7 +394,7 @@ xset3</code></pre></div>
 ## Profile settings: method = bin
 ##                   step = 0.1
 ## 
-## Memory usage: 0.946 MB</code></pre>
+## Memory usage: 0.945 MB</code></pre>
 <p>You see more peaks found.</p>
 </div>
 <div id="statistic-analysis" class="section level2">
