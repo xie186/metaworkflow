@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2017-07-10">
+<meta name="date" content="2017-07-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -115,6 +115,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#xcms"><i class="fa fa-check"></i><b>1.3.5</b> XCMS</a></li>
 <li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#emory-mahpic"><i class="fa fa-check"></i><b>1.3.6</b> Emory MaHPIC</a></li>
 <li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#others"><i class="fa fa-check"></i><b>1.3.7</b> Others</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#trends-in-metabolomics"><i class="fa fa-check"></i><b>1.4</b> Trends in Metabolomics</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#quantitative-metabolomics"><i class="fa fa-check"></i><b>1.4.1</b> Quantitative Metabolomics</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#high-throughput-metabolomics"><i class="fa fa-check"></i><b>1.4.2</b> High throughput Metabolomics</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exprimental-designdoe.html"><a href="exprimental-designdoe.html"><i class="fa fa-check"></i><b>2</b> Exprimental design(DoE)</a></li>
@@ -213,7 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>GC/LC-MS data are usually be shown as a matrix with column standing for retention times and row standing for masses. Noises are so much that such data could not be processed effeciently.</p>
 <div class="figure"><span id="fig:singledata"></span>
-<img src="images/singledata.png" alt="Demo of GC/LC-MS data"  />
+<img src="images/singledata.png" alt="Demo of GC/LC-MS data" width="636" />
 <p class="caption">
 Figure 4.1: Demo of GC/LC-MS data
 </p>
@@ -221,7 +225,7 @@ Figure 4.1: Demo of GC/LC-MS data
 <p>Conversation from the mass-retention time matrix into a vector with selected MS peaks at certain retention time is the basic idea of the Raw data pretreatment. The <strong>Centwave</strong> algorithm<span class="citation">(Tautenhahn, Böttcher, and Neumann <a href="#ref-tautenhahn2008">2008</a>)</span> based on detection of regions of interest(ROI) and the following Continuous Wavelet Transform (CWT) for the peaks is preferred for high-resolution mass spectrum.</p>
 <p>With many groups of samples, you will get another data matrix with column standing for ions at cerntain retention time and row standing for samples after the Raw data pretreatment.</p>
 <div class="figure"><span id="fig:multidata"></span>
-<img src="images/multidata.png" alt="Demo of many GC/LC-MS data"  />
+<img src="images/multidata.png" alt="Demo of many GC/LC-MS data" width="633" />
 <p class="caption">
 Figure 4.2: Demo of many GC/LC-MS data
 </p>
