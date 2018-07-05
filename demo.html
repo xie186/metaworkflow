@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2018-07-04">
+<meta name="date" content="2018-07-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -392,7 +392,7 @@ xset3</code></pre></div>
 <h2><span class="header-section-number">9.5</span> Statistic analysis</h2>
 <p>Right now we get peaks across samples, the next step is finding the differences between two groups. You will find the P values of t-test for pairwise comparison:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">reporttab &lt;-<span class="st"> </span><span class="kw">diffreport</span>(xset3, <span class="st">&quot;WT&quot;</span>, <span class="st">&quot;KO&quot;</span>, <span class="st">&quot;example&quot;</span>)
-reporttab[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</code></pre></div>
+reporttab[<span class="dv">1</span>:<span class="dv">3</span>,]</code></pre></div>
 <pre><code>##        name     fold    tstat       pvalue    mzmed    mzmin    mzmax
 ## 1 M300T3391 5.693594 14.44368 5.026336e-08 300.1898 300.1706 300.2000
 ## 2 M301T3391 6.283030 15.52501 5.385022e-08 301.1879 301.1659 301.1949
@@ -413,9 +413,9 @@ reporttab[<span class="dv">1</span><span class="op">:</span><span class="dv">3</
 <p>However,we need q-values to control FDR. To get the q-values, you need input p-values and use the function from <strong>qvalue</strong> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(qvalue)
 <span class="co"># extract the p-value to caculate q-value</span>
-qvalue &lt;-<span class="st"> </span><span class="kw">qvalue</span>(<span class="dt">p=</span>reporttab<span class="op">$</span>pvalue)
+qvalue &lt;-<span class="st"> </span><span class="kw">qvalue</span>(<span class="dt">p=</span>reporttab$pvalue)
 <span class="co"># add qvalue to reporttab</span>
-reporttab<span class="op">$</span>qvalue &lt;-<span class="st"> </span>qvalue<span class="op">$</span>qvalues
+reporttab$qvalue &lt;-<span class="st"> </span>qvalue$qvalues
 <span class="co"># reporttab[1:3,]</span></code></pre></div>
 <p>For further information about q-value, check <a href="https://en.wikipedia.org/wiki/False_discovery_rate#q-value">here</a>.</p>
 <p>After the FDR control, the following steps depend on your study.</p>
@@ -455,7 +455,7 @@ xsaFA &lt;-<span class="st"> </span><span class="kw">findAdducts</span>(xsaFI, <
 ## Calculating possible adducts in 202 Groups... 
 ##  % finished: 10  20  30  40  50  60  70  80  90  100</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># See the results</span>
-<span class="kw">getPeaklist</span>(xsaFA)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</code></pre></div>
+<span class="kw">getPeaklist</span>(xsaFA)[<span class="dv">1</span>:<span class="dv">3</span>,]</code></pre></div>
 <pre><code>##         mz    mzmin    mzmax       rt    rtmin    rtmax npeaks KO WT
 ## 1 200.1000 200.1000 200.1000 2924.027 2876.967 2939.450      9  4  5
 ## 2 205.0000 205.0000 205.0000 2788.377 2782.719 2795.550     12  6  6
@@ -498,9 +498,9 @@ dreport &lt;-<span class="st"> </span><span class="kw">annotateDiffreport</span>
 ## Calculating possible adducts in 58 Groups... 
 ##  % finished: 10  20  30</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># extract the p-value to caculate q-value</span>
-qvalue &lt;-<span class="st"> </span><span class="kw">qvalue</span>(<span class="dt">p=</span>dreport<span class="op">$</span>pvalue)
+qvalue &lt;-<span class="st"> </span><span class="kw">qvalue</span>(<span class="dt">p=</span>dreport$pvalue)
 <span class="co"># add qvalue to reporttab</span>
-dreport<span class="op">$</span>qvalue &lt;-<span class="st"> </span>qvalue<span class="op">$</span>qvalues
+dreport$qvalue &lt;-<span class="st"> </span>qvalue$qvalues
 <span class="co"># See the results</span>
 <span class="co"># dreport[1:3,]</span>
 <span class="co"># save on harddrive</span>
@@ -532,11 +532,11 @@ dreport &lt;-<span class="st"> </span><span class="kw">annotateDiffreport</span>
 ## Calculating possible adducts in 58 Groups... 
 ##  % finished: 10  20  30</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># extract the p-value to caculate q-value</span>
-qvalue &lt;-<span class="st"> </span><span class="kw">qvalue</span>(<span class="dt">p=</span>dreport<span class="op">$</span>pvalue)
+qvalue &lt;-<span class="st"> </span><span class="kw">qvalue</span>(<span class="dt">p=</span>dreport$pvalue)
 <span class="co"># add qvalue to reporttab</span>
-dreport<span class="op">$</span>qvalue &lt;-<span class="st"> </span>qvalue<span class="op">$</span>qvalues
+dreport$qvalue &lt;-<span class="st"> </span>qvalue$qvalues
 <span class="co"># See the results</span>
-dreport[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</code></pre></div>
+dreport[<span class="dv">1</span>:<span class="dv">3</span>,]</code></pre></div>
 <pre><code>##                 name     fold     tstat       pvalue    mzmed    mzmin
 ## 300.2/3391 M300T3391 5.693594 -14.44368 5.026336e-08 300.1898 300.1706
 ## 301.2/3391 M301T3391 6.283030 -15.52501 5.385022e-08 301.1879 301.1659
@@ -577,7 +577,7 @@ dreport[<span class="dv">1</span><span class="op">:</span><span class="dv">3</sp
 <p>Actully, after you perform data correction, you have got the data matrix for statistic analysis. You might choose <a href="http://www.metaboanalyst.ca/MetaboAnalyst/faces/docs/Contact.xhtml"><strong>MetaboAnalyst</strong></a> online or offline to make furthor analysis, which supplied more statistical choices than xcms.</p>
 <p>The input data format for <strong>MetaboAnalyst</strong> should be rows for peaks and colomns for samples. You could also add groups infomation if possible. Use the following code to get the data for analysis.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MAdata &lt;-<span class="st"> </span><span class="kw">groupval</span>(xset3,<span class="dt">method =</span> <span class="st">&quot;medret&quot;</span>, <span class="dt">intensity =</span> <span class="st">&quot;into&quot;</span>)
-MAdata &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="dt">group =</span> <span class="kw">as.character</span>(<span class="kw">phenoData</span>(xset)<span class="op">$</span>class),MAdata)
+MAdata &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="dt">group =</span> <span class="kw">as.character</span>(<span class="kw">phenoData</span>(xset)$class),MAdata)
 <span class="co"># output the data for MetaboAnalyst</span>
 <span class="co"># write.csv(MAdata, file = &quot;data/MAdata.csv&quot;)</span></code></pre></div>
 </div>
@@ -585,7 +585,7 @@ MAdata &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="
 <h2><span class="header-section-number">9.9</span> Visulizing Peaks</h2>
 <p>If you find some significant peaks, the best way to check them is data visulization. <strong>xcms</strong> supplies such functions. All you need are the retention time and ions’ range.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eic &lt;-<span class="st"> </span><span class="kw">groups</span>(xset3)
-index &lt;-<span class="st"> </span><span class="kw">which</span>(eic[,<span class="st">&quot;rtmed&quot;</span>] <span class="op">&gt;</span><span class="st"> </span><span class="dv">2500</span> <span class="op">&amp;</span><span class="st"> </span>eic[,<span class="st">&quot;rtmed&quot;</span><span class="op">&lt;</span><span class="dv">2600</span>])[<span class="dv">1</span>]</code></pre></div>
+index &lt;-<span class="st"> </span><span class="kw">which</span>(eic[,<span class="st">&quot;rtmed&quot;</span>] &gt;<span class="st"> </span><span class="dv">2500</span> &amp;<span class="st"> </span>eic[,<span class="st">&quot;rtmed&quot;</span>&lt;<span class="dv">2600</span>])[<span class="dv">1</span>]</code></pre></div>
 </div>
 <div id="optimation-of-xcms" class="section level2">
 <h2><span class="header-section-number">9.10</span> Optimation of XCMS</h2>
@@ -595,20 +595,20 @@ mzdatafiles &lt;-<span class="st"> </span><span class="kw">list.files</span>(mzd
 <span class="kw">library</span>(IPO)
 peakpickingParameters &lt;-<span class="st"> </span><span class="kw">getDefaultXcmsSetStartingParams</span>(<span class="st">&#39;matchedFilter&#39;</span>)
 <span class="co">#setting levels for min_peakwidth to 10 and 20 (hence 15 is the center point)</span>
-peakpickingParameters<span class="op">$</span>min_peakwidth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>) 
-peakpickingParameters<span class="op">$</span>max_peakwidth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">26</span>,<span class="dv">42</span>)
+peakpickingParameters$min_peakwidth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>) 
+peakpickingParameters$max_peakwidth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">26</span>,<span class="dv">42</span>)
 <span class="co">#setting only one value for ppm therefore this parameter is not optimized</span>
-peakpickingParameters<span class="op">$</span>ppm &lt;-<span class="st"> </span><span class="dv">20</span> 
+peakpickingParameters$ppm &lt;-<span class="st"> </span><span class="dv">20</span> 
 resultPeakpicking &lt;-<span class="st"> </span>
-<span class="st">  </span><span class="kw">optimizeXcmsSet</span>(<span class="dt">files =</span> mzdatafiles[<span class="dv">6</span><span class="op">:</span><span class="dv">9</span>], 
+<span class="st">  </span><span class="kw">optimizeXcmsSet</span>(<span class="dt">files =</span> mzdatafiles[<span class="dv">6</span>:<span class="dv">9</span>], 
                   <span class="dt">params =</span> peakpickingParameters, 
                   <span class="dt">nSlaves =</span> <span class="dv">4</span>, 
                   <span class="dt">subdir =</span> <span class="st">&#39;rsmDirectory&#39;</span>)
 
-optimizedXcmsSetObject &lt;-<span class="st"> </span>resultPeakpicking<span class="op">$</span>best_settings<span class="op">$</span>xset
+optimizedXcmsSetObject &lt;-<span class="st"> </span>resultPeakpicking$best_settings$xset
 
 retcorGroupParameters &lt;-<span class="st"> </span><span class="kw">getDefaultRetGroupStartingParams</span>()
-retcorGroupParameters<span class="op">$</span>profStep &lt;-<span class="st"> </span><span class="dv">1</span>
+retcorGroupParameters$profStep &lt;-<span class="st"> </span><span class="dv">1</span>
 resultRetcorGroup &lt;-
 <span class="st">  </span><span class="kw">optimizeRetGroup</span>(<span class="dt">xset =</span> optimizedXcmsSetObject, 
                    <span class="dt">params =</span> retcorGroupParameters, 
@@ -616,8 +616,8 @@ resultRetcorGroup &lt;-
                    <span class="dt">subdir =</span> <span class="st">&quot;rsmDirectory&quot;</span>)
 
 
-<span class="kw">writeRScript</span>(resultPeakpicking<span class="op">$</span>best_settings<span class="op">$</span>parameters, 
-             resultRetcorGroup<span class="op">$</span>best_settings, 
+<span class="kw">writeRScript</span>(resultPeakpicking$best_settings$parameters, 
+             resultRetcorGroup$best_settings, 
              <span class="dt">nSlaves=</span><span class="dv">12</span>)
 <span class="co"># https://github.com/rietho/IPO/blob/master/vignettes/IPO.Rmd</span></code></pre></div>
 </div>

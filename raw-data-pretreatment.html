@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2018-07-04">
+<meta name="date" content="2018-07-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -260,15 +260,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">4.1</span> Peak extraction</h2>
 <p>GC/LC-MS data are usually be shown as a matrix with column standing for retention times and row standing for masses after bin them into small cell.</p>
 <div class="figure"><span id="fig:singledata"></span>
-<img src="images/singledata.png" alt="Demo of GC/LC-MS data" width="633" />
+<img src="images/singledata.png" alt="Demo of GC/LC-MS data"  />
 <p class="caption">
 Figure 4.1: Demo of GC/LC-MS data
 </p>
 </div>
 <p>Conversation from the mass-retention time matrix into a vector with selected MS peaks at certain retention time is the basic idea of Peak extraction. You could EIC for each mass to charge ratio and use the change of trace slope to determine whether there is a peak or not. Then we could make integration for this peak and get peak area and retention time.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">intensity &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">14</span>,<span class="dv">19</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">33</span>,<span class="dv">26</span>,<span class="dv">21</span>,<span class="dv">16</span>,<span class="dv">12</span>,<span class="dv">11</span>,<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">10</span>)
-time &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)
-<span class="kw">plot</span>(intensity<span class="op">~</span>time, <span class="dt">type =</span> <span class="st">&#39;o&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;EIC&#39;</span>)</code></pre></div>
+time &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">20</span>)
+<span class="kw">plot</span>(intensity~time, <span class="dt">type =</span> <span class="st">&#39;o&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;EIC&#39;</span>)</code></pre></div>
 <div class="figure"><span id="fig:demoeic"></span>
 <img src="Metabolomics_files/figure-html/demoeic-1.png" alt="Demo of EIC with peak" width="672" />
 <p class="caption">
@@ -278,7 +278,7 @@ Figure 4.2: Demo of EIC with peak
 <p>However, in mass spectrumetry dataset, the EIC is not that simple for full scan. Due to the accuracy of instrument, the detected mass to charge ratio would have some shift and EIC would fail if different scan get the intensity from different mass to charge ratio.</p>
 <p>In the <code>matchedfilter</code> algorithm<span class="citation">(Smith et al. <a href="#ref-smith2006">2006</a>)</span>, they solve this issue by bin the data in m/z dimension. The adjacent chromatographic slices could be combined to find a clean signal fitting fixed second-derivative Gaussian with full width at half-maximum (fwhm) of 30s to find peaks with about 1.5-4 times the signal peak width. The the integration is performed on the fitted area.</p>
 <div class="figure"><span id="fig:matchedfilter"></span>
-<img src="images/matchedfilter.jpg" alt="Demo of matchedfilter" width="425" />
+<img src="images/matchedfilter.jpg" alt="Demo of matchedfilter"  />
 <p class="caption">
 Figure 4.3: Demo of matchedfilter
 </p>
@@ -295,7 +295,7 @@ Figure 4.3: Demo of matchedfilter
 <p>Too many zeros in peaks list are problematic for statistics. Then we usually need to integreate the area exsiting a peak. <code>xcms 3</code> could use profile matrix instead of profil matrix, which limited the range.</p>
 <p>With many groups of samples, you will get another data matrix with column standing for peaks at cerntain retention time and row standing for samples after the Raw data pretreatment.</p>
 <div class="figure"><span id="fig:multidata"></span>
-<img src="images/multidata.png" alt="Demo of many GC/LC-MS data" width="636" />
+<img src="images/multidata.png" alt="Demo of many GC/LC-MS data"  />
 <p class="caption">
 Figure 4.4: Demo of many GC/LC-MS data
 </p>
@@ -314,10 +314,10 @@ Figure 4.4: Demo of many GC/LC-MS data
 <p>Two major imputation way could be used. The first way is use model-free method such as half the minimum of the values across the data, 0, 1, mean/median across the data( <code>enviGCMS</code> package could do this via <code>getimputation</code> function). The second way is use model-based method such as linear model, random forest, KNN, PCA. Try <code>simputation</code> package for various imputation methods.</p>
 <p>Tobit regression is preferred for censored data. Also you might choose maximum likelihood estimation(Estimation of mean and standard deviation by MLE. Creating 10 complete samples. Pool the results from 10 individual analyses).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>,<span class="dv">1</span>)
-x[x<span class="op">&lt;</span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
-y &lt;-<span class="st"> </span>x<span class="op">*</span><span class="dv">10</span><span class="op">+</span><span class="dv">1</span>
+x[x&lt;<span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+y &lt;-<span class="st"> </span>x*<span class="dv">10+1</span>
 <span class="kw">library</span>(AER)
-tfit &lt;-<span class="st"> </span><span class="kw">tobit</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">left =</span> <span class="dv">0</span>)
+tfit &lt;-<span class="st"> </span><span class="kw">tobit</span>(y ~<span class="st"> </span>x, <span class="dt">left =</span> <span class="dv">0</span>)
 <span class="kw">summary</span>(tfit)</code></pre></div>
 <pre><code>## 
 ## Call:
@@ -382,7 +382,7 @@ B =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span
 <span class="co"># qc</span>
 Iqc =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>),<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># corrected data</span>
-Icor =<span class="st"> </span>I <span class="op">-</span><span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]),<span class="dv">10</span>),<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>]),<span class="dv">10</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">median</span>(Iqc)
+Icor =<span class="st"> </span>I -<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">1</span>:<span class="dv">10</span>]),<span class="dv">10</span>),<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">11</span>:<span class="dv">20</span>]),<span class="dv">10</span>)) +<span class="st"> </span><span class="kw">median</span>(Iqc)
 <span class="co"># plot the result</span>
 <span class="kw">plot</span>(I)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/center-1.png" width="672" /></p>
@@ -402,7 +402,7 @@ B =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span
 <span class="co"># qc</span>
 Iqc =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># corrected data</span>
-Icor =<span class="st"> </span>(I <span class="op">-</span><span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]),<span class="dv">10</span>),<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>]),<span class="dv">10</span>)))<span class="op">/</span><span class="kw">c</span>(<span class="kw">sd</span>(I[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]),<span class="kw">sd</span>(I[<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>]))<span class="op">*</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="fl">0.3</span>,<span class="dv">10</span>),<span class="kw">rep</span>(<span class="fl">0.5</span>,<span class="dv">10</span>)) <span class="op">+</span><span class="st"> </span>Iqc[<span class="dv">1</span>]
+Icor =<span class="st"> </span>(I -<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">1</span>:<span class="dv">10</span>]),<span class="dv">10</span>),<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">11</span>:<span class="dv">20</span>]),<span class="dv">10</span>)))/<span class="kw">c</span>(<span class="kw">sd</span>(I[<span class="dv">1</span>:<span class="dv">10</span>]),<span class="kw">sd</span>(I[<span class="dv">11</span>:<span class="dv">20</span>]))*<span class="kw">c</span>(<span class="kw">rep</span>(<span class="fl">0.3</span>,<span class="dv">10</span>),<span class="kw">rep</span>(<span class="fl">0.5</span>,<span class="dv">10</span>)) +<span class="st"> </span>Iqc[<span class="dv">1</span>]
 <span class="co"># plot the result</span>
 <span class="kw">plot</span>(I)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/scaling-1.png" width="672" /></p>
@@ -417,10 +417,10 @@ Icor =<span class="st"> </span>(I <span class="op">-</span><span class="st"> </s
 a &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>)
 <span class="co"># b sufferred batch effect with a bias of 10</span>
 b &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>,<span class="dv">10</span>)
-<span class="kw">hist</span>(a,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">15</span>),<span class="dt">breaks =</span> <span class="dv">50</span>)
+<span class="kw">hist</span>(a,<span class="dt">xlim=</span><span class="kw">c</span>(-<span class="dv">5</span>,<span class="dv">15</span>),<span class="dt">breaks =</span> <span class="dv">50</span>)
 <span class="kw">hist</span>(b,<span class="dt">col =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">add=</span>T)
 <span class="co"># quantile normalized</span>
-cor &lt;-<span class="st"> </span>(a[<span class="kw">order</span>(a)]<span class="op">+</span>b[<span class="kw">order</span>(b)])<span class="op">/</span><span class="dv">2</span>
+cor &lt;-<span class="st"> </span>(a[<span class="kw">order</span>(a)]+b[<span class="kw">order</span>(b)])/<span class="dv">2</span>
 <span class="co"># reorder</span>
 cor &lt;-<span class="st"> </span>cor[<span class="kw">order</span>(<span class="kw">order</span>(a))]
 <span class="kw">hist</span>(cor,<span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">add=</span>T)</code></pre></div>
@@ -438,7 +438,7 @@ B =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span
 <span class="co"># qc</span>
 Iqc =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># corrected data</span>
-Icor =<span class="st"> </span>I <span class="op">*</span><span class="st"> </span><span class="kw">median</span>(<span class="kw">c</span>(<span class="kw">rep</span>(Iqc[<span class="dv">1</span>],<span class="dv">10</span>),<span class="kw">rep</span>(Iqc[<span class="dv">2</span>],<span class="dv">10</span>)))<span class="op">/</span><span class="kw">mean</span>(<span class="kw">c</span>(<span class="kw">rep</span>(Iqc[<span class="dv">1</span>],<span class="dv">10</span>),<span class="kw">rep</span>(Iqc[<span class="dv">2</span>],<span class="dv">10</span>)))
+Icor =<span class="st"> </span>I *<span class="st"> </span><span class="kw">median</span>(<span class="kw">c</span>(<span class="kw">rep</span>(Iqc[<span class="dv">1</span>],<span class="dv">10</span>),<span class="kw">rep</span>(Iqc[<span class="dv">2</span>],<span class="dv">10</span>)))/<span class="kw">mean</span>(<span class="kw">c</span>(<span class="kw">rep</span>(Iqc[<span class="dv">1</span>],<span class="dv">10</span>),<span class="kw">rep</span>(Iqc[<span class="dv">2</span>],<span class="dv">10</span>)))
 <span class="co"># plot the result</span>
 <span class="kw">plot</span>(I)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/ratio-1.png" width="672" /></p>
@@ -454,7 +454,7 @@ peaksa &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">
 peaksb &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 
 df &lt;-<span class="st"> </span><span class="kw">rbind</span>(peaksa,peaksb)
-dfcor &lt;-<span class="st"> </span>df<span class="op">/</span><span class="kw">apply</span>(df,<span class="dv">2</span>,sum)<span class="op">*</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">apply</span>(df,<span class="dv">2</span>,median))
+dfcor &lt;-<span class="st"> </span>df/<span class="kw">apply</span>(df,<span class="dv">2</span>,sum)*<span class="st"> </span><span class="kw">sum</span>(<span class="kw">apply</span>(df,<span class="dv">2</span>,median))
 
 <span class="kw">image</span>(df)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/Linear-1.png" width="672" /></p>
@@ -564,7 +564,7 @@ T_k^0 = \frac{d_{0k}^2}{\sum_{l=1}^{n-df}d_{0l}^2}
 <p>Du, Xiuxia, and Steven H Zeisel. 2013. “SPECTRAL DECONVOLUTION FOR GAS CHROMATOGRAPHY MASS SPECTROMETRY-BASED METABOLOMICS: CURRENT STATUS AND FUTURE PERSPECTIVES.” <em>Computational and Structural Biotechnology Journal</em> 4 (5): 1–10. doi:<a href="https://doi.org/10.5936/csbj.201301013">10.5936/csbj.201301013</a>.</p>
 </div>
 <div id="ref-domingo-almenara2016">
-<p>Domingo-Almenara, Xavier, Jesus Brezmes, Maria Vinaixa, Sara Samino, Noelia Ramirez, Marta Ramon-Krauel, Carles Lerin, et al. 2016. “eRah: A Computational Tool Integrating Spectral Deconvolution and Alignment with Quantification and Identification of Metabolites in GC/MS-Based Metabolomics.” <em>Anal. Chem.</em> 88 (19): 9821–9. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02927">10.1021/acs.analchem.6b02927</a>.</p>
+<p>Domingo-Almenara, Xavier, Jesus Brezmes, Maria Vinaixa, Sara Samino, Noelia Ramirez, Marta Ramon-Krauel, Carles Lerin, et al. 2016. “ERah: A Computational Tool Integrating Spectral Deconvolution and Alignment with Quantification and Identification of Metabolites in GC/MS-Based Metabolomics.” <em>Anal. Chem.</em> 88 (19): 9821–9. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02927">10.1021/acs.analchem.6b02927</a>.</p>
 </div>
 <div id="ref-ni2016">
 <p>Ni, Yan, Mingming Su, Yunping Qiu, Wei Jia, and Xiuxia Du. 2016. “ADAP-GC 3.0: Improved Peak Detection and Deconvolution of Co-Eluting Metabolites from GC/TOF-MS Data for Metabolomics Studies.” <em>Anal. Chem.</em> 88 (17): 8802–11. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02222">10.1021/acs.analchem.6b02222</a>.</p>
