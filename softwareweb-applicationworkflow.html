@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="peaks-selection.html">
-<link rel="next" href="omics-analysis.html">
+<link rel="prev" href="demo.html">
+<link rel="next" href="case-studyselected.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -263,265 +263,91 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="annotation" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Annotation</h1>
-<p>When you get the peaks table or features table, annotation of the peaks would help you. Check this review<span class="citation">(Domingo-Almenara et al. <a href="#ref-domingo-almenara2018">2018</a>)</span> for a detailed notes on annotation. They proposed five levels regarding currently computational annotation strategies.</p>
-<ul>
-<li><p>Level 1: Peak Grouping: MS Psedospectra extraction based on peak shape similarity and peak abundance correlation</p></li>
-<li><p>Level 2: Peak Annotation: Adducts, Neutral losses, isotopes, and other mass relationships based on mass distances</p></li>
-<li><p>Level 3: Biochemical knowledge based on putative identification, potential biochemical reaction and related statistical analysis</p></li>
-<li><p>Level 4: Use and intergration of tandem MS data based on data dependant/independent acquistion mode or <strong>in silico</strong> predction</p></li>
-<li><p>Level 5: Retention time prediction based on library-available retention index or quantitative structure-retnetion relationships (QSRR) models.</p></li>
-</ul>
-<p>Most of the softwares are at level 1 or 2.</p>
-<div id="issues-in-annotation" class="section level2">
-<h2><span class="header-section-number">6.1</span> Issues in annotation</h2>
-<p>The major issue in annotation is the redundancy peaks from same metabolite. Unlike genomcis, peaks or featuers from peak selection are not independant with each other. Adducts, in-source fragments and isotopes would lead to missannotation. A commen solution is that use known adducts, neutral losses, molecular multimers or multipley charged ions to compare mass distances.</p>
-<p>Another issue is about the MS/MS database. Only 10% of known metabolites in databases have experimental spectral data. Thus <strong>in silico</strong> prediction are required. Some works try to fill the gap between experimental data, theoretical values(from chemical database like chemspider) and prediction together. Here is a nice review about MS/MS prediction<span class="citation">(Hufsky, Scheubert, and Böcker <a href="#ref-hufsky2014">2014</a>)</span>.</p>
+<div id="softwareweb-applicationworkflow" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Software/Web Application/Workflow</h1>
+<div id="platform-for-metabolomics" class="section level2">
+<h2><span class="header-section-number">10.1</span> Platform for metabolomics</h2>
+<p>Here is a list for related open source <a href="http://strimmerlab.org/notes/mass-spectrometry.html">projects</a></p>
+<div id="xcms-online" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> XCMS online</h3>
+<p><a href="https://xcmsonline.scripps.edu/landing_page.php?pgcontent=mainPage">XCMS online</a> is hosted by Scripps Institute. If your datasets are not large, XCMS online would be the best option for you. Recently they updated the online version to support more functions for systems biology. They use metlin and iso metlin to annotate the MS/MS data. Pathway analysis is also supported. Besides, to accelerate the process, xcms online employed stream (windows only). You could use stream to connect your instrument workstation to their server and process the data along with the data acquisition automate. They also developed apps for xcms online, but I think apps for slack would be even cooler to control the data processing.</p>
 </div>
-<div id="annotation-v.s.-identification" class="section level2">
-<h2><span class="header-section-number">6.2</span> Annotation v.s. identification</h2>
-<p>According to the defination from the Chemical Analysis Working Group of the Metabolomics Standards Intitvative<span class="citation">(Sumner et al. <a href="#ref-sumner2007">2007</a>; Viant et al. <a href="#ref-viant2017">2017</a>)</span>. Four levels of confidence could be assigned to identification:</p>
-<ul>
-<li>Level 1 ‘identified metabolites’</li>
-<li>Level 2 ‘Putatively annotated compounds’</li>
-<li>Level 3 ‘Putatively characterised compound classes’</li>
-<li>Level 4 ‘Unknown’</li>
-</ul>
-<p>In practice, data analysis based annotation could reach level 2. For level 1, we need at extra methods such as MS/MS, retention time, accurate mass, 2D NMR spectra, and so on to confirm the compounds. However, standards are always required for solid proof.</p>
+<div id="prime" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> PRIMe</h3>
+<p><a href="http://prime.psc.riken.jp/Metabolomics_Software/">PRIMe</a> is from RIKEN and UC Davis. They update their database frequently<span class="citation">(Tsugawa et al. <a href="#ref-tsugawa2016">2016</a>)</span>. It supports mzML and major MS vendor formats. They defined own file format ABF and eco-system for omics studies. The software are updated almost everyday. You could use MS-DIAL for untargeted analysis and MRMOROBS for targeted analysis. For annotation, they developed MS-FINDER and statistic tools with excel. This platform could replaced the dear software from company and well prepared for MS/MS data analysis and lipidomics. They are open source, work on Windows and also could run within mathmamtics. However, they don’t cover pathway analysis. Another feature is they always show the most recently spectral records from public repositories. You could always get the updated MSP spectra files for your own data analysis.</p>
+<p>If you make GC-MS based metabolomics, this paper<span class="citation">(Matsuo et al. <a href="#ref-matsuo2017">2017</a>)</span> could be nice start.</p>
 </div>
-<div id="ms-database-for-annotation" class="section level2">
-<h2><span class="header-section-number">6.3</span> MS Database for annotation</h2>
-<div id="msms" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> MS/MS</h3>
-<ul>
-<li><p><a href="http://mona.fiehnlab.ucdavis.edu/">MoNA</a> Platform to collect all other open source database</p></li>
-<li><p><a href="http://www.massbank.jp/?lang=en">MassBank</a></p></li>
-<li><p><a href="https://gnps.ucsd.edu/ProteoSAFe/static/gnps-splash.jsp">GNPS</a> use inner correlationship in the data and make network analysis at peaks’ level instand of annotated compounds to annotate the data<span class="citation">(Wang et al. <a href="#ref-wang2016b">2016</a>)</span>.</p></li>
-<li><p><a href="http://spectra.psc.riken.jp/">ReSpect</a>: phytochemicals</p></li>
-<li><p><a href="https://metlin.scripps.edu/">Metlin</a> is another useful online application for annotation<span class="citation">(Guijas et al. <a href="#ref-guijas2018">2018</a>)</span>.</p></li>
-<li><p><a href="http://fiehnlab.ucdavis.edu/projects/LipidBlast">LipidBlast</a>: in silico prediction</p></li>
-<li><p><a href="https://www.mzcloud.org/">MZcloud</a></p></li>
-<li><p><a href="https://www.nist.gov/srd/nist-standard-reference-database-1a-v17">NIST</a>: Not free</p></li>
-</ul>
+<div id="openms" class="section level3">
+<h3><span class="header-section-number">10.1.3</span> OpenMS</h3>
+<p><a href="https://www.openms.de/">OpenMS</a> is another good platform for mass spectrum data analysis developed with C++. You could use them as plugin of <a href="https://www.knime.org/">KNIME</a>. I suggest anyone who want to be a data scientist to get familiar with platform like KNIME because they supplied various API for different programme language, which is easy to use and show every steps for others. Also TOPPView in OpenMS could be the best software to visualize the MS data. You could always use the metabolomics workflow to train starter about details in data processing. pyOpenMS and OpenSWATH are also used in this platform. If you want to turn into industry, this platform fit you best because you might get a clear idea about solution and workflow.</p>
 </div>
-<div id="ms" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> MS</h3>
-<ul>
-<li><p><a href="http://fiehnlab.ucdavis.edu/projects/binbase-setup">Fiehn Lab</a></p></li>
-<li><p><a href="https://www.nist.gov/srd/nist-standard-reference-database-1a-v17">NIST</a>: No free</p></li>
-<li><p><a href="https://sdbs.db.aist.go.jp/sdbs/cgi-bin/cre_index.cgi?lang=eng">Spectral Database for Organic Compounds, SDBS</a></p></li>
-<li><p><a href="http://minedatabase.mcs.anl.gov/#/faq">MINE</a> is an open access database of computationally predicted enzyme promiscuity products for untargeted metabolomics</p></li>
-</ul>
+<div id="mzmine-2" class="section level3">
+<h3><span class="header-section-number">10.1.4</span> MZmine 2</h3>
+<p><a href="http://mzmine.github.io/">MZmine 2</a> has three version developed on Java platform and the lastest version is included into <a href="https://msdk.github.io/">MSDK</a>. Similar function could be found from MZmine 2 as shown in XCMS online. However, MZmine 2 do not have pathway analysis. You could use metaboanalyst for that purpose. Actually, you could go into MSDK to find similar function supplied by <a href="http://www.proteosuite.org">ProteoSuite</a> and <a href="https://www.openchrom.net/">Openchrom</a>. If you are a experienced coder for Java, you should start here.</p>
 </div>
+<div id="xcms" class="section level3">
+<h3><span class="header-section-number">10.1.5</span> XCMS</h3>
+<p><a href="https://bioconductor.org/packages/release/bioc/html/xcms.html">xcms</a> is different from xcms online while they might share the same code. I used it almost every data to run local metabolomics data analysis. Recently, they will change their version to xcms 3 with major update for object class. Their data format would integrate into the MSnbase package and the parameters would be easy to set up for each step. Normally, I will use msconvert-IPO-xcms-xMSannotator-metaboanalyst as workflow to process the offline data. It could accelerate the process by parallel processing. However, if you are not familiar with R, you would better to choose some software above.</p>
 </div>
-<div id="compounds-database" class="section level2">
-<h2><span class="header-section-number">6.4</span> Compounds Database</h2>
+<div id="emory-mahpic" class="section level3">
+<h3><span class="header-section-number">10.1.6</span> Emory MaHPIC</h3>
+<p>This platform is composed by several R packages from Emory University including <a href="https://sourceforge.net/projects/aplcms/">apLCMS</a> to collect the data, <a href="https://sourceforge.net/projects/xmsanalyzer/">xMSanalyzer</a> to handle automated pipeline for large-scale, non-targeted metabolomics data, <a href="https://sourceforge.net/projects/xmsannotator/">xMSannotator</a> for annotation of LC-MS data and <a href="https://code.google.com/archive/p/atcg/wikis/mummichog_for_metabolomics.wiki">Mummichog</a> for pathway and network analysis for high-throughput metabolomics. This platform would be preferred by someone from environmental science to study exposome. I always use xMSannotator to annotate the LC-MS data.</p>
+</div>
+<div id="dia-data-analysis" class="section level3">
+<h3><span class="header-section-number">10.1.7</span> DIA data analysis</h3>
+<p><a href="https://skyline.ms/project/home/software/Skyline/begin.view">Skyline</a> is a freely-available and open source Windows client application for building Selected Reaction Monitoring (SRM) / Multiple Reaction Monitoring (MRM), Parallel Reaction Monitoring (PRM - Targeted MS/MS), Data Independent Acquisition (DIA/SWATH) and targeted DDA with MS1 quantitative methods and analyzing the resulting mass spectrometer data.</p>
+<p><a href="https://github.com/MeenaChoi/MSstats">MSstats</a> is an R-based/Bioconductor package for statistical relative quantification of peptides and proteins in mass spectrometry-based proteomic experiments. It is applicable to multiple types of sample preparation, including label-free workflows, workflows that use stable isotope labeled reference proteins and peptides, and work-flows that use fractionation. It is applicable to targeted Selected Reactin Monitoring(SRM), Data-Dependent Acquisiton(DDA or shotgun), and Data-Independent Acquisition(DIA or SWATH-MS). This github page is for sharing source and testing.</p>
+</div>
+<div id="others" class="section level3">
+<h3><span class="header-section-number">10.1.8</span> Others</h3>
 <ul>
-<li><p><a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> is an open chemistry database at the National Institutes of Health (NIH).</p></li>
-<li><p><a href="http://www.chemspider.com/">Chemspider</a> is a free chemical structure database providing fast text and structure search access to over 67 million structures from hundreds of data sources.</p></li>
-<li><p><a href="https://www.ebi.ac.uk/chebi/">ChEBI</a> is a freely available dictionary of molecular entities focused on ‘small’ chemical compounds.</p></li>
-<li><p><a href="http://www.metabolomicsworkbench.org/databases/refmet/index.php">RefMet</a> A Reference list of Metabolite names.</p></li>
+<li><p><a href="http://genomics-pubs.princeton.edu/mzroll/index.php?show=index">MAVEN</a> from Princeton University</p></li>
+<li><p><a href="https://www.bioconductor.org/packages/release/bioc/html/MAIT.html">MAIT</a> based on xcms and you could find source code <a href="https://github.com/jpgroup/MAIT">here</a><span class="citation">(Fernández-Albert et al. <a href="#ref-fernandez-albert2014a">2014</a>)</span>.</p></li>
+<li><p><a href="https://github.com/cran/metabolomics">metabolomics</a> is a CRAN package for analysis of metabolomics data.</p></li>
+<li><p><a href="https://github.com/ODonnell-Lipidomics/LipidFinder">LipidFinder</a> A computational workflow for discovery of new lipid molecular species</p></li>
+<li><p><a href="https://github.com/yufree/enviGCMS">enviGCMS</a> from environmental non-targeted analysis.</p></li>
+<li><p><a href="https://github.com/alexandrovteam/pySM">pySM</a> provides a reference implementation of our pipeline for False Discovery Rate-controlled metabolite annotation of high-resolution imaging mass spectrometry data.</p></li>
+<li><p><a href="https://www.metabolome-express.org/">MetabolomeExpress</a> a public place to process, interpret and share GC/MS metabolomics datasets.</p></li>
+<li><p><a href="https://portal.phenomenal-h2020.eu/home">PhenoMeNal</a> is an easy-to-use, cloud-based metabolomic research environment.</p></li>
+<li><p><a href="https://www.wur.nl/en/show/MetAlign.htm">MetAlign&amp;MSClust</a></p></li>
+<li><p><a href="http://md.tu-bs.de/node/3">MetaboliteDetector</a> is a QT4 based software package for the analysis of GC/MS based metabolomics data.</p></li>
 </ul>
 </div>
-<div id="software-3" class="section level2">
-<h2><span class="header-section-number">6.5</span> Software</h2>
-<div id="adducts-list" class="section level3">
-<h3><span class="header-section-number">6.5.1</span> Adducts list</h3>
-<p>You could find adducts list <a href="https://github.com/stanstrup/commonMZ">here</a> from commonMZ project.</p>
 </div>
-<div id="camera" class="section level3">
-<h3><span class="header-section-number">6.5.2</span> CAMERA</h3>
-<p>Common <a href="https://bioconductor.org/packages/release/bioc/html/CAMERA.html">annotation</a> for xcms workflow<span class="citation">(Kuhl et al. <a href="#ref-kuhl2012">2012</a>)</span>.</p>
+<div id="data-sharing" class="section level2">
+<h2><span class="header-section-number">10.2</span> Data sharing</h2>
+<p>See this paper<span class="citation">(Haug, Salek, and Steinbeck <a href="#ref-haug2017">2017</a>)</span>:</p>
+<ul>
+<li><p><a href="http://www.ebi.ac.uk/metabolights/">MetaboLights</a> EU based</p></li>
+<li><p><a href="http://www.metabolomicsworkbench.org/">The Metabolomics Workbench</a> US based</p></li>
+<li><p><a href="http://www.metabolomexchange.org/site/">MetabolomeXchange</a> search engine</p></li>
+<li><p><a href="http://workflow4metabolomics.org/">W4M<span class="citation">(Guitton et al. <a href="#ref-guitton2017">2017</a>)</span></a></p></li>
+</ul>
 </div>
-<div id="ramclustr" class="section level3">
-<h3><span class="header-section-number">6.5.3</span> RAMClustR</h3>
-<p>The software could be found <a href="https://github.com/cbroeckl/RAMClustR">here</a><span class="citation">(Broeckling et al. <a href="#ref-broeckling2014">2014</a>)</span>. The package included a vignette as usages. Use the following code to read:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vignette</span>(<span class="st">&#39;RAMClustR&#39;</span>,<span class="dt">package =</span> <span class="st">&#39;RAMClustR&#39;</span>)</code></pre></div>
-</div>
-<div id="nontarget" class="section level3">
-<h3><span class="header-section-number">6.5.4</span> nontarget</h3>
-<p><a href="https://github.com/blosloos/nontarget">nontarget</a> Isotope &amp; adduct peak grouping, homologue series detection</p>
-</div>
-<div id="xmsannotator" class="section level3">
-<h3><span class="header-section-number">6.5.5</span> xMSannotator</h3>
-<p>The software could be found <a href="https://github.com/yufree/xMSannotator">here</a><span class="citation">(Uppal, Walker, and Jones <a href="#ref-uppal2017">2017</a>)</span>.</p>
-</div>
-<div id="mine" class="section level3">
-<h3><span class="header-section-number">6.5.6</span> MINE</h3>
-<p><a href="http://minedatabase.mcs.anl.gov/">MINE</a> is an open access database of computationally predicted enzyme promiscuity products for untargeted metabolomics. The annotation would be accurate for general compounds database.</p>
-</div>
-<div id="interpretmsspectrum" class="section level3">
-<h3><span class="header-section-number">6.5.7</span> InterpretMSSpectrum</h3>
-<p>This <a href="https://github.com/cran/InterpretMSSpectrum">package</a> is for annotate and interpret deconvoluted mass spectra (mass*intensity pairs) from high resolution mass spectrometry devices. You could use this package to find molecular ions for GC-MS.</p>
-</div>
-<div id="for-ident" class="section level3">
-<h3><span class="header-section-number">6.5.8</span> For Ident</h3>
-<p><a href="https://water.for-ident.org/#!search">For-ident</a> could give a score for identification with the help of logD(relative retention time) and/or MS/MS.</p>
-</div>
-<div id="mzmatch" class="section level3">
-<h3><span class="header-section-number">6.5.9</span> mzmatch</h3>
-<p>Use the following code to install this package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;http://bioconductor.org/biocLite.R&quot;</span>)
-<span class="kw">biocLite</span>(<span class="kw">c</span>(<span class="st">&quot;xcms&quot;</span>, <span class="st">&quot;multtest&quot;</span>, <span class="st">&quot;mzR&quot;</span>))
-<span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;rJava&quot;</span>, <span class="st">&quot;XML&quot;</span>, <span class="st">&quot;snow&quot;</span>, <span class="st">&quot;caTools&quot;</span>,
-   <span class="st">&quot;bitops&quot;</span>, <span class="st">&quot;ptw&quot;</span>, <span class="st">&quot;gplots&quot;</span>, <span class="st">&quot;tcltk2&quot;</span>))
-<span class="kw">source</span> (<span class="st">&quot;http://puma.ibls.gla.ac.uk/mzmatch.R/install_mzmatch.R&quot;</span>)</code></pre></div>
-</div>
-<div id="mz.unity" class="section level3">
-<h3><span class="header-section-number">6.5.10</span> mz.unity</h3>
-<p>You could find source code <a href="https://github.com/nathaniel-mahieu/mz.unity">here</a><span class="citation">(Mahieu et al. <a href="#ref-mahieu2016a">2016</a>)</span> and it’s for detecting and exploring complex relationships in accurate-mass mass spectrometry data.</p>
-</div>
-<div id="mait" class="section level3">
-<h3><span class="header-section-number">6.5.11</span> MAIT</h3>
-<p>You could find source code <a href="https://github.com/jpgroup/MAIT">here</a><span class="citation">(Fernández-Albert et al. <a href="#ref-fernandez-albert2014a">2014</a>)</span>.</p>
-</div>
-<div id="probmetab" class="section level3">
-<h3><span class="header-section-number">6.5.12</span> ProbMetab</h3>
-<p>Provides probability ranking to candidate compounds assigned to masses, with the prior assumption of connected sample and additional previous and spectral information modeled by the user. You could find source code <a href="https://github.com/rsilvabioinfo/ProbMetab">here</a><span class="citation">(Silva et al. <a href="#ref-silva2014">2014</a>)</span>.</p>
-</div>
-<div id="ramsi" class="section level3">
-<h3><span class="header-section-number">6.5.13</span> RAMSI</h3>
-<p>You could find paper here<span class="citation">(Baran and Northen <a href="#ref-baran2013">2013</a>)</span>.</p>
-</div>
-<div id="sirius" class="section level3">
-<h3><span class="header-section-number">6.5.14</span> Sirius</h3>
-<p><a href="https://bio.informatik.uni-jena.de/software/sirius/">Sirius</a> is a new java-based software framework<span class="citation">(Dührkop et al. <a href="#ref-duhrkop2015">2015</a>)</span> for discovering a landscape of de-novo identification of metabolites using single and tandem mass spectrometry. It could be used with <a href="https://www.csi-fingerid.uni-jena.de/">CSI:FingerID</a>.</p>
-</div>
-<div id="mi-pack" class="section level3">
-<h3><span class="header-section-number">6.5.15</span> MI-Pack</h3>
-<p>You could find python software <a href="http://www.biosciences-labs.bham.ac.uk/viant/mipack/">here</a><span class="citation">(Weber and Viant <a href="#ref-weber2010">2010</a>)</span></p>
-</div>
-<div id="plantmat" class="section level3">
-<h3><span class="header-section-number">6.5.16</span> Plantmat</h3>
-<p><a href="https://sourceforge.net/projects/plantmat/">excel library</a> based pridiction for plant metabolites<span class="citation">(Qiu et al. <a href="#ref-qiu2016">2016</a>)</span>.</p>
-</div>
-<div id="metfamily" class="section level3">
-<h3><span class="header-section-number">6.5.17</span> MetFamily</h3>
-<p><a href="https://msbi.ipb-halle.de/MetFamily/">Shiny app</a> for MS and MS/MS data annotation<span class="citation">(Treutler et al. <a href="#ref-treutler2016">2016</a>)</span>.</p>
-</div>
-<div id="lipidmatch" class="section level3">
-<h3><span class="header-section-number">6.5.18</span> Lipidmatch</h3>
-<p><a href="http://secim.ufl.edu/secim-tools/lipidmatch/">in silico</a>: in silico lipid mass spectrum search<span class="citation">(Koelmel et al. <a href="#ref-koelmel2017">2017</a>)</span>.</p>
-</div>
-<div id="molfind" class="section level3">
-<h3><span class="header-section-number">6.5.19</span> MolFind</h3>
-<p>JAVA based <a href="http://metabolomics.pharm.uconn.edu/?q=Software.html">MolFind</a> could make annotation for unknown chemical structure by prediction based on RI, ECOM50, drift time and CID spectra<span class="citation">(Menikarachchi et al. <a href="#ref-menikarachchi2012">2012</a>)</span>.</p>
-</div>
-<div id="metfusion" class="section level3">
-<h3><span class="header-section-number">6.5.20</span> MetFusion</h3>
-<p>Java based <a href="https://github.com/mgerlich/MetFusion">integration</a> of compound identiﬁcation strategies. You could access the application <a href="https://msbi.ipb-halle.de/MetFusion/">here</a><span class="citation">(Gerlich and Neumann <a href="#ref-gerlich2013">2013</a>)</span>.</p>
-</div>
-<div id="imet" class="section level3">
-<h3><span class="header-section-number">6.5.21</span> iMet</h3>
-<p>This online <a href="http://imet.seeslab.net/">application</a> is a network-based computation method for annotation<span class="citation">(Aguilar-Mogas et al. <a href="#ref-aguilar-mogas2017">2017</a>)</span>.</p>
-</div>
-<div id="metscape" class="section level3">
-<h3><span class="header-section-number">6.5.22</span> Metscape</h3>
-<p><a href="http://metscape.med.umich.edu/">Metscape</a> based on Debiased Sparse Partial Correlation (DSPC) algorithm<span class="citation">(Basu et al. <a href="#ref-basu2017">2017</a>)</span> to make annotation.</p>
-</div>
-<div id="metfrag" class="section level3">
-<h3><span class="header-section-number">6.5.23</span> MetFrag</h3>
-<p><a href="http://c-ruttkies.github.io/MetFrag/">MetFrag</a> could be used to make <strong>in silico</strong> prediction/match of MS/MS data<span class="citation">(Ruttkies et al. <a href="#ref-ruttkies2016">2016</a>)</span>.</p>
-</div>
-<div id="lipidfrag" class="section level3">
-<h3><span class="header-section-number">6.5.24</span> LipidFrag</h3>
-<p><a href="https://msbi.ipb-halle.de/msbi/lipidfrag">LipidFrag</a> could be used to make <strong>in silico</strong> prediction/match of lipid related MS/MS data<span class="citation">(Witting et al. <a href="#ref-witting2017">2017</a>)</span>.</p>
-</div>
-<div id="mycompoundid" class="section level3">
-<h3><span class="header-section-number">6.5.25</span> MycompoundID</h3>
-<p><a href="http://www.mycompoundid.org/mycompoundid_IsoMS/single.jsp">MycompoundID</a> could be used to search known and unknown metabolites<span class="citation">(Li et al. <a href="#ref-li2013a">2013</a>)</span> online.</p>
-</div>
-<div id="cfm-id" class="section level3">
-<h3><span class="header-section-number">6.5.26</span> CFM-ID</h3>
-<p><a href="https://sourceforge.net/projects/cfm-id/">CFM-ID</a> use Metlin’s data to make prediction<span class="citation">(Allen et al. <a href="#ref-allen2014">2014</a>)</span>.</p>
-</div>
-<div id="magma" class="section level3">
-<h3><span class="header-section-number">6.5.27</span> magma</h3>
-<p><a href="http://www.emetabolomics.org/magma">magma</a> could predict and match MS/MS files.</p>
+<div id="contest" class="section level2">
+<h2><span class="header-section-number">10.3</span> Contest</h2>
+<ul>
+<li><a href="http://www.casmi-contest.org/">CASMI</a> predict smail molecular contest</li>
+</ul>
 
-</div>
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-domingo-almenara2018">
-<p>Domingo-Almenara, Xavier, J. Rafael Montenegro-Burke, H. Paul Benton, and Gary Siuzdak. 2018. “Annotation: A Computational Solution for Streamlining Metabolomics Analysis.” <em>Anal. Chem.</em> 90 (1): 480–89. doi:<a href="https://doi.org/10.1021/acs.analchem.7b03929">10.1021/acs.analchem.7b03929</a>.</p>
+<div id="ref-tsugawa2016">
+<p>Tsugawa, Hiroshi, Tobias Kind, Ryo Nakabayashi, Daichi Yukihira, Wataru Tanaka, Tomas Cajka, Kazuki Saito, Oliver Fiehn, and Masanori Arita. 2016. “Hydrogen Rearrangement Rules: Computational MS/MS Fragmentation and Structure Elucidation Using MS-FINDER Software.” <em>Anal. Chem.</em> 88 (16): 7946–58. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00770">10.1021/acs.analchem.6b00770</a>.</p>
 </div>
-<div id="ref-hufsky2014">
-<p>Hufsky, Franziska, Kerstin Scheubert, and Sebastian Böcker. 2014. “Computational Mass Spectrometry for Small-Molecule Fragmentation.” <em>TrAC Trends in Analytical Chemistry</em> 53 (January): 41–48. doi:<a href="https://doi.org/10.1016/j.trac.2013.09.008">10.1016/j.trac.2013.09.008</a>.</p>
-</div>
-<div id="ref-sumner2007">
-<p>Sumner, Lloyd W., Alexander Amberg, Dave Barrett, Michael H. Beale, Richard Beger, Clare A. Daykin, Teresa W.-M. Fan, et al. 2007. “Proposed Minimum Reporting Standards for Chemical Analysis Chemical Analysis Working Group (CAWG) Metabolomics Standards Initiative (MSI).” <em>Metabolomics</em> 3 (3): 211–21. doi:<a href="https://doi.org/10.1007/s11306-007-0082-2">10.1007/s11306-007-0082-2</a>.</p>
-</div>
-<div id="ref-viant2017">
-<p>Viant, Mark R, Irwin J Kurland, Martin R Jones, and Warwick B Dunn. 2017. “How Close Are We to Complete Annotation of Metabolomes?” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 64–69. doi:<a href="https://doi.org/10.1016/j.cbpa.2017.01.001">10.1016/j.cbpa.2017.01.001</a>.</p>
-</div>
-<div id="ref-wang2016b">
-<p>Wang, Mingxun, Jeremy J. Carver, Vanessa V. Phelan, Laura M. Sanchez, Neha Garg, Yao Peng, Don Duy Nguyen, et al. 2016. “Sharing and Community Curation of Mass Spectrometry Data with Global Natural Products Social Molecular Networking.” <em>Nat. Biotechnol.</em> 34 (8): 828–37. doi:<a href="https://doi.org/10.1038/nbt.3597">10.1038/nbt.3597</a>.</p>
-</div>
-<div id="ref-guijas2018">
-<p>Guijas, Carlos, J. Rafael Montenegro-Burke, Xavier Domingo-Almenara, Amelia Palermo, Benedikt Warth, Gerrit Hermann, Gunda Koellensperger, et al. 2018. “METLIN: A Technology Platform for Identifying Knowns and Unknowns.” <em>Anal. Chem.</em> 90 (5): 3156–64. doi:<a href="https://doi.org/10.1021/acs.analchem.7b04424">10.1021/acs.analchem.7b04424</a>.</p>
-</div>
-<div id="ref-kuhl2012">
-<p>Kuhl, Carsten, Ralf Tautenhahn, Christoph Böttcher, Tony R. Larson, and Steffen Neumann. 2012. “CAMERA: An Integrated Strategy for Compound Spectra Extraction and Annotation of Liquid Chromatography/Mass Spectrometry Data Sets.” <em>Anal. Chem.</em> 84 (1): 283–89. doi:<a href="https://doi.org/10.1021/ac202450g">10.1021/ac202450g</a>.</p>
-</div>
-<div id="ref-broeckling2014">
-<p>Broeckling, C. D., F. A. Afsar, S. Neumann, A. Ben-Hur, and J. E. Prenni. 2014. “RAMClust: A Novel Feature Clustering Method Enables Spectral-Matching-Based Annotation for Metabolomics Data.” <em>Anal. Chem.</em> 86 (14): 6812–7. doi:<a href="https://doi.org/10.1021/ac501530d">10.1021/ac501530d</a>.</p>
-</div>
-<div id="ref-uppal2017">
-<p>Uppal, Karan, Douglas I. Walker, and Dean P. Jones. 2017. “XMSannotator: An R Package for Network-Based Annotation of High-Resolution Metabolomics Data.” <em>Anal. Chem.</em> 89 (2): 1063–7. doi:<a href="https://doi.org/10.1021/acs.analchem.6b01214">10.1021/acs.analchem.6b01214</a>.</p>
-</div>
-<div id="ref-mahieu2016a">
-<p>Mahieu, Nathaniel G., Jonathan L. Spalding, Susan J. Gelman, and Gary J. Patti. 2016. “Defining and Detecting Complex Peak Relationships in Mass Spectral Data: The Mz.Unity Algorithm.” <em>Anal. Chem.</em> 88 (18): 9037–46. doi:<a href="https://doi.org/10.1021/acs.analchem.6b01702">10.1021/acs.analchem.6b01702</a>.</p>
+<div id="ref-matsuo2017">
+<p>Matsuo, Teruko, Hiroshi Tsugawa, Hiromi Miyagawa, and Eiichiro Fukusaki. 2017. “Integrated Strategy for Unknown EI, Multivariate Analysis, EI, and Retention Index Prediction.” <em>Anal. Chem.</em> 89 (12): 6766–73. doi:<a href="https://doi.org/10.1021/acs.analchem.7b01010">10.1021/acs.analchem.7b01010</a>.</p>
 </div>
 <div id="ref-fernandez-albert2014a">
 <p>Fernández-Albert, Francesc, Rafael Llorach, Cristina Andrés-Lacueva, and Alexandre Perera. 2014. “An R Package to Analyse LC/MS Metabolomic Data: MAIT (Metabolite Automatic Identification Toolkit).” <em>Bioinformatics</em> 30 (13): 1937–9. doi:<a href="https://doi.org/10.1093/bioinformatics/btu136">10.1093/bioinformatics/btu136</a>.</p>
 </div>
-<div id="ref-silva2014">
-<p>Silva, Ricardo R., Fabien Jourdan, Diego M. Salvanha, Fabien Letisse, Emilien L. Jamin, Simone Guidetti-Gonzalez, Carlos A. Labate, and Ricardo Z. N. Vêncio. 2014. “ProbMetab: An R Package for Bayesian Probabilistic Annotation of LC-Based Metabolomics.” <em>Bioinformatics</em> 30 (9): 1336–7. doi:<a href="https://doi.org/10.1093/bioinformatics/btu019">10.1093/bioinformatics/btu019</a>.</p>
+<div id="ref-haug2017">
+<p>Haug, Kenneth, Reza M Salek, and Christoph Steinbeck. 2017. “Global Open Data Management in Metabolomics.” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 58–63. doi:<a href="https://doi.org/10.1016/j.cbpa.2016.12.024">10.1016/j.cbpa.2016.12.024</a>.</p>
 </div>
-<div id="ref-baran2013">
-<p>Baran, Richard, and Trent R. Northen. 2013. “Robust Automated Mass Spectra Interpretation and Chemical Formula Calculation Using Mixed Integer Linear Programming.” <em>Anal. Chem.</em> 85 (20): 9777–84. doi:<a href="https://doi.org/10.1021/ac402180c">10.1021/ac402180c</a>.</p>
-</div>
-<div id="ref-duhrkop2015">
-<p>Dührkop, Kai, Huibin Shen, Marvin Meusel, Juho Rousu, and Sebastian Böcker. 2015. “Searching Molecular Structure Databases with Tandem Mass Spectra Using CSI:FingerID.” <em>PNAS</em> 112 (41): 12580–5. doi:<a href="https://doi.org/10.1073/pnas.1509788112">10.1073/pnas.1509788112</a>.</p>
-</div>
-<div id="ref-weber2010">
-<p>Weber, Ralf J. M., and Mark R. Viant. 2010. “MI-Pack: Increased Confidence of Metabolite Identification in Mass Spectra by Integrating Accurate Masses and Metabolic Pathways.” <em>Chemometrics and Intelligent Laboratory Systems</em>, OMICS, 104 (1): 75–82. doi:<a href="https://doi.org/10.1016/j.chemolab.2010.04.010">10.1016/j.chemolab.2010.04.010</a>.</p>
-</div>
-<div id="ref-qiu2016">
-<p>Qiu, Feng, Dennis D. Fine, Daniel J. Wherritt, Zhentian Lei, and Lloyd W. Sumner. 2016. “PlantMAT: A Metabolomics Tool for Predicting the Specialized Metabolic Potential of a System and for Large-Scale Metabolite Identifications.” <em>Anal. Chem.</em> 88 (23): 11373–83. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00906">10.1021/acs.analchem.6b00906</a>.</p>
-</div>
-<div id="ref-treutler2016">
-<p>Treutler, Hendrik, Hiroshi Tsugawa, Andrea Porzel, Karin Gorzolka, Alain Tissier, Steffen Neumann, and Gerd Ulrich Balcke. 2016. “Discovering Regulated Metabolite Families in Untargeted Metabolomics Studies.” <em>Anal. Chem.</em> 88 (16): 8082–90. doi:<a href="https://doi.org/10.1021/acs.analchem.6b01569">10.1021/acs.analchem.6b01569</a>.</p>
-</div>
-<div id="ref-koelmel2017">
-<p>Koelmel, Jeremy P., Nicholas M. Kroeger, Candice Z. Ulmer, John A. Bowden, Rainey E. Patterson, Jason A. Cochran, Christopher W. W. Beecher, Timothy J. Garrett, and Richard A. Yost. 2017. “LipidMatch: An Automated Workflow for Rule-Based Lipid Identification Using Untargeted High-Resolution Tandem Mass Spectrometry Data.” <em>BMC Bioinformatics</em> 18 (July): 331. doi:<a href="https://doi.org/10.1186/s12859-017-1744-3">10.1186/s12859-017-1744-3</a>.</p>
-</div>
-<div id="ref-menikarachchi2012">
-<p>Menikarachchi, Lochana C., Shannon Cawley, Dennis W. Hill, L. Mark Hall, Lowell Hall, Steven Lai, Janine Wilder, and David F. Grant. 2012. “MolFind: A Software Package Enabling HPLC/MS-Based Identification of Unknown Chemical Structures.” <em>Anal. Chem.</em> 84 (21): 9388–94. doi:<a href="https://doi.org/10.1021/ac302048x">10.1021/ac302048x</a>.</p>
-</div>
-<div id="ref-gerlich2013">
-<p>Gerlich, Michael, and Steffen Neumann. 2013. “MetFusion: Integration of Compound Identification Strategies.” <em>J. Mass Spectrom.</em> 48 (3): 291–98. doi:<a href="https://doi.org/10.1002/jms.3123">10.1002/jms.3123</a>.</p>
-</div>
-<div id="ref-aguilar-mogas2017">
-<p>Aguilar-Mogas, Antoni, Marta Sales-Pardo, Miriam Navarro, Roger Guimerà, and Oscar Yanes. 2017. “IMet: A Network-Based Computational Tool To Assist in the Annotation of Metabolites from Tandem Mass Spectra.” <em>Anal. Chem.</em> 89 (6): 3474–82. doi:<a href="https://doi.org/10.1021/acs.analchem.6b04512">10.1021/acs.analchem.6b04512</a>.</p>
-</div>
-<div id="ref-basu2017">
-<p>Basu, Sumanta, William Duren, Charles R. Evans, Charles F. Burant, George Michailidis, and Alla Karnovsky. 2017. “Sparse Network Modeling and Metscape-Based Visualization Methods for the Analysis of Large-Scale Metabolomics Data.” <em>Bioinformatics</em> 33 (10): 1545–53. doi:<a href="https://doi.org/10.1093/bioinformatics/btx012">10.1093/bioinformatics/btx012</a>.</p>
-</div>
-<div id="ref-ruttkies2016">
-<p>Ruttkies, Christoph, Emma L. Schymanski, Sebastian Wolf, Juliane Hollender, and Steffen Neumann. 2016. “MetFrag Relaunched: Incorporating Strategies Beyond in Silico Fragmentation.” <em>Journal of Cheminformatics</em> 8 (January): 3. doi:<a href="https://doi.org/10.1186/s13321-016-0115-9">10.1186/s13321-016-0115-9</a>.</p>
-</div>
-<div id="ref-witting2017">
-<p>Witting, Michael, Christoph Ruttkies, Steffen Neumann, and Philippe Schmitt-Kopplin. 2017. “LipidFrag: Improving Reliability of in Silico Fragmentation of Lipids and Application to the Caenorhabditis Elegans Lipidome.” <em>PLOS ONE</em> 12 (3): e0172311. doi:<a href="https://doi.org/10.1371/journal.pone.0172311">10.1371/journal.pone.0172311</a>.</p>
-</div>
-<div id="ref-li2013a">
-<p>Li, Liang, Ronghong Li, Jianjun Zhou, Azeret Zuniga, Avalyn E. Stanislaus, Yiman Wu, Tao Huan, et al. 2013. “MyCompoundID: Using an Evidence-Based Metabolome Library for Metabolite Identification.” <em>Anal. Chem.</em> 85 (6): 3401–8. doi:<a href="https://doi.org/10.1021/ac400099b">10.1021/ac400099b</a>.</p>
-</div>
-<div id="ref-allen2014">
-<p>Allen, Felicity, Allison Pon, Michael Wilson, Russ Greiner, and David Wishart. 2014. “CFM-ID: A Web Server for Annotation, Spectrum Prediction and Metabolite Identification from Tandem Mass Spectra.” <em>Nucleic Acids Res</em> 42 (W1): W94–W99. doi:<a href="https://doi.org/10.1093/nar/gku436">10.1093/nar/gku436</a>.</p>
+<div id="ref-guitton2017">
+<p>Guitton, Yann, Marie Tremblay-Franco, Gildas Le Corguillé, Jean-François Martin, Mélanie Pétéra, Pierrick Roger-Mele, Alexis Delabrière, et al. 2017. “Create, Run, Share, Publish, and Reference Your LC, FIA, GC, and NMR Data Analysis Workflows with the Workflow4Metabolomics 3.0 Galaxy Online Infrastructure for Metabolomics.” <em>The International Journal of Biochemistry &amp; Cell Biology</em> 93 (Supplement C): 89–101. doi:<a href="https://doi.org/10.1016/j.biocel.2017.07.002">10.1016/j.biocel.2017.07.002</a>.</p>
 </div>
 </div>
             </section>
@@ -529,8 +355,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="peaks-selection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="omics-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="demo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="case-studyselected.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -560,7 +386,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yufree/metaworkflow/edit/master/06-annotation.Rmd",
+"link": "https://github.com/yufree/metaworkflow/edit/master/11-rocker.Rmd",
 "text": "Edit"
 },
 "download": ["Metabolomics.pdf", "Metabolomics.epub"],
