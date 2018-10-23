@@ -25,7 +25,7 @@
 <meta name="author" content="Miao YU">
 
 
-<meta name="date" content="2018-10-18">
+<meta name="date" content="2018-10-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -345,9 +345,9 @@ distance = |10-54|+|13-23|+|21-16| = 59
 <p>PLS-DA, OPLS-DA and HPSO-OPLS-DA<span class="citation">(Yang et al. <a href="#ref-yang2017a">2017</a>)</span> could be used.</p>
 <p>Partial least squares discriminant analysis(PLSDA) was first used in the 1990s. However, Partial least squares(PLS) was proposed in the 1960s by Hermann Wold. Principal components analysis produces the weight matrix reflecting the covariance structure between the variables, while partial least squares produces the weight matrix reflecting the covariance structure between the variables and classes. After rotation by weight matrix, the new variables would contain relationship with classes.</p>
 <p>The classification performance of PLSDA is identical to linear discriminant analysis(LDA) if class sizes are balanced, or the columns are adjusted according to the mean of the class mean. If the number of variables exceeds the number of samples, LDA can be performed on the principal components. Quadratic discriminant analysis(QDA) could model nonlinearity relationship between variables while PLSDA is better for collinear variables. However, as a classifier, there is little advantage for PLSDA. The advantages of PLSDA is that this modle could show relationship between variables, which is not the goal of regular classifier.</p>
-<p>Different algorithms<span class="citation">(<span class="citeproc-not-found" data-reference-id="andersson2009"><strong>???</strong></span>)</span> for PLSDA would show different score, while PCA always show the same score with fixed algorithm. For PCA, both new variables and classes are orthognal. However, for PLS(Wold), only new classes are orthognal. For PLS(Martens), only new variables are orthognal. This paper show the details of using such methods<span class="citation">(<span class="citeproc-not-found" data-reference-id="brereton2018"><strong>???</strong></span>)</span>.</p>
-<p>Sparse PLS discriminant analysis(sPLS-DA) make a L1 penal on the variable selection to remove the influnces from unrelated variables, which make sense for high-throughput omics data<span class="citation">(<span class="citeproc-not-found" data-reference-id="lecao2011"><strong>???</strong></span>)</span>.</p>
-<p>For o-PLS-DA, s-plot could be used to find features.<span class="citation">(<span class="citeproc-not-found" data-reference-id="wiklund2008"><strong>???</strong></span>)</span></p>
+<p>Different algorithms<span class="citation">(Andersson <a href="#ref-andersson2009">2009</a>)</span> for PLSDA would show different score, while PCA always show the same score with fixed algorithm. For PCA, both new variables and classes are orthognal. However, for PLS(Wold), only new classes are orthognal. For PLS(Martens), only new variables are orthognal. This paper show the details of using such methods<span class="citation">(Brereton and Lloyd <a href="#ref-brereton2018">2018</a>)</span>.</p>
+<p>Sparse PLS discriminant analysis(sPLS-DA) make a L1 penal on the variable selection to remove the influnces from unrelated variables, which make sense for high-throughput omics data<span class="citation">(Lê Cao, Boitard, and Besse <a href="#ref-lecao2011">2011</a>)</span>.</p>
+<p>For o-PLS-DA, s-plot could be used to find features.<span class="citation">(Wiklund et al. <a href="#ref-wiklund2008">2008</a>)</span></p>
 </div>
 <div id="self-organizing-map" class="section level2">
 <h2><span class="header-section-number">8.5</span> Self-organizing map</h2>
@@ -372,6 +372,18 @@ distance = |10-54|+|13-23|+|21-16| = 59
 </div>
 <div id="ref-yang2017a">
 <p>Yang, Qin, Shan-Shan Lin, Jiang-Tao Yang, Li-Juan Tang, and Ru-Qin Yu. 2017. “Detection of Inborn Errors of Metabolism Utilizing GC-MS Urinary Metabolomics Coupled with a Modified Orthogonal Partial Least Squares Discriminant Analysis.” <em>Talanta</em> 165 (April): 545–52. doi:<a href="https://doi.org/10.1016/j.talanta.2017.01.018">10.1016/j.talanta.2017.01.018</a>.</p>
+</div>
+<div id="ref-andersson2009">
+<p>Andersson, Martin. 2009. “A Comparison of Nine PLS1 Algorithms.” <em>J. Chemom.</em> 23 (10): 518–29. doi:<a href="https://doi.org/10.1002/cem.1248">10.1002/cem.1248</a>.</p>
+</div>
+<div id="ref-brereton2018">
+<p>Brereton, Richard G., and Gavin R. Lloyd. 2018. “Partial Least Squares Discriminant Analysis for Chemometrics and Metabolomics: How Scores, Loadings, and Weights Differ According to Two Common Algorithms.” <em>J. Chemom.</em> 32 (4): e3028. doi:<a href="https://doi.org/10.1002/cem.3028">10.1002/cem.3028</a>.</p>
+</div>
+<div id="ref-lecao2011">
+<p>Lê Cao, Kim-Anh, Simon Boitard, and Philippe Besse. 2011. “Sparse PLS Discriminant Analysis: Biologically Relevant Feature Selection and Graphical Displays for Multiclass Problems.” <em>BMC Bioinformatics</em> 12 (June): 253. doi:<a href="https://doi.org/10.1186/1471-2105-12-253">10.1186/1471-2105-12-253</a>.</p>
+</div>
+<div id="ref-wiklund2008">
+<p>Wiklund, Susanne, Erik Johansson, Lina Sjöström, Ewa J. Mellerowicz, Ulf Edlund, John P. Shockcor, Johan Gottfries, Thomas Moritz, and Johan Trygg. 2008. “Visualization of GC/TOF-MS-Based Metabolomics Data for Identification of Biochemically Interesting Compounds Using OPLS Class Models.” <em>Anal. Chem.</em> 80 (1): 115–22. doi:<a href="https://doi.org/10.1021/ac0713510">10.1021/ac0713510</a>.</p>
 </div>
 </div>
             </section>
