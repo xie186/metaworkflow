@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -36,7 +36,6 @@
 <link rel="next" href="demo-1.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -55,67 +54,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -379,19 +352,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-tsugawa2016">
-<p>Tsugawa, Hiroshi, Tobias Kind, Ryo Nakabayashi, Daichi Yukihira, Wataru Tanaka, Tomas Cajka, Kazuki Saito, Oliver Fiehn, and Masanori Arita. 2016. “Hydrogen Rearrangement Rules: Computational MS/MS Fragmentation and Structure Elucidation Using MS-FINDER Software.” <em>Anal. Chem.</em> 88 (16): 7946–58. <a href="https://doi.org/10.1021/acs.analchem.6b00770">https://doi.org/10.1021/acs.analchem.6b00770</a>.</p>
+<p>Tsugawa, Hiroshi, Tobias Kind, Ryo Nakabayashi, Daichi Yukihira, Wataru Tanaka, Tomas Cajka, Kazuki Saito, Oliver Fiehn, and Masanori Arita. 2016. “Hydrogen Rearrangement Rules: Computational MS/MS Fragmentation and Structure Elucidation Using MS-FINDER Software.” <em>Anal. Chem.</em> 88 (16): 7946–58. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00770">10.1021/acs.analchem.6b00770</a>.</p>
 </div>
 <div id="ref-matsuo2017">
-<p>Matsuo, Teruko, Hiroshi Tsugawa, Hiromi Miyagawa, and Eiichiro Fukusaki. 2017. “Integrated Strategy for Unknown EIMS Identification Using Quality Control Calibration Curve, Multivariate Analysis, EIMS Spectral Database, and Retention Index Prediction.” <em>Anal. Chem.</em> 89 (12): 6766–73. <a href="https://doi.org/10.1021/acs.analchem.7b01010">https://doi.org/10.1021/acs.analchem.7b01010</a>.</p>
+<p>Matsuo, Teruko, Hiroshi Tsugawa, Hiromi Miyagawa, and Eiichiro Fukusaki. 2017. “Integrated Strategy for Unknown EIMS Identification Using Quality Control Calibration Curve, Multivariate Analysis, EIMS Spectral Database, and Retention Index Prediction.” <em>Anal. Chem.</em> 89 (12): 6766–73. doi:<a href="https://doi.org/10.1021/acs.analchem.7b01010">10.1021/acs.analchem.7b01010</a>.</p>
 </div>
 <div id="ref-fernandez-albert2014a">
-<p>Fernández-Albert, Francesc, Rafael Llorach, Cristina Andrés-Lacueva, and Alexandre Perera. 2014. “An R Package to Analyse LC/MS Metabolomic Data: MAIT (Metabolite Automatic Identification Toolkit).” <em>Bioinformatics</em> 30 (13): 1937–9. <a href="https://doi.org/10.1093/bioinformatics/btu136">https://doi.org/10.1093/bioinformatics/btu136</a>.</p>
+<p>Fernández-Albert, Francesc, Rafael Llorach, Cristina Andrés-Lacueva, and Alexandre Perera. 2014. “An R Package to Analyse LC/MS Metabolomic Data: MAIT (Metabolite Automatic Identification Toolkit).” <em>Bioinformatics</em> 30 (13): 1937–9. doi:<a href="https://doi.org/10.1093/bioinformatics/btu136">10.1093/bioinformatics/btu136</a>.</p>
 </div>
 <div id="ref-haug2017">
-<p>Haug, Kenneth, Reza M Salek, and Christoph Steinbeck. 2017. “Global Open Data Management in Metabolomics.” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 58–63. <a href="https://doi.org/10.1016/j.cbpa.2016.12.024">https://doi.org/10.1016/j.cbpa.2016.12.024</a>.</p>
+<p>Haug, Kenneth, Reza M Salek, and Christoph Steinbeck. 2017. “Global Open Data Management in Metabolomics.” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 58–63. doi:<a href="https://doi.org/10.1016/j.cbpa.2016.12.024">10.1016/j.cbpa.2016.12.024</a>.</p>
 </div>
 <div id="ref-guitton2017">
-<p>Guitton, Yann, Marie Tremblay-Franco, Gildas Le Corguillé, Jean-François Martin, Mélanie Pétéra, Pierrick Roger-Mele, Alexis Delabrière, et al. 2017. “Create, Run, Share, Publish, and Reference Your LCMS, FIAMS, GCMS, and NMR Data Analysis Workflows with the Workflow4Metabolomics 3.0 Galaxy Online Infrastructure for Metabolomics.” <em>The International Journal of Biochemistry &amp; Cell Biology</em> 93 (Supplement C): 89–101. <a href="https://doi.org/10.1016/j.biocel.2017.07.002">https://doi.org/10.1016/j.biocel.2017.07.002</a>.</p>
+<p>Guitton, Yann, Marie Tremblay-Franco, Gildas Le Corguillé, Jean-François Martin, Mélanie Pétéra, Pierrick Roger-Mele, Alexis Delabrière, et al. 2017. “Create, Run, Share, Publish, and Reference Your LCMS, FIAMS, GCMS, and NMR Data Analysis Workflows with the Workflow4Metabolomics 3.0 Galaxy Online Infrastructure for Metabolomics.” <em>The International Journal of Biochemistry &amp; Cell Biology</em> 93 (Supplement C): 89–101. doi:<a href="https://doi.org/10.1016/j.biocel.2017.07.002">10.1016/j.biocel.2017.07.002</a>.</p>
 </div>
 </div>
             </section>
@@ -420,7 +393,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapaper": false,
+"instapper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -446,8 +419,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -36,7 +36,6 @@
 <link rel="next" href="exprimental-designdoe.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -55,67 +54,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -371,7 +344,7 @@ Figure 1.3: Metabolomics timeline during pre- and post-metabolomics era
 <p>Some nice reviews and tutorials related to this workflow could be found in those papers or directly online:</p>
 <div id="workflow" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Workflow</h3>
-<p>Those papers are recommended<span class="citation">(Barnes et al. <a href="#ref-barnes2016a">2016</a><a href="#ref-barnes2016a">a</a>; Cajka and Fiehn <a href="#ref-cajka2016">2016</a>; X. Lu and Xu <a href="#ref-lu2008">2008</a>; Fiehn <a href="#ref-fiehn2002">2002</a>)</span> for general metabolomics related topics. For targeted metaabolomics, you could check those reviews<span class="citation">(Begou et al. <a href="#ref-begou2017">2017</a>; Zhou and Yin <a href="#ref-zhou2016">2016</a>; W. Lu, Bennett, and Rabinowitz <a href="#ref-lu2008a">2008</a>; Weljie et al. <a href="#ref-weljie2006">2006</a>; Yuan et al. <a href="#ref-yuan2012">2012</a>; Griffiths et al. <a href="#ref-griffiths2010">2010</a>)</span>.</p>
+<p>Those papers are recommended<span class="citation">(Barnes et al. <a href="#ref-barnes2016a">2016</a><a href="#ref-barnes2016a">a</a>; Cajka and Fiehn <a href="#ref-cajka2016">2016</a>; Lu and Xu <a href="#ref-lu2008">2008</a>; Fiehn <a href="#ref-fiehn2002">2002</a>)</span> for general metabolomics related topics. For targeted metaabolomics, you could check those reviews<span class="citation">(Begou et al. <a href="#ref-begou2017">2017</a>; Zhou and Yin <a href="#ref-zhou2016">2016</a>; Lu, Bennett, and Rabinowitz <a href="#ref-lu2008a">2008</a>; Weljie et al. <a href="#ref-weljie2006">2006</a>; Yuan et al. <a href="#ref-yuan2012">2012</a>; Griffiths et al. <a href="#ref-griffiths2010">2010</a>)</span>.</p>
 </div>
 <div id="data-analysis" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Data analysis</h3>
@@ -406,10 +379,7 @@ Figure 1.3: Metabolomics timeline during pre- and post-metabolomics era
 <div id="challenge" class="section level3">
 <h3><span class="header-section-number">1.2.4</span> Challenge</h3>
 <ul>
-<li><p>High throughput Metabolomics related issues could be found here <span class="citation">(Zampieri et al. <a href="#ref-zampieri2017">2017</a>)</span>.
-- Cohort size
-- Temporal resolution
-- Spatial resolution</p></li>
+<li><p>High throughput Metabolomics related issues could be found here <span class="citation">(Zampieri et al. <a href="#ref-zampieri2017">2017</a>)</span>. - Cohort size - Temporal resolution - Spatial resolution</p></li>
 <li><p>Quantitative Metabolomics related issues could be found here<span class="citation">(Kapoore and Vaidyanathan <a href="#ref-kapoore2016b">2016</a>; Jorge, Mata, and António <a href="#ref-jorge2016a">2016</a>)</span>.</p></li>
 <li><p>For quality control issues, check here<span class="citation">(Dudzik et al. <a href="#ref-dudzik2018">2018</a>; Siskos et al. <a href="#ref-siskos2017">2017</a>)</span>.</p></li>
 </ul>
@@ -417,188 +387,188 @@ Figure 1.3: Metabolomics timeline during pre- and post-metabolomics era
 </div>
 <div id="trends-in-metabolomics" class="section level2">
 <h2><span class="header-section-number">1.3</span> Trends in Metabolomics</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gtrendsR)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gtrendsR)
 res &lt;-<span class="st"> </span><span class="kw">gtrends</span>(<span class="kw">c</span>(<span class="st">&quot;metabolomics&quot;</span>, <span class="st">&quot;metabolomics&quot;</span>), <span class="dt">geo =</span> <span class="kw">c</span>(<span class="st">&quot;CA&quot;</span>,<span class="st">&quot;US&quot;</span>))
-<span class="kw">plot</span>(res)</code></pre>
+<span class="kw">plot</span>(res)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/gtrends-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rentrez)
-papers_by_year &lt;-<span class="st"> </span><span class="cf">function</span>(years, search_term){
-    <span class="kw">return</span>(<span class="kw">sapply</span>(years, <span class="cf">function</span>(y) <span class="kw">entrez_search</span>(<span class="dt">db=</span><span class="st">&quot;pubmed&quot;</span>,<span class="dt">term=</span>search_term, <span class="dt">mindate=</span>y, <span class="dt">maxdate=</span>y, <span class="dt">retmax=</span><span class="dv">0</span>)<span class="op">$</span>count))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rentrez)
+papers_by_year &lt;-<span class="st"> </span>function(years, search_term){
+    <span class="kw">return</span>(<span class="kw">sapply</span>(years, function(y) <span class="kw">entrez_search</span>(<span class="dt">db=</span><span class="st">&quot;pubmed&quot;</span>,<span class="dt">term=</span>search_term, <span class="dt">mindate=</span>y, <span class="dt">maxdate=</span>y, <span class="dt">retmax=</span><span class="dv">0</span>)$count))
 }
-years &lt;-<span class="st"> </span><span class="dv">1987</span><span class="op">:</span><span class="dv">2018</span>
+years &lt;-<span class="st"> </span><span class="dv">1987</span>:<span class="dv">2018</span>
 total_papers &lt;-<span class="st"> </span><span class="kw">papers_by_year</span>(years, <span class="st">&quot;&quot;</span>)
 omics &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;genomic&quot;</span>, <span class="st">&quot;epigenomic&quot;</span>,  <span class="st">&quot;metagenomic&quot;</span>, <span class="st">&quot;proteomic&quot;</span>, <span class="st">&quot;transcriptomic&quot;</span>,<span class="st">&quot;metabolomics&quot;</span>,<span class="st">&quot;exposome&quot;</span>, <span class="st">&quot;pharmacogenomic&quot;</span>, <span class="st">&quot;connectomic&quot;</span>)
-trend_data &lt;-<span class="st"> </span><span class="kw">sapply</span>(omics, <span class="cf">function</span>(t) <span class="kw">papers_by_year</span>(years, t))
-trend_props &lt;-<span class="st"> </span>trend_data<span class="op">/</span>total_papers
+trend_data &lt;-<span class="st"> </span><span class="kw">sapply</span>(omics, function(t) <span class="kw">papers_by_year</span>(years, t))
+trend_props &lt;-<span class="st"> </span>trend_data/total_papers
 <span class="kw">library</span>(reshape)
 <span class="kw">library</span>(ggplot2)
 trend_df &lt;-<span class="st"> </span><span class="kw">melt</span>(<span class="kw">data.frame</span>(years, trend_data), <span class="dt">id.vars=</span><span class="st">&quot;years&quot;</span>)
 p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(trend_df, <span class="kw">aes</span>(years, value, <span class="dt">colour=</span>variable))
-p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_log10</span>(<span class="st">&quot;number of papers&quot;</span>)</code></pre>
+p +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="dv">1</span>) +<span class="st"> </span><span class="kw">scale_y_log10</span>(<span class="st">&quot;number of papers&quot;</span>)</code></pre></div>
 <pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
 <p><img src="Metabolomics_files/figure-html/rentrez-1.png" width="672" /></p>
 </div>
 <div id="workflow-1" class="section level2">
 <h2><span class="header-section-number">1.4</span> Workflow</h2>
-<div id="htmlwidget-756a1d7579af190a821b" style="width:300px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-756a1d7579af190a821b">{"x":{"diagram":"digraph workflow {\nnode [shape = box]\nA [label = \"Raw data\"]\nB [label = \"mzxml or CDF\"]\nC [label = \"DoE folder\"]\nD [label = \"peaks list\"]\nE [label = \"retention time correction\"]\nF [label = \"peaks grouping\"]\nG [label = \"peaks filling\"]\nH [label = \"raw peaks\"]\nI [label = \"data visulization\"]\nJ [label = \"batch effects correction\"]\nK [label = \"corrected peaks\"]\nL [label = \"annotation\"]\nM [label = \"metabolomics pathway analysis\"]\nN [label = \"omics analysis\"]\nO [label = \"biomarkers discovery/diagnoise\"]\n\nA -> B -> C -> D -> E -> F -> G -> H\nH -> I\nI -> J\nH -> J -> K -> L\nL -> M -> N\nL -> O\n                  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9fe444fede3d925fbb5e" style="width:300px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9fe444fede3d925fbb5e">{"x":{"diagram":"digraph workflow {\nnode [shape = box]\nA [label = \"Raw data\"]\nB [label = \"mzxml or CDF\"]\nC [label = \"DoE folder\"]\nD [label = \"peaks list\"]\nE [label = \"retention time correction\"]\nF [label = \"peaks grouping\"]\nG [label = \"peaks filling\"]\nH [label = \"raw peaks\"]\nI [label = \"data visulization\"]\nJ [label = \"batch effects correction\"]\nK [label = \"corrected peaks\"]\nL [label = \"annotation\"]\nM [label = \"metabolomics pathway analysis\"]\nN [label = \"omics analysis\"]\nO [label = \"biomarkers discovery/diagnoise\"]\n\nA -> B -> C -> D -> E -> F -> G -> H\nH -> I\nI -> J\nH -> J -> K -> L\nL -> M -> N\nL -> O\n                  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-b.dunn2011">
-<p>B. Dunn, Warwick, David I. Broadhurst, Helen J. Atherton, Royston Goodacre, and Julian L. Griffin. 2011. “Systems Level Studies of Mammalian Metabolomes: The Roles of Mass Spectrometry and Nuclear Magnetic Resonance Spectroscopy.” <em>Chem. Soc. Rev.</em> 40 (1): 387–426. <a href="https://doi.org/10.1039/B906712B">https://doi.org/10.1039/B906712B</a>.</p>
+<p>B. Dunn, Warwick, David I. Broadhurst, Helen J. Atherton, Royston Goodacre, and Julian L. Griffin. 2011. “Systems Level Studies of Mammalian Metabolomes: The Roles of Mass Spectrometry and Nuclear Magnetic Resonance Spectroscopy.” <em>Chem. Soc. Rev.</em> 40 (1): 387–426. doi:<a href="https://doi.org/10.1039/B906712B">10.1039/B906712B</a>.</p>
 </div>
 <div id="ref-theodoridis2012">
-<p>Theodoridis, Georgios A., Helen G. Gika, Elizabeth J. Want, and Ian D. Wilson. 2012. “Liquid ChromatographyMass Spectrometry Based Global Metabolite Profiling: A Review.” <em>Analytica Chimica Acta</em> 711 (January): 7–16. <a href="https://doi.org/10.1016/j.aca.2011.09.042">https://doi.org/10.1016/j.aca.2011.09.042</a>.</p>
+<p>Theodoridis, Georgios A., Helen G. Gika, Elizabeth J. Want, and Ian D. Wilson. 2012. “Liquid ChromatographyMass Spectrometry Based Global Metabolite Profiling: A Review.” <em>Analytica Chimica Acta</em> 711 (January): 7–16. doi:<a href="https://doi.org/10.1016/j.aca.2011.09.042">10.1016/j.aca.2011.09.042</a>.</p>
 </div>
 <div id="ref-tian2016">
-<p>Tian, Tze-Feng, San-Yuan Wang, Tien-Chueh Kuo, Cheng-En Tan, Guan-Yuan Chen, Ching-Hua Kuo, Chi-Hsin Sally Chen, Chang-Chuan Chan, Olivia A. Lin, and Y. Jane Tseng. 2016. “Web Server for Peak Detection, Baseline Correction, and Alignment in Two-Dimensional Gas Chromatography Mass Spectrometry-Based Metabolomics Data.” <em>Anal. Chem.</em> 88 (21): 10395–10403. <a href="https://doi.org/10.1021/acs.analchem.6b00755">https://doi.org/10.1021/acs.analchem.6b00755</a>.</p>
+<p>Tian, Tze-Feng, San-Yuan Wang, Tien-Chueh Kuo, Cheng-En Tan, Guan-Yuan Chen, Ching-Hua Kuo, Chi-Hsin Sally Chen, Chang-Chuan Chan, Olivia A. Lin, and Y. Jane Tseng. 2016. “Web Server for Peak Detection, Baseline Correction, and Alignment in Two-Dimensional Gas Chromatography Mass Spectrometry-Based Metabolomics Data.” <em>Anal. Chem.</em> 88 (21): 10395–10403. doi:<a href="https://doi.org/10.1021/acs.analchem.6b00755">10.1021/acs.analchem.6b00755</a>.</p>
 </div>
 <div id="ref-gika2014">
-<p>Gika, Helen G., Georgios A. Theodoridis, Robert S. Plumb, and Ian D. Wilson. 2014. “Current Practice of Liquid ChromatographyMass Spectrometry in Metabolomics and Metabonomics.” <em>Journal of Pharmaceutical and Biomedical Analysis</em>, Review papers on pharmaceutical and biomedical analysis 2013, 87 (January): 12–25. <a href="https://doi.org/10.1016/j.jpba.2013.06.032">https://doi.org/10.1016/j.jpba.2013.06.032</a>.</p>
+<p>Gika, Helen G., Georgios A. Theodoridis, Robert S. Plumb, and Ian D. Wilson. 2014. “Current Practice of Liquid ChromatographyMass Spectrometry in Metabolomics and Metabonomics.” <em>Journal of Pharmaceutical and Biomedical Analysis</em>, Review papers on pharmaceutical and biomedical analysis 2013, 87 (January): 12–25. doi:<a href="https://doi.org/10.1016/j.jpba.2013.06.032">10.1016/j.jpba.2013.06.032</a>.</p>
 </div>
 <div id="ref-begou2017">
-<p>Begou, O., H. G. Gika, I. D. Wilson, and G. Theodoridis. 2017. “Hyphenated MS-Based Targeted Approaches in Metabolomics.” <em>Analyst</em> 142 (17): 3079–3100. <a href="https://doi.org/10.1039/C7AN00812K">https://doi.org/10.1039/C7AN00812K</a>.</p>
+<p>Begou, O., H. G. Gika, I. D. Wilson, and G. Theodoridis. 2017. “Hyphenated MS-Based Targeted Approaches in Metabolomics.” <em>Analyst</em> 142 (17): 3079–3100. doi:<a href="https://doi.org/10.1039/C7AN00812K">10.1039/C7AN00812K</a>.</p>
 </div>
 <div id="ref-zhang2012a">
-<p>Zhang, Aihua, Hui Sun, Ping Wang, Ying Han, and Xijun Wang. 2012. “Modern Analytical Techniques in Metabolomics Analysis.” <em>The Analyst</em> 137 (2): 293–300. <a href="https://doi.org/10.1039/C1AN15605E">https://doi.org/10.1039/C1AN15605E</a>.</p>
+<p>Zhang, Aihua, Hui Sun, Ping Wang, Ying Han, and Xijun Wang. 2012. “Modern Analytical Techniques in Metabolomics Analysis.” <em>The Analyst</em> 137 (2): 293–300. doi:<a href="https://doi.org/10.1039/C1AN15605E">10.1039/C1AN15605E</a>.</p>
 </div>
 <div id="ref-kusonmano2016">
-<p>Kusonmano, Kanthida, Wanwipa Vongsangnak, and Pramote Chumnanpuen. 2016. “Informatics for Metabolomics.” In <em>Translational Biomedical Informatics</em>, 91–115. Advances in Experimental Medicine and Biology. Springer, Singapore. <a href="https://doi.org/10.1007/978-981-10-1503-8_5">https://doi.org/10.1007/978-981-10-1503-8_5</a>.</p>
+<p>Kusonmano, Kanthida, Wanwipa Vongsangnak, and Pramote Chumnanpuen. 2016. “Informatics for Metabolomics.” In <em>Translational Biomedical Informatics</em>, 91–115. Advances in Experimental Medicine and Biology. Springer, Singapore. doi:<a href="https://doi.org/10.1007/978-981-10-1503-8_5">10.1007/978-981-10-1503-8_5</a>.</p>
 </div>
 <div id="ref-madsen2010">
-<p>Madsen, Rasmus, Torbjörn Lundstedt, and Johan Trygg. 2010. “Chemometrics in MetabolomicsA Review in Human Disease Diagnosis.” <em>Analytica Chimica Acta</em> 659 (1): 23–33. <a href="https://doi.org/10.1016/j.aca.2009.11.042">https://doi.org/10.1016/j.aca.2009.11.042</a>.</p>
+<p>Madsen, Rasmus, Torbjörn Lundstedt, and Johan Trygg. 2010. “Chemometrics in MetabolomicsA Review in Human Disease Diagnosis.” <em>Analytica Chimica Acta</em> 659 (1): 23–33. doi:<a href="https://doi.org/10.1016/j.aca.2009.11.042">10.1016/j.aca.2009.11.042</a>.</p>
 </div>
 <div id="ref-barnes2016a">
-<p>Barnes, Stephen, H. Paul Benton, Krista Casazza, Sara J. Cooper, Xiangqin Cui, Xiuxia Du, Jeffrey Engler, et al. 2016a. “Training in Metabolomics Research. I. Designing the Experiment, Collecting and Extracting Samples and Generating Metabolomics Data.” <em>J. Mass Spectrom.</em> 51 (7): 461–75. <a href="https://doi.org/10.1002/jms.3782">https://doi.org/10.1002/jms.3782</a>.</p>
+<p>Barnes, Stephen, H. Paul Benton, Krista Casazza, Sara J. Cooper, Xiangqin Cui, Xiuxia Du, Jeffrey Engler, et al. 2016a. “Training in Metabolomics Research. I. Designing the Experiment, Collecting and Extracting Samples and Generating Metabolomics Data.” <em>J. Mass Spectrom.</em> 51 (7): 461–75. doi:<a href="https://doi.org/10.1002/jms.3782">10.1002/jms.3782</a>.</p>
 </div>
 <div id="ref-cajka2016">
-<p>Cajka, Tomas, and Oliver Fiehn. 2016. “Toward Merging Untargeted and Targeted Methods in Mass Spectrometry-Based Metabolomics and Lipidomics.” <em>Anal. Chem.</em> 88 (1): 524–45. <a href="https://doi.org/10.1021/acs.analchem.5b04491">https://doi.org/10.1021/acs.analchem.5b04491</a>.</p>
+<p>Cajka, Tomas, and Oliver Fiehn. 2016. “Toward Merging Untargeted and Targeted Methods in Mass Spectrometry-Based Metabolomics and Lipidomics.” <em>Anal. Chem.</em> 88 (1): 524–45. doi:<a href="https://doi.org/10.1021/acs.analchem.5b04491">10.1021/acs.analchem.5b04491</a>.</p>
 </div>
 <div id="ref-lu2008">
-<p>Lu, Xin, and Guowang Xu. 2008. “LC-MS Metabonomics Methodology in Biomarker Discovery.” In <em>Biomarker Methods in Drug Discovery and Development</em>, edited by Feng Wang, 291–315. Methods in Pharmacology and Toxicology. Humana Press. <a href="https://doi.org/10.1007/978-1-59745-463-6_14">https://doi.org/10.1007/978-1-59745-463-6_14</a>.</p>
+<p>Lu, Xin, and Guowang Xu. 2008. “LC-MS Metabonomics Methodology in Biomarker Discovery.” In <em>Biomarker Methods in Drug Discovery and Development</em>, edited by Feng Wang, 291–315. Methods in Pharmacology and Toxicology. Humana Press. doi:<a href="https://doi.org/10.1007/978-1-59745-463-6_14">10.1007/978-1-59745-463-6_14</a>.</p>
 </div>
 <div id="ref-fiehn2002">
-<p>Fiehn, Oliver. 2002. “Metabolomics the Link Between Genotypes and Phenotypes.” <em>Plant Mol Biol</em> 48 (1): 155–71. <a href="https://doi.org/10.1023/A:1013713905833">https://doi.org/10.1023/A:1013713905833</a>.</p>
+<p>Fiehn, Oliver. 2002. “Metabolomics the Link Between Genotypes and Phenotypes.” <em>Plant Mol Biol</em> 48 (1): 155–71. doi:<a href="https://doi.org/10.1023/A:1013713905833">10.1023/A:1013713905833</a>.</p>
 </div>
 <div id="ref-zhou2016">
-<p>Zhou, Juntuo, and Yuxin Yin. 2016. “Strategies for Large-Scale Targeted Metabolomics Quantification by Liquid Chromatography-Mass Spectrometry.” <em>Analyst</em> 141 (23): 6362–73. <a href="https://doi.org/10.1039/C6AN01753C">https://doi.org/10.1039/C6AN01753C</a>.</p>
+<p>Zhou, Juntuo, and Yuxin Yin. 2016. “Strategies for Large-Scale Targeted Metabolomics Quantification by Liquid Chromatography-Mass Spectrometry.” <em>Analyst</em> 141 (23): 6362–73. doi:<a href="https://doi.org/10.1039/C6AN01753C">10.1039/C6AN01753C</a>.</p>
 </div>
 <div id="ref-lu2008a">
-<p>Lu, Wenyun, Bryson D. Bennett, and Joshua D. Rabinowitz. 2008. “Analytical Strategies for LCMS-Based Targeted Metabolomics.” <em>Journal of Chromatography B</em>, Hyphenated techniques for global metabolite profiling, 871 (2): 236–42. <a href="https://doi.org/10.1016/j.jchromb.2008.04.031">https://doi.org/10.1016/j.jchromb.2008.04.031</a>.</p>
+<p>Lu, Wenyun, Bryson D. Bennett, and Joshua D. Rabinowitz. 2008. “Analytical Strategies for LCMS-Based Targeted Metabolomics.” <em>Journal of Chromatography B</em>, Hyphenated techniques for global metabolite profiling, 871 (2): 236–42. doi:<a href="https://doi.org/10.1016/j.jchromb.2008.04.031">10.1016/j.jchromb.2008.04.031</a>.</p>
 </div>
 <div id="ref-weljie2006">
-<p>Weljie, Aalim M., Jack Newton, Pascal Mercier, Erin Carlson, and Carolyn M. Slupsky. 2006. “Targeted Profiling:  Quantitative Analysis of 1H NMR Metabolomics Data.” <em>Anal. Chem.</em> 78 (13): 4430–42. <a href="https://doi.org/10.1021/ac060209g">https://doi.org/10.1021/ac060209g</a>.</p>
+<p>Weljie, Aalim M., Jack Newton, Pascal Mercier, Erin Carlson, and Carolyn M. Slupsky. 2006. “Targeted Profiling: Quantitative Analysis of 1H NMR Metabolomics Data.” <em>Anal. Chem.</em> 78 (13): 4430–42. doi:<a href="https://doi.org/10.1021/ac060209g">10.1021/ac060209g</a>.</p>
 </div>
 <div id="ref-yuan2012">
-<p>Yuan, Min, Susanne B. Breitkopf, Xuemei Yang, and John M. Asara. 2012. “A Positive/Negative IonSwitching, Targeted Mass SpectrometryBased Metabolomics Platform for Bodily Fluids, Cells, and Fresh and Fixed Tissue.” <em>Nat. Protoc.</em> 7 (5): 872–81. <a href="https://doi.org/10.1038/nprot.2012.024">https://doi.org/10.1038/nprot.2012.024</a>.</p>
+<p>Yuan, Min, Susanne B. Breitkopf, Xuemei Yang, and John M. Asara. 2012. “A Positive/Negative IonSwitching, Targeted Mass SpectrometryBased Metabolomics Platform for Bodily Fluids, Cells, and Fresh and Fixed Tissue.” <em>Nat. Protoc.</em> 7 (5): 872–81. doi:<a href="https://doi.org/10.1038/nprot.2012.024">10.1038/nprot.2012.024</a>.</p>
 </div>
 <div id="ref-griffiths2010">
-<p>Griffiths, William J., Therese Koal, Yuqin Wang, Matthias Kohl, David P. Enot, and Hans-Peter Deigner. 2010. “Targeted Metabolomics for Biomarker Discovery.” <em>Angew. Chem. Int. Ed.</em> 49 (32): 5426–45. <a href="https://doi.org/10.1002/anie.200905579">https://doi.org/10.1002/anie.200905579</a>.</p>
+<p>Griffiths, William J., Therese Koal, Yuqin Wang, Matthias Kohl, David P. Enot, and Hans-Peter Deigner. 2010. “Targeted Metabolomics for Biomarker Discovery.” <em>Angew. Chem. Int. Ed.</em> 49 (32): 5426–45. doi:<a href="https://doi.org/10.1002/anie.200905579">10.1002/anie.200905579</a>.</p>
 </div>
 <div id="ref-barnes2016">
-<p>Barnes, Stephen, H. 2016b. “Training in Metabolomics Research. II. Processing and Statistical Analysis of Metabolomics Data, Metabolite Identification, Pathway Analysis, Applications of Metabolomics and Its Future.” <em>J. Mass Spectrom.</em> 51 (8): 535–48. <a href="https://doi.org/10.1002/jms.3780">https://doi.org/10.1002/jms.3780</a>.</p>
+<p>Barnes, Stephen, H. 2016b. “Training in Metabolomics Research. II. Processing and Statistical Analysis of Metabolomics Data, Metabolite Identification, Pathway Analysis, Applications of Metabolomics and Its Future.” <em>J. Mass Spectrom.</em> 51 (8): 535–48. doi:<a href="https://doi.org/10.1002/jms.3780">10.1002/jms.3780</a>.</p>
 </div>
 <div id="ref-alonso2015">
-<p>Alonso, Arnald, Sara Marsal, and Antonio Julià. 2015. “Analytical Methods in Untargeted Metabolomics: State of the Art in 2015.” <em>Front Bioeng Biotechnol</em> 3 (March). <a href="https://doi.org/10.3389/fbioe.2015.00023">https://doi.org/10.3389/fbioe.2015.00023</a>.</p>
+<p>Alonso, Arnald, Sara Marsal, and Antonio Julià. 2015. “Analytical Methods in Untargeted Metabolomics: State of the Art in 2015.” <em>Front Bioeng Biotechnol</em> 3 (March). doi:<a href="https://doi.org/10.3389/fbioe.2015.00023">10.3389/fbioe.2015.00023</a>.</p>
 </div>
 <div id="ref-uppal2016">
-<p>Uppal, Karan, Douglas I. Walker, Ken Liu, Shuzhao Li, Young-Mi Go, and Dean P. Jones. 2016. “Computational Metabolomics: A Framework for the Million Metabolome.” <em>Chem. Res. Toxicol.</em> 29 (12): 1956–75. <a href="https://doi.org/10.1021/acs.chemrestox.6b00179">https://doi.org/10.1021/acs.chemrestox.6b00179</a>.</p>
+<p>Uppal, Karan, Douglas I. Walker, Ken Liu, Shuzhao Li, Young-Mi Go, and Dean P. Jones. 2016. “Computational Metabolomics: A Framework for the Million Metabolome.” <em>Chem. Res. Toxicol.</em> 29 (12): 1956–75. doi:<a href="https://doi.org/10.1021/acs.chemrestox.6b00179">10.1021/acs.chemrestox.6b00179</a>.</p>
 </div>
 <div id="ref-gromski2015">
-<p>Gromski, Piotr S., Howbeer Muhamadali, David I. Ellis, Yun Xu, Elon Correa, Michael L. Turner, and Royston Goodacre. 2015. “A Tutorial Review: Metabolomics and Partial Least Squares-Discriminant Analysis a Marriage of Convenience or a Shotgun Wedding.” <em>Analytica Chimica Acta</em> 879 (June): 10–23. <a href="https://doi.org/10.1016/j.aca.2015.02.012">https://doi.org/10.1016/j.aca.2015.02.012</a>.</p>
+<p>Gromski, Piotr S., Howbeer Muhamadali, David I. Ellis, Yun Xu, Elon Correa, Michael L. Turner, and Royston Goodacre. 2015. “A Tutorial Review: Metabolomics and Partial Least Squares-Discriminant Analysis a Marriage of Convenience or a Shotgun Wedding.” <em>Analytica Chimica Acta</em> 879 (June): 10–23. doi:<a href="https://doi.org/10.1016/j.aca.2015.02.012">10.1016/j.aca.2015.02.012</a>.</p>
 </div>
 <div id="ref-domingo-almenara2018">
-<p>Domingo-Almenara, Xavier, J. Rafael Montenegro-Burke, H. Paul Benton, and Gary Siuzdak. 2018. “Annotation: A Computational Solution for Streamlining Metabolomics Analysis.” <em>Anal. Chem.</em> 90 (1): 480–89. <a href="https://doi.org/10.1021/acs.analchem.7b03929">https://doi.org/10.1021/acs.analchem.7b03929</a>.</p>
+<p>Domingo-Almenara, Xavier, J. Rafael Montenegro-Burke, H. Paul Benton, and Gary Siuzdak. 2018. “Annotation: A Computational Solution for Streamlining Metabolomics Analysis.” <em>Anal. Chem.</em> 90 (1): 480–89. doi:<a href="https://doi.org/10.1021/acs.analchem.7b03929">10.1021/acs.analchem.7b03929</a>.</p>
 </div>
 <div id="ref-vinaixa2016">
-<p>Vinaixa, Maria, Emma L. Schymanski, Steffen Neumann, Miriam Navarro, Reza M. Salek, and Oscar Yanes. 2016. “Mass Spectral Databases for LC/MS- and GC/MS-Based Metabolomics: State of the Field and Future Prospects.” <em>TrAC Trends in Analytical Chemistry</em> 78 (April): 23–35. <a href="https://doi.org/10.1016/j.trac.2015.09.005">https://doi.org/10.1016/j.trac.2015.09.005</a>.</p>
+<p>Vinaixa, Maria, Emma L. Schymanski, Steffen Neumann, Miriam Navarro, Reza M. Salek, and Oscar Yanes. 2016. “Mass Spectral Databases for LC/MS- and GC/MS-Based Metabolomics: State of the Field and Future Prospects.” <em>TrAC Trends in Analytical Chemistry</em> 78 (April): 23–35. doi:<a href="https://doi.org/10.1016/j.trac.2015.09.005">10.1016/j.trac.2015.09.005</a>.</p>
 </div>
 <div id="ref-misra2016">
-<p>Misra, Biswapriya B., and prefix=van der family=Hooft given=Justin J. J. 2016. “Updates in Metabolomics Tools and Resources: 20142015.” <em>ELECTROPHORESIS</em> 37 (1): 86–110. <a href="https://doi.org/10.1002/elps.201500417">https://doi.org/10.1002/elps.201500417</a>.</p>
+<p>Misra, Biswapriya B., and prefix=van der family=Hooft given=Justin J. J. 2016. “Updates in Metabolomics Tools and Resources: 20142015.” <em>ELECTROPHORESIS</em> 37 (1): 86–110. doi:<a href="https://doi.org/10.1002/elps.201500417">10.1002/elps.201500417</a>.</p>
 </div>
 <div id="ref-misra2017">
-<p>Misra, Biswapriya B., Johannes F. Fahrmann, and Dmitry Grapov. 2017. “Review of Emerging Metabolomic Tools and Resources: 20152016.” <em>ELECTROPHORESIS</em> 38 (18): 2257–74. <a href="https://doi.org/10.1002/elps.201700110">https://doi.org/10.1002/elps.201700110</a>.</p>
+<p>Misra, Biswapriya B., Johannes F. Fahrmann, and Dmitry Grapov. 2017. “Review of Emerging Metabolomic Tools and Resources: 20152016.” <em>ELECTROPHORESIS</em> 38 (18): 2257–74. doi:<a href="https://doi.org/10.1002/elps.201700110">10.1002/elps.201700110</a>.</p>
 </div>
 <div id="ref-misra2018">
-<p>Misra, Biswapriya B. 2018. “New Tools and Resources in Metabolomics: 20162017.” <em>ELECTROPHORESIS</em> 39 (7): 909–23. <a href="https://doi.org/10.1002/elps.201700441">https://doi.org/10.1002/elps.201700441</a>.</p>
+<p>Misra, Biswapriya B. 2018. “New Tools and Resources in Metabolomics: 20162017.” <em>ELECTROPHORESIS</em> 39 (7): 909–23. doi:<a href="https://doi.org/10.1002/elps.201700441">10.1002/elps.201700441</a>.</p>
 </div>
 <div id="ref-spicer2017">
-<p>Spicer, Rachel, Reza M. Salek, Pablo Moreno, Daniel Cañueto, and Christoph Steinbeck. 2017. “Navigating Freely-Available Software Tools for Metabolomics Analysis.” <em>Metabolomics</em> 13 (9). <a href="https://doi.org/10.1007/s11306-017-1242-7">https://doi.org/10.1007/s11306-017-1242-7</a>.</p>
+<p>Spicer, Rachel, Reza M. Salek, Pablo Moreno, Daniel Cañueto, and Christoph Steinbeck. 2017. “Navigating Freely-Available Software Tools for Metabolomics Analysis.” <em>Metabolomics</em> 13 (9). doi:<a href="https://doi.org/10.1007/s11306-017-1242-7">10.1007/s11306-017-1242-7</a>.</p>
 </div>
 <div id="ref-bilbao2015">
-<p>Bilbao, Aivett, Emmanuel Varesio, Jeremy Luban, Caterina Strambio-De-Castillia, Gérard Hopfgartner, Markus Müller, and Frédérique Lisacek. 2015. “Processing Strategies and Software Solutions for Data-Independent Acquisition in Mass Spectrometry.” <em>PROTEOMICS</em> 15 (5-6): 964–80. <a href="https://doi.org/10.1002/pmic.201400323">https://doi.org/10.1002/pmic.201400323</a>.</p>
+<p>Bilbao, Aivett, Emmanuel Varesio, Jeremy Luban, Caterina Strambio-De-Castillia, Gérard Hopfgartner, Markus Müller, and Frédérique Lisacek. 2015. “Processing Strategies and Software Solutions for Data-Independent Acquisition in Mass Spectrometry.” <em>PROTEOMICS</em> 15 (5-6): 964–80. doi:<a href="https://doi.org/10.1002/pmic.201400323">10.1002/pmic.201400323</a>.</p>
 </div>
 <div id="ref-fenaille2017">
-<p>Fenaille, François, Pierre Barbier Saint-Hilaire, Kathleen Rousseau, and Christophe Junot. 2017. “Data Acquisition Workflows in Liquid Chromatography Coupled to High Resolution Mass Spectrometry-Based Metabolomics: Where Do We Stand?” <em>Journal of Chromatography A</em> 1526 (Supplement C): 1–12. <a href="https://doi.org/10.1016/j.chroma.2017.10.043">https://doi.org/10.1016/j.chroma.2017.10.043</a>.</p>
+<p>Fenaille, François, Pierre Barbier Saint-Hilaire, Kathleen Rousseau, and Christophe Junot. 2017. “Data Acquisition Workflows in Liquid Chromatography Coupled to High Resolution Mass Spectrometry-Based Metabolomics: Where Do We Stand?” <em>Journal of Chromatography A</em> 1526 (Supplement C): 1–12. doi:<a href="https://doi.org/10.1016/j.chroma.2017.10.043">10.1016/j.chroma.2017.10.043</a>.</p>
 </div>
 <div id="ref-bundy2009">
-<p>Bundy, Jacob G., Matthew P. Davey, and Mark R. Viant. 2009. “Environmental Metabolomics: A Critical Review and Future Perspectives.” <em>Metabolomics</em> 5 (1): 3. <a href="https://doi.org/10.1007/s11306-008-0152-0">https://doi.org/10.1007/s11306-008-0152-0</a>.</p>
+<p>Bundy, Jacob G., Matthew P. Davey, and Mark R. Viant. 2009. “Environmental Metabolomics: A Critical Review and Future Perspectives.” <em>Metabolomics</em> 5 (1): 3. doi:<a href="https://doi.org/10.1007/s11306-008-0152-0">10.1007/s11306-008-0152-0</a>.</p>
 </div>
 <div id="ref-warth2017">
-<p>Warth, Benedikt, Scott Spangler, Mingliang Fang, Caroline H. Johnson, Erica M. Forsberg, Ana Granados, Richard L. Martin, et al. 2017. “Exposome-Scale Investigations Guided by Global Metabolomics, Pathway Analysis, and Cognitive Computing.” <em>Anal. Chem.</em> 89 (21): 11505–13. <a href="https://doi.org/10.1021/acs.analchem.7b02759">https://doi.org/10.1021/acs.analchem.7b02759</a>.</p>
+<p>Warth, Benedikt, Scott Spangler, Mingliang Fang, Caroline H. Johnson, Erica M. Forsberg, Ana Granados, Richard L. Martin, et al. 2017. “Exposome-Scale Investigations Guided by Global Metabolomics, Pathway Analysis, and Cognitive Computing.” <em>Anal. Chem.</em> 89 (21): 11505–13. doi:<a href="https://doi.org/10.1021/acs.analchem.7b02759">10.1021/acs.analchem.7b02759</a>.</p>
 </div>
 <div id="ref-castro-puyana2017">
-<p>Castro-Puyana, María, Raquel Pérez-Míguez, Lidia Montero, and Miguel Herrero. 2017. “Application of Mass Spectrometry-Based Metabolomics Approaches for Food Safety, Quality and Traceability.” <em>TrAC Trends in Analytical Chemistry</em> 93 (August): 102–18. <a href="https://doi.org/10.1016/j.trac.2017.05.004">https://doi.org/10.1016/j.trac.2017.05.004</a>.</p>
+<p>Castro-Puyana, María, Raquel Pérez-Míguez, Lidia Montero, and Miguel Herrero. 2017. “Application of Mass Spectrometry-Based Metabolomics Approaches for Food Safety, Quality and Traceability.” <em>TrAC Trends in Analytical Chemistry</em> 93 (August): 102–18. doi:<a href="https://doi.org/10.1016/j.trac.2017.05.004">10.1016/j.trac.2017.05.004</a>.</p>
 </div>
 <div id="ref-goldansaz2017">
-<p>Goldansaz, Seyed Ali, An Chi Guo, Tanvir Sajed, Michael A. Steele, Graham S. Plastow, and David S. Wishart. 2017. “Livestock Metabolomics and the Livestock Metabolome: A Systematic Review.” <em>PLOS ONE</em> 12 (5): e0177675. <a href="https://doi.org/10.1371/journal.pone.0177675">https://doi.org/10.1371/journal.pone.0177675</a>.</p>
+<p>Goldansaz, Seyed Ali, An Chi Guo, Tanvir Sajed, Michael A. Steele, Graham S. Plastow, and David S. Wishart. 2017. “Livestock Metabolomics and the Livestock Metabolome: A Systematic Review.” <em>PLOS ONE</em> 12 (5): e0177675. doi:<a href="https://doi.org/10.1371/journal.pone.0177675">10.1371/journal.pone.0177675</a>.</p>
 </div>
 <div id="ref-allam-ndoul2016">
-<p>Allam-Ndoul, Bénédicte, Frédéric Guénard, Véronique Garneau, Hubert Cormier, Olivier Barbier, Louis Pérusse, and Marie-Claude Vohl. 2016. “Association Between Metabolite Profiles, Metabolic Syndrome and Obesity Status.” <em>Nutrients</em> 8 (6): 324. <a href="https://doi.org/10.3390/nu8060324">https://doi.org/10.3390/nu8060324</a>.</p>
+<p>Allam-Ndoul, Bénédicte, Frédéric Guénard, Véronique Garneau, Hubert Cormier, Olivier Barbier, Louis Pérusse, and Marie-Claude Vohl. 2016. “Association Between Metabolite Profiles, Metabolic Syndrome and Obesity Status.” <em>Nutrients</em> 8 (6): 324. doi:<a href="https://doi.org/10.3390/nu8060324">10.3390/nu8060324</a>.</p>
 </div>
 <div id="ref-jones2012">
-<p>Jones, Dean P., Youngja Park, and Thomas R. Ziegler. 2012. “Nutritional Metabolomics: Progress in Addressing Complexity in Diet and Health.” <em>Annu. Rev. Nutr.</em> 32 (1): 183–202. <a href="https://doi.org/10.1146/annurev-nutr-072610-145159">https://doi.org/10.1146/annurev-nutr-072610-145159</a>.</p>
+<p>Jones, Dean P., Youngja Park, and Thomas R. Ziegler. 2012. “Nutritional Metabolomics: Progress in Addressing Complexity in Diet and Health.” <em>Annu. Rev. Nutr.</em> 32 (1): 183–202. doi:<a href="https://doi.org/10.1146/annurev-nutr-072610-145159">10.1146/annurev-nutr-072610-145159</a>.</p>
 </div>
 <div id="ref-spratlin2009">
-<p>Spratlin, Jennifer L., Natalie J. Serkova, and S. Gail Eckhardt. 2009. “Clinical Applications of Metabolomics in Oncology: A Review.” <em>Clin Cancer Res</em> 15 (2): 431–40. <a href="https://doi.org/10.1158/1078-0432.CCR-08-1059">https://doi.org/10.1158/1078-0432.CCR-08-1059</a>.</p>
+<p>Spratlin, Jennifer L., Natalie J. Serkova, and S. Gail Eckhardt. 2009. “Clinical Applications of Metabolomics in Oncology: A Review.” <em>Clin Cancer Res</em> 15 (2): 431–40. doi:<a href="https://doi.org/10.1158/1078-0432.CCR-08-1059">10.1158/1078-0432.CCR-08-1059</a>.</p>
 </div>
 <div id="ref-tumas2016">
-<p>Tumas, Jaroslav, Kotryna Kvederaviciute, Marius Petrulionis, Benediktas Kurlinkus, Arnas Rimkus, Greta Sakalauskaite, Jonas Cicenas, and Audrius Sileikis. 2016. “Metabolomics in Pancreatic Cancer Biomarkers Research.” <em>Med Oncol</em> 33 (12): 133. <a href="https://doi.org/10.1007/s12032-016-0853-6">https://doi.org/10.1007/s12032-016-0853-6</a>.</p>
+<p>Tumas, Jaroslav, Kotryna Kvederaviciute, Marius Petrulionis, Benediktas Kurlinkus, Arnas Rimkus, Greta Sakalauskaite, Jonas Cicenas, and Audrius Sileikis. 2016. “Metabolomics in Pancreatic Cancer Biomarkers Research.” <em>Med Oncol</em> 33 (12): 133. doi:<a href="https://doi.org/10.1007/s12032-016-0853-6">10.1007/s12032-016-0853-6</a>.</p>
 </div>
 <div id="ref-tan2016">
-<p>Tan, S. Z., P. Begley, G. Mullard, K. A. Hollywood, and P. N. Bishop. 2016. “Introduction to Metabolomics and Its Applications in Ophthalmology.” <em>Eye</em> 30 (6): 773–83. <a href="https://doi.org/10.1038/eye.2016.37">https://doi.org/10.1038/eye.2016.37</a>.</p>
+<p>Tan, S. Z., P. Begley, G. Mullard, K. A. Hollywood, and P. N. Bishop. 2016. “Introduction to Metabolomics and Its Applications in Ophthalmology.” <em>Eye</em> 30 (6): 773–83. doi:<a href="https://doi.org/10.1038/eye.2016.37">10.1038/eye.2016.37</a>.</p>
 </div>
 <div id="ref-cheng2017">
-<p>Cheng, Susan, Svati H. Shah, Elizabeth J. Corwin, Oliver Fiehn, Robert L. Fitzgerald, Robert E. Gerszten, Thomas Illig, et al. 2017. “Potential Impact and Study Considerations of Metabolomics in Cardiovascular Health and Disease: A Scientific Statement from the American Heart Association.” <em>Circ. Cardiovasc. Genet.</em> 10 (2): e000032. <a href="https://doi.org/10.1161/HCG.0000000000000032">https://doi.org/10.1161/HCG.0000000000000032</a>.</p>
+<p>Cheng, Susan, Svati H. Shah, Elizabeth J. Corwin, Oliver Fiehn, Robert L. Fitzgerald, Robert E. Gerszten, Thomas Illig, et al. 2017. “Potential Impact and Study Considerations of Metabolomics in Cardiovascular Health and Disease: A Scientific Statement From the American Heart Association.” <em>Circ. Cardiovasc. Genet.</em> 10 (2): e000032. doi:<a href="https://doi.org/10.1161/HCG.0000000000000032">10.1161/HCG.0000000000000032</a>.</p>
 </div>
 <div id="ref-hocher2017a">
-<p>Hocher, Berthold, and Jerzy Adamski. 2017. “Metabolomics for Clinical Use and Research in Chronic Kidney Disease.” <em>Nat. Rev. Nephrol.</em> 13 (5): 269–84. <a href="https://doi.org/10.1038/nrneph.2017.30">https://doi.org/10.1038/nrneph.2017.30</a>.</p>
+<p>Hocher, Berthold, and Jerzy Adamski. 2017. “Metabolomics for Clinical Use and Research in Chronic Kidney Disease.” <em>Nat. Rev. Nephrol.</em> 13 (5): 269–84. doi:<a href="https://doi.org/10.1038/nrneph.2017.30">10.1038/nrneph.2017.30</a>.</p>
 </div>
 <div id="ref-wishart2016">
-<p>Wishart, David S. 2016. “Emerging Applications of Metabolomics in Drug Discovery and Precision Medicine.” <em>Nat Rev Drug Discov</em> 15 (7): 473–84. <a href="https://doi.org/10.1038/nrd.2016.32">https://doi.org/10.1038/nrd.2016.32</a>.</p>
+<p>Wishart, David S. 2016. “Emerging Applications of Metabolomics in Drug Discovery and Precision Medicine.” <em>Nat Rev Drug Discov</em> 15 (7): 473–84. doi:<a href="https://doi.org/10.1038/nrd.2016.32">10.1038/nrd.2016.32</a>.</p>
 </div>
 <div id="ref-jorge2016a">
-<p>Jorge, Tiago F., Ana T. Mata, and Carla António. 2016. “Mass Spectrometry as a Quantitative Tool in Plant Metabolomics.” <em>Phil. Trans. R. Soc. A</em> 374 (2079): 20150370. <a href="https://doi.org/10.1098/rsta.2015.0370">https://doi.org/10.1098/rsta.2015.0370</a>.</p>
+<p>Jorge, Tiago F., Ana T. Mata, and Carla António. 2016. “Mass Spectrometry as a Quantitative Tool in Plant Metabolomics.” <em>Phil. Trans. R. Soc. A</em> 374 (2079): 20150370. doi:<a href="https://doi.org/10.1098/rsta.2015.0370">10.1098/rsta.2015.0370</a>.</p>
 </div>
 <div id="ref-sumner2003">
-<p>Sumner, Lloyd W, Pedro Mendes, and Richard A Dixon. 2003. “Plant Metabolomics: Large-Scale Phytochemistry in the Functional Genomics Era.” <em>Phytochemistry</em>, Plant metabolomics, 62 (6): 817–36. <a href="https://doi.org/10.1016/S0031-9422(02)00708-2">https://doi.org/10.1016/S0031-9422(02)00708-2</a>.</p>
+<p>Sumner, Lloyd W, Pedro Mendes, and Richard A Dixon. 2003. “Plant Metabolomics: Large-Scale Phytochemistry in the Functional Genomics Era.” <em>Phytochemistry</em>, Plant metabolomics, 62 (6): 817–36. doi:<a href="https://doi.org/10.1016/S0031-9422(02)00708-2">10.1016/S0031-9422(02)00708-2</a>.</p>
 </div>
 <div id="ref-kapoore2016b">
-<p>Kapoore, Rahul Vijay, and Seetharaman Vaidyanathan. 2016. “Towards Quantitative Mass Spectrometry-Based Metabolomics in Microbial and Mammalian Systems.” <em>Phil. Trans. R. Soc. A</em> 374 (2079): 20150363. <a href="https://doi.org/10.1098/rsta.2015.0363">https://doi.org/10.1098/rsta.2015.0363</a>.</p>
+<p>Kapoore, Rahul Vijay, and Seetharaman Vaidyanathan. 2016. “Towards Quantitative Mass Spectrometry-Based Metabolomics in Microbial and Mammalian Systems.” <em>Phil. Trans. R. Soc. A</em> 374 (2079): 20150363. doi:<a href="https://doi.org/10.1098/rsta.2015.0363">10.1098/rsta.2015.0363</a>.</p>
 </div>
 <div id="ref-gonzalez-riano2016">
-<p>Gonzalez-Riano, Carolina, Antonia Garcia, and Coral Barbas. 2016. “Metabolomics Studies in Brain Tissue: A Review.” <em>Journal of Pharmaceutical and Biomedical Analysis</em>, Review issue 2016, 130 (October): 141–68. <a href="https://doi.org/10.1016/j.jpba.2016.07.008">https://doi.org/10.1016/j.jpba.2016.07.008</a>.</p>
+<p>Gonzalez-Riano, Carolina, Antonia Garcia, and Coral Barbas. 2016. “Metabolomics Studies in Brain Tissue: A Review.” <em>Journal of Pharmaceutical and Biomedical Analysis</em>, Review issue 2016, 130 (October): 141–68. doi:<a href="https://doi.org/10.1016/j.jpba.2016.07.008">10.1016/j.jpba.2016.07.008</a>.</p>
 </div>
 <div id="ref-smirnov2016">
-<p>Smirnov, Kirill S., Tanja V. Maier, Alesia Walker, Silke S. Heinzmann, Sara Forcisi, Inés Martinez, Jens Walter, and Philippe Schmitt-Kopplin. 2016. “Challenges of Metabolomics in Human Gut Microbiota Research.” <em>International Journal of Medical Microbiology</em>, Intestinal microbiota - a microbial ecosystem at the edge between immune homeostasis and inflammation, 306 (5): 266–79. <a href="https://doi.org/10.1016/j.ijmm.2016.03.006">https://doi.org/10.1016/j.ijmm.2016.03.006</a>.</p>
+<p>Smirnov, Kirill S., Tanja V. Maier, Alesia Walker, Silke S. Heinzmann, Sara Forcisi, Inés Martinez, Jens Walter, and Philippe Schmitt-Kopplin. 2016. “Challenges of Metabolomics in Human Gut Microbiota Research.” <em>International Journal of Medical Microbiology</em>, Intestinal microbiota - a microbial ecosystem at the edge between immune homeostasis and inflammation, 306 (5): 266–79. doi:<a href="https://doi.org/10.1016/j.ijmm.2016.03.006">10.1016/j.ijmm.2016.03.006</a>.</p>
 </div>
 <div id="ref-fessenden2016">
-<p>Fessenden, Marissa. 2016. “Metabolomics: Small Molecules, Single Cells.” <em>Nature</em> 540 (7631): 153–55. <a href="https://doi.org/10.1038/540153a">https://doi.org/10.1038/540153a</a>.</p>
+<p>Fessenden, Marissa. 2016. “Metabolomics: Small Molecules, Single Cells.” <em>Nature</em> 540 (7631): 153–55. doi:<a href="https://doi.org/10.1038/540153a">10.1038/540153a</a>.</p>
 </div>
 <div id="ref-zenobi2013">
-<p>Zenobi, R. 2013. “Single-Cell Metabolomics: Analytical and Biological Perspectives.” <em>Science</em> 342 (6163): 1243259. <a href="https://doi.org/10.1126/science.1243259">https://doi.org/10.1126/science.1243259</a>.</p>
+<p>Zenobi, R. 2013. “Single-Cell Metabolomics: Analytical and Biological Perspectives.” <em>Science</em> 342 (6163): 1243259. doi:<a href="https://doi.org/10.1126/science.1243259">10.1126/science.1243259</a>.</p>
 </div>
 <div id="ref-zampieri2017">
-<p>Zampieri, Mattia, Karthik Sekar, Nicola Zamboni, and Uwe Sauer. 2017. “Frontiers of High-Throughput Metabolomics.” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 15–23. <a href="https://doi.org/10.1016/j.cbpa.2016.12.006">https://doi.org/10.1016/j.cbpa.2016.12.006</a>.</p>
+<p>Zampieri, Mattia, Karthik Sekar, Nicola Zamboni, and Uwe Sauer. 2017. “Frontiers of High-Throughput Metabolomics.” <em>Current Opinion in Chemical Biology</em>, Omics, 36 (February): 15–23. doi:<a href="https://doi.org/10.1016/j.cbpa.2016.12.006">10.1016/j.cbpa.2016.12.006</a>.</p>
 </div>
 <div id="ref-dudzik2018">
-<p>Dudzik, Danuta, Cecilia Barbas-Bernardos, Antonia García, and Coral Barbas. 2018. “Quality Assurance Procedures for Mass Spectrometry Untargeted Metabolomics. A Review.” <em>Journal of Pharmaceutical and Biomedical Analysis</em>, Review issue 2017, 147 (January): 149–73. <a href="https://doi.org/10.1016/j.jpba.2017.07.044">https://doi.org/10.1016/j.jpba.2017.07.044</a>.</p>
+<p>Dudzik, Danuta, Cecilia Barbas-Bernardos, Antonia García, and Coral Barbas. 2018. “Quality Assurance Procedures for Mass Spectrometry Untargeted Metabolomics. a Review.” <em>Journal of Pharmaceutical and Biomedical Analysis</em>, Review issue 2017, 147 (January): 149–73. doi:<a href="https://doi.org/10.1016/j.jpba.2017.07.044">10.1016/j.jpba.2017.07.044</a>.</p>
 </div>
 <div id="ref-siskos2017">
-<p>Siskos, Alexandros P., Pooja Jain, Werner Römisch-Margl, Mark Bennett, David Achaintre, Yasmin Asad, Luke Marney, et al. 2017. “Interlaboratory Reproducibility of a Targeted Metabolomics Platform for Analysis of Human Serum and Plasma.” <em>Anal. Chem.</em> 89 (1): 656–65. <a href="https://doi.org/10.1021/acs.analchem.6b02930">https://doi.org/10.1021/acs.analchem.6b02930</a>.</p>
+<p>Siskos, Alexandros P., Pooja Jain, Werner Römisch-Margl, Mark Bennett, David Achaintre, Yasmin Asad, Luke Marney, et al. 2017. “Interlaboratory Reproducibility of a Targeted Metabolomics Platform for Analysis of Human Serum and Plasma.” <em>Anal. Chem.</em> 89 (1): 656–65. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02930">10.1021/acs.analchem.6b02930</a>.</p>
 </div>
 </div>
             </section>
@@ -627,7 +597,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapaper": false,
+"instapper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -653,8 +623,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

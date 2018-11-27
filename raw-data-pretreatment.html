@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -36,7 +36,6 @@
 <link rel="next" href="peaks-normalization.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -55,67 +54,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -321,9 +294,9 @@ Figure 5.1: Demo of GC/LC-MS data
 </p>
 </div>
 <p>Conversation from the mass-retention time matrix into a vector with selected MS peaks at certain retention time is the basic idea of Peak extraction. You could EIC for each mass to charge ratio and use the change of trace slope to determine whether there is a peak or not. Then we could make integration for this peak and get peak area and retention time.</p>
-<pre class="sourceCode r"><code class="sourceCode r">intensity &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">14</span>,<span class="dv">19</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">33</span>,<span class="dv">26</span>,<span class="dv">21</span>,<span class="dv">16</span>,<span class="dv">12</span>,<span class="dv">11</span>,<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">10</span>)
-time &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)
-<span class="kw">plot</span>(intensity<span class="op">~</span>time, <span class="dt">type =</span> <span class="st">&#39;o&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;EIC&#39;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">intensity &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">14</span>,<span class="dv">19</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">33</span>,<span class="dv">26</span>,<span class="dv">21</span>,<span class="dv">16</span>,<span class="dv">12</span>,<span class="dv">11</span>,<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">10</span>)
+time &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">20</span>)
+<span class="kw">plot</span>(intensity~time, <span class="dt">type =</span> <span class="st">&#39;o&#39;</span>, <span class="dt">main =</span> <span class="st">&#39;EIC&#39;</span>)</code></pre></div>
 <div class="figure"><span id="fig:demoeic"></span>
 <img src="Metabolomics_files/figure-html/demoeic-1.png" alt="Demo of EIC with peak" width="672" />
 <p class="caption">
@@ -331,8 +304,7 @@ Figure 5.2: Demo of EIC with peak
 </p>
 </div>
 <p>However, in mass spectrumetry dataset, the EIC is not that simple for full scan. Due to the accuracy of instrument, the detected mass to charge ratio would have some shift and EIC would fail if different scan get the intensity from different mass to charge ratio.</p>
-<p>In the <code>matchedfilter</code> algorithm<span class="citation">(Smith et al. <a href="#ref-smith2006">2006</a>)</span>, they solve this issue by bin the data in m/z dimension. The adjacent chromatographic slices could be combined to find a clean signal fitting fixed second-derivative Gaussian with full width at half-maximum
-(fwhm) of 30s to find peaks with about 1.5-4 times the signal peak width. The the integration is performed on the fitted area.</p>
+<p>In the <code>matchedfilter</code> algorithm<span class="citation">(Smith et al. <a href="#ref-smith2006">2006</a>)</span>, they solve this issue by bin the data in m/z dimension. The adjacent chromatographic slices could be combined to find a clean signal fitting fixed second-derivative Gaussian with full width at half-maximum (fwhm) of 30s to find peaks with about 1.5-4 times the signal peak width. The the integration is performed on the fitted area.</p>
 <div class="figure"><span id="fig:matchedfilter"></span>
 <img src="images/matchedfilter.jpg" alt="Demo of matchedfilter" width="90%" />
 <p class="caption">
@@ -369,12 +341,12 @@ Figure 5.4: Demo of many GC/LC-MS data
 <p>Some of the data were limited by the detect of limitation. Thus we need some methods to impute the data if we don’t want to lose information by deleting the NA or 0.</p>
 <p>Two major imputation way could be used. The first way is use model-free method such as half the minimum of the values across the data, 0, 1, mean/median across the data( <code>enviGCMS</code> package could do this via <code>getimputation</code> function). The second way is use model-based method such as linear model, random forest, KNN, PCA. Try <code>simputation</code> package for various imputation methods.</p>
 <p>Tobit regression is preferred for censored data. Also you might choose maximum likelihood estimation(Estimation of mean and standard deviation by MLE. Creating 10 complete samples. Pool the results from 10 individual analyses).</p>
-<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>,<span class="dv">1</span>)
-x[x<span class="op">&lt;</span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
-y &lt;-<span class="st"> </span>x<span class="op">*</span><span class="dv">10</span><span class="op">+</span><span class="dv">1</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>,<span class="dv">1</span>)
+x[x&lt;<span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+y &lt;-<span class="st"> </span>x*<span class="dv">10+1</span>
 <span class="kw">library</span>(AER)
-tfit &lt;-<span class="st"> </span><span class="kw">tobit</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">left =</span> <span class="dv">0</span>)
-<span class="kw">summary</span>(tfit)</code></pre>
+tfit &lt;-<span class="st"> </span><span class="kw">tobit</span>(y ~<span class="st"> </span>x, <span class="dt">left =</span> <span class="dv">0</span>)
+<span class="kw">summary</span>(tfit)</code></pre></div>
 <pre><code>## 
 ## Call:
 ## tobit(formula = y ~ x, left = 0)
@@ -444,73 +416,73 @@ tfit &lt;-<span class="st"> </span><span class="kw">tobit</span>(y <span class="
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-smith2006">
-<p>Smith, Colin A., Elizabeth J. Want, Grace O’Maille, Ruben Abagyan, and Gary Siuzdak. 2006. “XCMS:  Processing Mass Spectrometry Data for Metabolite Profiling Using Nonlinear Peak Alignment, Matching, and Identification.” <em>Anal. Chem.</em> 78 (3): 779–87. <a href="https://doi.org/10.1021/ac051437y">https://doi.org/10.1021/ac051437y</a>.</p>
+<p>Smith, Colin A., Elizabeth J. Want, Grace O’Maille, Ruben Abagyan, and Gary Siuzdak. 2006. “XCMS: Processing Mass Spectrometry Data for Metabolite Profiling Using Nonlinear Peak Alignment, Matching, and Identification.” <em>Anal. Chem.</em> 78 (3): 779–87. doi:<a href="https://doi.org/10.1021/ac051437y">10.1021/ac051437y</a>.</p>
 </div>
 <div id="ref-tautenhahn2008">
-<p>Tautenhahn, Ralf, Christoph Böttcher, and Steffen Neumann. 2008. “Highly Sensitive Feature Detection for High Resolution LC/MS.” <em>BMC Bioinformatics</em> 9: 504. <a href="https://doi.org/10.1186/1471-2105-9-504">https://doi.org/10.1186/1471-2105-9-504</a>.</p>
+<p>Tautenhahn, Ralf, Christoph Böttcher, and Steffen Neumann. 2008. “Highly Sensitive Feature Detection for High Resolution LC/MS.” <em>BMC Bioinformatics</em> 9: 504. doi:<a href="https://doi.org/10.1186/1471-2105-9-504">10.1186/1471-2105-9-504</a>.</p>
 </div>
 <div id="ref-fu2017">
-<p>Fu, Hai-Yan, Ou Hu, Yue-Ming Zhang, Li Zhang, Jing-Jing Song, Peang Lu, Qing-Xia Zheng, et al. 2017. “Mass-Spectra-Based Peak Alignment for Automatic Nontargeted Metabolic Profiling Analysis for Biomarker Screening in Plant Samples.” <em>Journal of Chromatography A</em> 1513 (Supplement C): 201–9. <a href="https://doi.org/10.1016/j.chroma.2017.07.044">https://doi.org/10.1016/j.chroma.2017.07.044</a>.</p>
+<p>Fu, Hai-Yan, Ou Hu, Yue-Ming Zhang, Li Zhang, Jing-Jing Song, Peang Lu, Qing-Xia Zheng, et al. 2017. “Mass-Spectra-Based Peak Alignment for Automatic Nontargeted Metabolic Profiling Analysis for Biomarker Screening in Plant Samples.” <em>Journal of Chromatography A</em> 1513 (Supplement C): 201–9. doi:<a href="https://doi.org/10.1016/j.chroma.2017.07.044">10.1016/j.chroma.2017.07.044</a>.</p>
 </div>
 <div id="ref-du2013">
-<p>Du, Xiuxia, and Steven H Zeisel. 2013. “SPECTRAL DECONVOLUTION FOR GAS CHROMATOGRAPHY MASS SPECTROMETRY-BASED METABOLOMICS: CURRENT STATUS AND FUTURE PERSPECTIVES.” <em>Computational and Structural Biotechnology Journal</em> 4 (5): 1–10. <a href="https://doi.org/10.5936/csbj.201301013">https://doi.org/10.5936/csbj.201301013</a>.</p>
+<p>Du, Xiuxia, and Steven H Zeisel. 2013. “SPECTRAL DECONVOLUTION FOR GAS CHROMATOGRAPHY MASS SPECTROMETRY-BASED METABOLOMICS: CURRENT STATUS AND FUTURE PERSPECTIVES.” <em>Computational and Structural Biotechnology Journal</em> 4 (5): 1–10. doi:<a href="https://doi.org/10.5936/csbj.201301013">10.5936/csbj.201301013</a>.</p>
 </div>
 <div id="ref-domingo-almenara2016">
-<p>Domingo-Almenara, Xavier, Jesus Brezmes, Maria Vinaixa, Sara Samino, Noelia Ramirez, Marta Ramon-Krauel, Carles Lerin, et al. 2016. “eRah: A Computational Tool Integrating Spectral Deconvolution and Alignment with Quantification and Identification of Metabolites in GC/MS-Based Metabolomics.” <em>Anal. Chem.</em> 88 (19): 9821–9. <a href="https://doi.org/10.1021/acs.analchem.6b02927">https://doi.org/10.1021/acs.analchem.6b02927</a>.</p>
+<p>Domingo-Almenara, Xavier, Jesus Brezmes, Maria Vinaixa, Sara Samino, Noelia Ramirez, Marta Ramon-Krauel, Carles Lerin, et al. 2016. “ERah: A Computational Tool Integrating Spectral Deconvolution and Alignment with Quantification and Identification of Metabolites in GC/MS-Based Metabolomics.” <em>Anal. Chem.</em> 88 (19): 9821–9. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02927">10.1021/acs.analchem.6b02927</a>.</p>
 </div>
 <div id="ref-ni2016">
-<p>Ni, Yan, Mingming Su, Yunping Qiu, Wei Jia, and Xiuxia Du. 2016. “ADAP-GC 3.0: Improved Peak Detection and Deconvolution of Co-Eluting Metabolites from GC/TOF-MS Data for Metabolomics Studies.” <em>Anal. Chem.</em> 88 (17): 8802–11. <a href="https://doi.org/10.1021/acs.analchem.6b02222">https://doi.org/10.1021/acs.analchem.6b02222</a>.</p>
+<p>Ni, Yan, Mingming Su, Yunping Qiu, Wei Jia, and Xiuxia Du. 2016. “ADAP-GC 3.0: Improved Peak Detection and Deconvolution of Co-Eluting Metabolites from GC/TOF-MS Data for Metabolomics Studies.” <em>Anal. Chem.</em> 88 (17): 8802–11. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02222">10.1021/acs.analchem.6b02222</a>.</p>
 </div>
 <div id="ref-lisec2016">
-<p>Lisec, Jan, Friederike Hoffmann, Clemens Schmitt, and Carsten Jaeger. 2016. “Extending the Dynamic Range in Metabolomics Experiments by Automatic Correction of Peaks Exceeding the Detection Limit.” <em>Anal. Chem.</em> 88 (15): 7487–92. <a href="https://doi.org/10.1021/acs.analchem.6b02515">https://doi.org/10.1021/acs.analchem.6b02515</a>.</p>
+<p>Lisec, Jan, Friederike Hoffmann, Clemens Schmitt, and Carsten Jaeger. 2016. “Extending the Dynamic Range in Metabolomics Experiments by Automatic Correction of Peaks Exceeding the Detection Limit.” <em>Anal. Chem.</em> 88 (15): 7487–92. doi:<a href="https://doi.org/10.1021/acs.analchem.6b02515">10.1021/acs.analchem.6b02515</a>.</p>
 </div>
 <div id="ref-chambers2012">
-<p>Chambers, Matthew C., Brendan Maclean, Robert Burke, Dario Amodei, Daniel L. Ruderman, Steffen Neumann, Laurent Gatto, et al. 2012. “A Cross-Platform Toolkit for Mass Spectrometry and Proteomics.” <em>Nat. Biotechnol.</em> 30 (October): 918–20. <a href="https://doi.org/10.1038/nbt.2377">https://doi.org/10.1038/nbt.2377</a>.</p>
+<p>Chambers, Matthew C., Brendan Maclean, Robert Burke, Dario Amodei, Daniel L. Ruderman, Steffen Neumann, Laurent Gatto, et al. 2012. “A Cross-Platform Toolkit for Mass Spectrometry and Proteomics.” <em>Nat. Biotechnol.</em> 30 (October): 918–20. doi:<a href="https://doi.org/10.1038/nbt.2377">10.1038/nbt.2377</a>.</p>
 </div>
 <div id="ref-yu2009">
-<p>Yu, Tianwei, Youngja Park, Jennifer M. Johnson, and Dean P. Jones. 2009. “apLCMSAdaptive Processing of High-Resolution LC/MS Data.” <em>Bioinformatics</em> 25 (15): 1930–6. <a href="https://doi.org/10.1093/bioinformatics/btp291">https://doi.org/10.1093/bioinformatics/btp291</a>.</p>
+<p>Yu, Tianwei, Youngja Park, Jennifer M. Johnson, and Dean P. Jones. 2009. “ApLCMSAdaptive Processing of High-Resolution LC/MS Data.” <em>Bioinformatics</em> 25 (15): 1930–6. doi:<a href="https://doi.org/10.1093/bioinformatics/btp291">10.1093/bioinformatics/btp291</a>.</p>
 </div>
 <div id="ref-huang2014">
-<p>Huang, Xiaojing, Ying-Jr Chen, Kevin Cho, Igor Nikolskiy, Peter A. Crawford, and Gary J. Patti. 2014. “X13CMS: Global Tracking of Isotopic Labels in Untargeted Metabolomics.” <em>Anal. Chem.</em> 86 (3): 1632–9. <a href="https://doi.org/10.1021/ac403384n">https://doi.org/10.1021/ac403384n</a>.</p>
+<p>Huang, Xiaojing, Ying-Jr Chen, Kevin Cho, Igor Nikolskiy, Peter A. Crawford, and Gary J. Patti. 2014. “X13CMS: Global Tracking of Isotopic Labels in Untargeted Metabolomics.” <em>Anal. Chem.</em> 86 (3): 1632–9. doi:<a href="https://doi.org/10.1021/ac403384n">10.1021/ac403384n</a>.</p>
 </div>
 <div id="ref-kew2017">
-<p>Kew, William, John W. T. Blackburn, David J. Clarke, and Dušan Uhrín. 2017. “Interactive van Krevelen Diagrams Visualisation of Mass Spectrometry Data of Complex Mixtures.” <em>Rapid Commun. Mass Spectrom.</em> 31 (7): 658–62. <a href="https://doi.org/10.1002/rcm.7823">https://doi.org/10.1002/rcm.7823</a>.</p>
+<p>Kew, William, John W. T. Blackburn, David J. Clarke, and Dušan Uhrín. 2017. “Interactive van Krevelen Diagrams Visualisation of Mass Spectrometry Data of Complex Mixtures.” <em>Rapid Commun. Mass Spectrom.</em> 31 (7): 658–62. doi:<a href="https://doi.org/10.1002/rcm.7823">10.1002/rcm.7823</a>.</p>
 </div>
 <div id="ref-pluskal2010">
-<p>Pluskal, Tomáš, Sandra Castillo, Alejandro Villar-Briones, and Matej Orešič. 2010. “MZmine 2: Modular Framework for Processing, Visualizing, and Analyzing Mass Spectrometry-Based Molecular Profile Data.” <em>BMC Bioinformatics</em> 11: 395. <a href="https://doi.org/10.1186/1471-2105-11-395">https://doi.org/10.1186/1471-2105-11-395</a>.</p>
+<p>Pluskal, Tomáš, Sandra Castillo, Alejandro Villar-Briones, and Matej Orešič. 2010. “MZmine 2: Modular Framework for Processing, Visualizing, and Analyzing Mass Spectrometry-Based Molecular Profile Data.” <em>BMC Bioinformatics</em> 11: 395. doi:<a href="https://doi.org/10.1186/1471-2105-11-395">10.1186/1471-2105-11-395</a>.</p>
 </div>
 <div id="ref-tsugawa2015">
-<p>Tsugawa, Hiroshi, Tomas Cajka, Tobias Kind, Yan Ma, Brendan Higgins, Kazutaka Ikeda, Mitsuhiro Kanazawa, Jean VanderGheynst, Oliver Fiehn, and Masanori Arita. 2015. “MS-DIAL: Data-Independent MS/MS Deconvolution for Comprehensive Metabolome Analysis.” <em>Nat Meth</em> 12 (6): 523–26. <a href="https://doi.org/10.1038/nmeth.3393">https://doi.org/10.1038/nmeth.3393</a>.</p>
+<p>Tsugawa, Hiroshi, Tomas Cajka, Tobias Kind, Yan Ma, Brendan Higgins, Kazutaka Ikeda, Mitsuhiro Kanazawa, Jean VanderGheynst, Oliver Fiehn, and Masanori Arita. 2015. “MS-DIAL: Data-Independent MS/MS Deconvolution for Comprehensive Metabolome Analysis.” <em>Nat Meth</em> 12 (6): 523–26. doi:<a href="https://doi.org/10.1038/nmeth.3393">10.1038/nmeth.3393</a>.</p>
 </div>
 <div id="ref-rost2016">
-<p>Röst, Hannes L., Timo Sachsenberg, Stephan Aiche, Chris Bielow, Hendrik Weisser, Fabian Aicheler, Sandro Andreotti, et al. 2016. “OpenMS: A Flexible Open-Source Software Platform for Mass Spectrometry Data Analysis.” <em>Nat Meth</em> 13 (9): 741–48. <a href="https://doi.org/10.1038/nmeth.3959">https://doi.org/10.1038/nmeth.3959</a>.</p>
+<p>Röst, Hannes L., Timo Sachsenberg, Stephan Aiche, Chris Bielow, Hendrik Weisser, Fabian Aicheler, Sandro Andreotti, et al. 2016. “OpenMS: A Flexible Open-Source Software Platform for Mass Spectrometry Data Analysis.” <em>Nat Meth</em> 13 (9): 741–48. doi:<a href="https://doi.org/10.1038/nmeth.3959">10.1038/nmeth.3959</a>.</p>
 </div>
 <div id="ref-creek2012">
-<p>Creek, Darren J., Andris Jankevics, Karl E. V. Burgess, Rainer Breitling, and Michael P. Barrett. 2012. “IDEOM: An Excel Interface for Analysis of LCMS-Based Metabolomics Data.” <em>Bioinformatics</em> 28 (7): 1048–9. <a href="https://doi.org/10.1093/bioinformatics/bts069">https://doi.org/10.1093/bioinformatics/bts069</a>.</p>
+<p>Creek, Darren J., Andris Jankevics, Karl E. V. Burgess, Rainer Breitling, and Michael P. Barrett. 2012. “IDEOM: An Excel Interface for Analysis of LCMS-Based Metabolomics Data.” <em>Bioinformatics</em> 28 (7): 1048–9. doi:<a href="https://doi.org/10.1093/bioinformatics/bts069">10.1093/bioinformatics/bts069</a>.</p>
 </div>
 <div id="ref-chang2016">
-<p>Chang, Hui-Yin, Ching-Tai Chen, T. Mamie Lih, Ke-Shiuan Lynn, Chiun-Gung Juo, Wen-Lian Hsu, and Ting-Yi Sung. 2016. “iMet-Q: A User-Friendly Tool for Label-Free Metabolomics Quantitation Using Dynamic Peak-Width Determination.” <em>PLOS ONE</em> 11 (1): e0146112. <a href="https://doi.org/10.1371/journal.pone.0146112">https://doi.org/10.1371/journal.pone.0146112</a>.</p>
+<p>Chang, Hui-Yin, Ching-Tai Chen, T. Mamie Lih, Ke-Shiuan Lynn, Chiun-Gung Juo, Wen-Lian Hsu, and Ting-Yi Sung. 2016. “IMet-Q: A User-Friendly Tool for Label-Free Metabolomics Quantitation Using Dynamic Peak-Width Determination.” <em>PLOS ONE</em> 11 (1): e0146112. doi:<a href="https://doi.org/10.1371/journal.pone.0146112">10.1371/journal.pone.0146112</a>.</p>
 </div>
 <div id="ref-melamud2010">
-<p>Melamud, Eugene, Livia Vastag, and Joshua D. Rabinowitz. 2010. “Metabolomic Analysis and Visualization Engine for LC-MS Data.” <em>Anal. Chem.</em> 82 (23): 9818–26. <a href="https://doi.org/10.1021/ac1021166">https://doi.org/10.1021/ac1021166</a>.</p>
+<p>Melamud, Eugene, Livia Vastag, and Joshua D. Rabinowitz. 2010. “Metabolomic Analysis and Visualization Engine for LC-MS Data.” <em>Anal. Chem.</em> 82 (23): 9818–26. doi:<a href="https://doi.org/10.1021/ac1021166">10.1021/ac1021166</a>.</p>
 </div>
 <div id="ref-nikolskiy2013">
-<p>Nikolskiy, Igor, Nathaniel G. Mahieu, Ying-Jr Chen, Ralf Tautenhahn, and Gary J. Patti. 2013. “An Untargeted Metabolomic Workflow to Improve Structural Characterization of Metabolites.” <em>Anal. Chem.</em> 85 (16): 7713–9. <a href="https://doi.org/10.1021/ac400751j">https://doi.org/10.1021/ac400751j</a>.</p>
+<p>Nikolskiy, Igor, Nathaniel G. Mahieu, Ying-Jr Chen, Ralf Tautenhahn, and Gary J. Patti. 2013. “An Untargeted Metabolomic Workflow to Improve Structural Characterization of Metabolites.” <em>Anal. Chem.</em> 85 (16): 7713–9. doi:<a href="https://doi.org/10.1021/ac400751j">10.1021/ac400751j</a>.</p>
 </div>
 <div id="ref-lawson2017">
-<p>Lawson, Thomas N., Ralf J. M. Weber, Martin R. Jones, Andrew J. Chetwynd, Giovanny Rodrıg'uez-Blanco, Riccardo Di Guida, Mark R. Viant, and Warwick B. Dunn. 2017. “msPurity: Automated Evaluation of Precursor Ion Purity for Mass Spectrometry-Based Fragmentation in Metabolomics.” <em>Anal. Chem.</em> 89 (4): 2432–9. <a href="https://doi.org/10.1021/acs.analchem.6b04358">https://doi.org/10.1021/acs.analchem.6b04358</a>.</p>
+<p>Lawson, Thomas N., Ralf J. M. Weber, Martin R. Jones, Andrew J. Chetwynd, Giovanny Rodriguez-Blanco, Riccardo Di Guida, Mark R. Viant, and Warwick B. Dunn. 2017. “MsPurity: Automated Evaluation of Precursor Ion Purity for Mass Spectrometry-Based Fragmentation in Metabolomics.” <em>Anal. Chem.</em> 89 (4): 2432–9. doi:<a href="https://doi.org/10.1021/acs.analchem.6b04358">10.1021/acs.analchem.6b04358</a>.</p>
 </div>
 <div id="ref-libiseller2015">
-<p>Libiseller, Gunnar, Michaela Dvorzak, Ulrike Kleb, Edgar Gander, Tobias Eisenberg, Frank Madeo, Steffen Neumann, et al. 2015. “IPO: A Tool for Automated Optimization of XCMS Parameters.” <em>BMC Bioinformatics</em> 16 (April): 118. <a href="https://doi.org/10.1186/s12859-015-0562-8">https://doi.org/10.1186/s12859-015-0562-8</a>.</p>
+<p>Libiseller, Gunnar, Michaela Dvorzak, Ulrike Kleb, Edgar Gander, Tobias Eisenberg, Frank Madeo, Steffen Neumann, et al. 2015. “IPO: A Tool for Automated Optimization of XCMS Parameters.” <em>BMC Bioinformatics</em> 16 (April): 118. doi:<a href="https://doi.org/10.1186/s12859-015-0562-8">10.1186/s12859-015-0562-8</a>.</p>
 </div>
 <div id="ref-mahieu2016">
-<p>Mahieu, Nathaniel G., Jonathan L. Spalding, and Gary J. Patti. 2016. “Warpgroup: Increased Precision of Metabolomic Data Processing by Consensus Integration Bound Analysis.” <em>Bioinformatics</em> 32 (2): 268–75. <a href="https://doi.org/10.1093/bioinformatics/btv564">https://doi.org/10.1093/bioinformatics/btv564</a>.</p>
+<p>Mahieu, Nathaniel G., Jonathan L. Spalding, and Gary J. Patti. 2016. “Warpgroup: Increased Precision of Metabolomic Data Processing by Consensus Integration Bound Analysis.” <em>Bioinformatics</em> 32 (2): 268–75. doi:<a href="https://doi.org/10.1093/bioinformatics/btv564">10.1093/bioinformatics/btv564</a>.</p>
 </div>
 <div id="ref-uppal2013">
-<p>Uppal, Karan, Quinlyn A. Soltow, Frederick H. Strobel, W. Stephen Pittard, Kim M. Gernert, Tianwei Yu, and Dean P. Jones. 2013. “xMSanalyzer: Automated Pipeline for Improved Feature Detection and Downstream Analysis of Large-Scale, Non-Targeted Metabolomics Data.” <em>BMC Bioinformatics</em> 14 (1): 15. <a href="https://doi.org/10.1186/1471-2105-14-15">https://doi.org/10.1186/1471-2105-14-15</a>.</p>
+<p>Uppal, Karan, Quinlyn A. Soltow, Frederick H. Strobel, W. Stephen Pittard, Kim M. Gernert, Tianwei Yu, and Dean P. Jones. 2013. “XMSanalyzer: Automated Pipeline for Improved Feature Detection and Downstream Analysis of Large-Scale, Non-Targeted Metabolomics Data.” <em>BMC Bioinformatics</em> 14 (1): 15. doi:<a href="https://doi.org/10.1186/1471-2105-14-15">10.1186/1471-2105-14-15</a>.</p>
 </div>
 <div id="ref-defelice2017">
-<p>DeFelice, Brian C., Sajjan Singh Mehta, Stephanie Samra, Tomáš Čajka, Benjamin Wancewicz, Johannes F. Fahrmann, and Oliver Fiehn. 2017. “Mass Spectral Feature List Optimizer (MS-FLO): A Tool to Minimize False Positive Peak Reports in Untargeted Liquid ChromatographyMass Spectroscopy (LC-MS) Data Processing.” <em>Anal. Chem.</em> 89 (6): 3250–5. <a href="https://doi.org/10.1021/acs.analchem.6b04372">https://doi.org/10.1021/acs.analchem.6b04372</a>.</p>
+<p>DeFelice, Brian C., Sajjan Singh Mehta, Stephanie Samra, Tomáš Čajka, Benjamin Wancewicz, Johannes F. Fahrmann, and Oliver Fiehn. 2017. “Mass Spectral Feature List Optimizer (MS-FLO): A Tool To Minimize False Positive Peak Reports in Untargeted Liquid ChromatographyMass Spectroscopy (LC-MS) Data Processing.” <em>Anal. Chem.</em> 89 (6): 3250–5. doi:<a href="https://doi.org/10.1021/acs.analchem.6b04372">10.1021/acs.analchem.6b04372</a>.</p>
 </div>
 </div>
             </section>
@@ -539,7 +511,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapaper": false,
+"instapper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -565,8 +537,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

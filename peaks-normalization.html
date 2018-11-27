@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -36,7 +36,6 @@
 <link rel="next" href="annotation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -55,67 +54,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -347,7 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For peak p of sample s in batch b, the corrected abundance I is:</p>
 <p><span class="math display">\[\hat I_{p,s,b} = I_{p,s,b} - mean(I_{p,b}) + median(I_{p,qc})\]</span></p>
 <p>For example, we have the intensities of one peak from ten samples in two batches like the following demo:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
 <span class="co"># raw data</span>
 I =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>),<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># batch</span>
@@ -355,11 +328,11 @@ B =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span
 <span class="co"># qc</span>
 Iqc =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>),<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># corrected data</span>
-Icor =<span class="st"> </span>I <span class="op">-</span><span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]),<span class="dv">10</span>),<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>]),<span class="dv">10</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">median</span>(Iqc)
+Icor =<span class="st"> </span>I -<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">1</span>:<span class="dv">10</span>]),<span class="dv">10</span>),<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">11</span>:<span class="dv">20</span>]),<span class="dv">10</span>)) +<span class="st"> </span><span class="kw">median</span>(Iqc)
 <span class="co"># plot the result</span>
-<span class="kw">plot</span>(I)</code></pre>
+<span class="kw">plot</span>(I)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/center-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Icor)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Icor)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/center-2.png" width="672" /></p>
 </div>
 <div id="scaling" class="section level4">
@@ -367,7 +340,7 @@ Icor =<span class="st"> </span>I <span class="op">-</span><span class="st"> </sp
 <p>For peak p of sample s in certain batch b, the corrected abundance I is:</p>
 <p><span class="math display">\[\hat I_{p,s,b} = \frac{I_{p,s,b} - mean(I_{p,b})}{std_{p,b}} * std_{p,qc,b} + mean(I_{p,qc,b})\]</span></p>
 <p>For example, we have the intensities of one peak from ten samples in two batches like the following demo:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
 <span class="co"># raw data</span>
 I =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># batch</span>
@@ -375,35 +348,35 @@ B =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span
 <span class="co"># qc</span>
 Iqc =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># corrected data</span>
-Icor =<span class="st"> </span>(I <span class="op">-</span><span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]),<span class="dv">10</span>),<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>]),<span class="dv">10</span>)))<span class="op">/</span><span class="kw">c</span>(<span class="kw">sd</span>(I[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]),<span class="kw">sd</span>(I[<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>]))<span class="op">*</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="fl">0.3</span>,<span class="dv">10</span>),<span class="kw">rep</span>(<span class="fl">0.5</span>,<span class="dv">10</span>)) <span class="op">+</span><span class="st"> </span>Iqc[<span class="dv">1</span>]
+Icor =<span class="st"> </span>(I -<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">1</span>:<span class="dv">10</span>]),<span class="dv">10</span>),<span class="kw">rep</span>(<span class="kw">mean</span>(I[<span class="dv">11</span>:<span class="dv">20</span>]),<span class="dv">10</span>)))/<span class="kw">c</span>(<span class="kw">sd</span>(I[<span class="dv">1</span>:<span class="dv">10</span>]),<span class="kw">sd</span>(I[<span class="dv">11</span>:<span class="dv">20</span>]))*<span class="kw">c</span>(<span class="kw">rep</span>(<span class="fl">0.3</span>,<span class="dv">10</span>),<span class="kw">rep</span>(<span class="fl">0.5</span>,<span class="dv">10</span>)) +<span class="st"> </span>Iqc[<span class="dv">1</span>]
 <span class="co"># plot the result</span>
-<span class="kw">plot</span>(I)</code></pre>
+<span class="kw">plot</span>(I)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/scaling-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Icor)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Icor)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/scaling-2.png" width="672" /></p>
 </div>
 <div id="quantile" class="section level4">
 <h4><span class="header-section-number">6.4.1.4</span> Quantile</h4>
 <p>The idea of quantile calibration is that alignment of the intensities in certain samples according to quantiles in each sample.</p>
 <p>Here is the demo:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
 a &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>)
 <span class="co"># b sufferred batch effect with a bias of 10</span>
 b &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>,<span class="dv">10</span>)
-<span class="kw">hist</span>(a,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">15</span>),<span class="dt">breaks =</span> <span class="dv">50</span>)
+<span class="kw">hist</span>(a,<span class="dt">xlim=</span><span class="kw">c</span>(-<span class="dv">5</span>,<span class="dv">15</span>),<span class="dt">breaks =</span> <span class="dv">50</span>)
 <span class="kw">hist</span>(b,<span class="dt">col =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">add=</span>T)
 <span class="co"># quantile normalized</span>
-cor &lt;-<span class="st"> </span>(a[<span class="kw">order</span>(a)]<span class="op">+</span>b[<span class="kw">order</span>(b)])<span class="op">/</span><span class="dv">2</span>
+cor &lt;-<span class="st"> </span>(a[<span class="kw">order</span>(a)]+b[<span class="kw">order</span>(b)])/<span class="dv">2</span>
 <span class="co"># reorder</span>
 cor &lt;-<span class="st"> </span>cor[<span class="kw">order</span>(<span class="kw">order</span>(a))]
-<span class="kw">hist</span>(cor,<span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">add=</span>T)</code></pre>
+<span class="kw">hist</span>(cor,<span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">add=</span>T)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/quantile-1.png" width="672" /></p>
 </div>
 <div id="ratio-based-calibraton" class="section level4">
 <h4><span class="header-section-number">6.4.1.5</span> Ratio based calibraton</h4>
 <p>This method calibrates samples by the ratio between qc samples in all samples and in certain batch.For peak p of sample s in certain batch b, the corrected abundance I is:</p>
 <p><span class="math display">\[\hat I_{p,s,b} = \frac{I_{p,s,b} * median(I_{p,qc})}{mean_{p,qc,b}}\]</span></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
 <span class="co"># raw data</span>
 I =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># batch</span>
@@ -411,28 +384,27 @@ B =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span
 <span class="co"># qc</span>
 Iqc =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 <span class="co"># corrected data</span>
-Icor =<span class="st"> </span>I <span class="op">*</span><span class="st"> </span><span class="kw">median</span>(<span class="kw">c</span>(<span class="kw">rep</span>(Iqc[<span class="dv">1</span>],<span class="dv">10</span>),<span class="kw">rep</span>(Iqc[<span class="dv">2</span>],<span class="dv">10</span>)))<span class="op">/</span><span class="kw">mean</span>(<span class="kw">c</span>(<span class="kw">rep</span>(Iqc[<span class="dv">1</span>],<span class="dv">10</span>),<span class="kw">rep</span>(Iqc[<span class="dv">2</span>],<span class="dv">10</span>)))
+Icor =<span class="st"> </span>I *<span class="st"> </span><span class="kw">median</span>(<span class="kw">c</span>(<span class="kw">rep</span>(Iqc[<span class="dv">1</span>],<span class="dv">10</span>),<span class="kw">rep</span>(Iqc[<span class="dv">2</span>],<span class="dv">10</span>)))/<span class="kw">mean</span>(<span class="kw">c</span>(<span class="kw">rep</span>(Iqc[<span class="dv">1</span>],<span class="dv">10</span>),<span class="kw">rep</span>(Iqc[<span class="dv">2</span>],<span class="dv">10</span>)))
 <span class="co"># plot the result</span>
-<span class="kw">plot</span>(I)</code></pre>
+<span class="kw">plot</span>(I)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/ratio-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Icor)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Icor)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/ratio-2.png" width="672" /></p>
 </div>
 <div id="linear-normalizer" class="section level4">
 <h4><span class="header-section-number">6.4.1.6</span> Linear Normalizer</h4>
-<p>This method initially scales each sample so that the sum of all
-peak abundances equals one. In this study, by multiplying the median sum of all peak abundances across all samples,we got the corrected data.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<p>This method initially scales each sample so that the sum of all peak abundances equals one. In this study, by multiplying the median sum of all peak abundances across all samples,we got the corrected data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
 <span class="co"># raw data</span>
 peaksa &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 peaksb &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>),<span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="fl">0.5</span>))
 
 df &lt;-<span class="st"> </span><span class="kw">rbind</span>(peaksa,peaksb)
-dfcor &lt;-<span class="st"> </span>df<span class="op">/</span><span class="kw">apply</span>(df,<span class="dv">2</span>,sum)<span class="op">*</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">apply</span>(df,<span class="dv">2</span>,median))
+dfcor &lt;-<span class="st"> </span>df/<span class="kw">apply</span>(df,<span class="dv">2</span>,sum)*<span class="st"> </span><span class="kw">sum</span>(<span class="kw">apply</span>(df,<span class="dv">2</span>,median))
 
-<span class="kw">image</span>(df)</code></pre>
+<span class="kw">image</span>(df)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/Linear-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">image</span>(dfcor)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">image</span>(dfcor)</code></pre></div>
 <p><img src="Metabolomics_files/figure-html/Linear-2.png" width="672" /></p>
 </div>
 <div id="internal-standards" class="section level4">
@@ -459,8 +431,7 @@ dfcor &lt;-<span class="st"> </span>df<span class="op">/</span><span class="kw">
 <p><span class="math display">\[f_i(y_i) = E(x_{ij}|y_j) - \mu_i\]</span></p>
 <p>stands for the biological variations caused by the our group, for example, whether treated by pollutions or not.</p>
 <p>However, considering the batch effects, the real model could be:</p>
-<p><span class="math display">\[x_{ij} = \mu_i + f_i(y_i) + \sum_{l = 1}^L \gamma_{li}p_{lj} + e_{ij}^*\]</span>
-<span class="math inline">\(\gamma_{li}\)</span> stands for the peak-specific coefficient for potentical factor <span class="math inline">\(l\)</span>. <span class="math inline">\(p_{lj}\)</span> stands for the potential factors across the samples. Actually, the error item <span class="math inline">\(e_{ij}\)</span> in real sample could always be decomposed as <span class="math inline">\(e_{ij} = \sum_{l = 1}^L \gamma_{li}p_{lj} + e_{ij}^*\)</span> with <span class="math inline">\(e_{ij}^*\)</span> standing for the real random error in certain sample for certain peak.</p>
+<p><span class="math display">\[x_{ij} = \mu_i + f_i(y_i) + \sum_{l = 1}^L \gamma_{li}p_{lj} + e_{ij}^*\]</span> <span class="math inline">\(\gamma_{li}\)</span> stands for the peak-specific coefficient for potentical factor <span class="math inline">\(l\)</span>. <span class="math inline">\(p_{lj}\)</span> stands for the potential factors across the samples. Actually, the error item <span class="math inline">\(e_{ij}\)</span> in real sample could always be decomposed as <span class="math inline">\(e_{ij} = \sum_{l = 1}^L \gamma_{li}p_{lj} + e_{ij}^*\)</span> with <span class="math inline">\(e_{ij}^*\)</span> standing for the real random error in certain sample for certain peak.</p>
 <p>We could not get the potential factors directly. Since we don’t care the details of the unknown factors, we could estimate orthogonal vectors <span class="math inline">\(h_k\)</span> standing for such potential factors. Thus we have:</p>
 <p><span class="math display">\[
 x_{ij} = \mu_i + f_i(y_i) + \sum_{l = 1}^L \gamma_{li}p_{lj} + e_{ij}^*\\ 
@@ -509,7 +480,7 @@ T_k^0 = \frac{d_{0k}^2}{\sum_{l=1}^{n-df}d_{0l}^2}
 <li><p>Let <span class="math inline">\(j^* = argmax_{1\leq j \leq n}cor(e_k,e_j^r)\)</span> and set <span class="math inline">\(\hat h_k=e_j^r\)</span>. Set the estimate of the surrogate variable to be the eigenvalue of the reduced matrix most correlated with the corresponding residual eigenvalue. Since the reduced matrix is enriched for peaks associated with this residual eigenvalue, this is a principled choice for the estimated surrogate variable that allows for correlation with the primary variable.</p></li>
 <li><p>Employ the <span class="math inline">\(\mu_i + f_i(y_i) + \sum_{k = 1}^K \gamma_{ki}\hat h_{kj} + e_{ij}\)</span> as te estimate of the ideal model <span class="math inline">\(\mu_i + f_i(y_i) + \sum_{k = 1}^K \gamma_{ki}h_{kj} + e_{ij}\)</span></p></li>
 </ul>
-<p>This method could found the potentical unwanted variables for the data. SVA were introduced by Jeff Leek<span class="citation">(Leek et al. <a href="#ref-leek2012">2012</a>; Leek and Storey <a href="#ref-leek2007">2007</a>, <a href="#ref-leek2008">2008</a>)</span> and EigenMS package implement SVA with modifications including analysis of data with missing values that are typical in LC-MS experiments<span class="citation">(Karpievitch et al. <a href="#ref-karpievitch2014a">2014</a>)</span>.</p>
+<p>This method could found the potentical unwanted variables for the data. SVA were introduced by Jeff Leek<span class="citation">(Leek et al. <a href="#ref-leek2012">2012</a>; Leek and Storey <a href="#ref-leek2007">2007</a>; Leek and Storey <a href="#ref-leek2008">2008</a>)</span> and EigenMS package implement SVA with modifications including analysis of data with missing values that are typical in LC-MS experiments<span class="citation">(Karpievitch et al. <a href="#ref-karpievitch2014a">2014</a>)</span>.</p>
 </div>
 </div>
 <div id="ruv-remove-unwanted-variation" class="section level4">
@@ -536,43 +507,43 @@ T_k^0 = \frac{d_{0k}^2}{\sum_{l=1}^{n-df}d_{0l}^2}
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-wu2016">
-<p>Wu, Yiman, and Liang Li. 2016. “Sample Normalization Methods in Quantitative Metabolomics.” <em>Journal of Chromatography A</em>, Editors’ choice x, 1430 (January): 80–95. <a href="https://doi.org/10.1016/j.chroma.2015.12.007">https://doi.org/10.1016/j.chroma.2015.12.007</a>.</p>
+<p>Wu, Yiman, and Liang Li. 2016. “Sample Normalization Methods in Quantitative Metabolomics.” <em>Journal of Chromatography A</em>, Editors’ choice x, 1430 (January): 80–95. doi:<a href="https://doi.org/10.1016/j.chroma.2015.12.007">10.1016/j.chroma.2015.12.007</a>.</p>
 </div>
 <div id="ref-li2017a">
-<p>Li, Bo, Jing Tang, Qingxia Yang, Shuang Li, Xuejiao Cui, Yinghong Li, Yuzong Chen, Weiwei Xue, Xiaofeng Li, and Feng Zhu. 2017. “NOREVA: Normalization and Evaluation of MS-Based Metabolomics Data.” <em>Nucleic Acids Res</em> 45 (W1): W162–W170. <a href="https://doi.org/10.1093/nar/gkx449">https://doi.org/10.1093/nar/gkx449</a>.</p>
+<p>Li, Bo, Jing Tang, Qingxia Yang, Shuang Li, Xuejiao Cui, Yinghong Li, Yuzong Chen, Weiwei Xue, Xiaofeng Li, and Feng Zhu. 2017. “NOREVA: Normalization and Evaluation of MS-Based Metabolomics Data.” <em>Nucleic Acids Res</em> 45 (W1): W162–W170. doi:<a href="https://doi.org/10.1093/nar/gkx449">10.1093/nar/gkx449</a>.</p>
 </div>
 <div id="ref-franceschi2012">
-<p>Franceschi, Pietro, Domenico Masuero, Urska Vrhovsek, Fulvio Mattivi, and Ron Wehrens. 2012. “A Benchmark Spike-in Data Set for Biomarker Identification in Metabolomics.” <em>J. Chemometrics</em> 26 (1-2): 16–24. <a href="https://doi.org/10.1002/cem.1420">https://doi.org/10.1002/cem.1420</a>.</p>
+<p>Franceschi, Pietro, Domenico Masuero, Urska Vrhovsek, Fulvio Mattivi, and Ron Wehrens. 2012. “A Benchmark Spike-in Data Set for Biomarker Identification in Metabolomics.” <em>J. Chemometrics</em> 26 (1-2): 16–24. doi:<a href="https://doi.org/10.1002/cem.1420">10.1002/cem.1420</a>.</p>
 </div>
 <div id="ref-delivera2012">
-<p>De Livera, Alysha M., Daniel A. Dias, David De Souza, Thusitha Rupasinghe, James Pyke, Dedreia Tull, Ute Roessner, Malcolm McConville, and Terence P. Speed. 2012. “Normalizing and Integrating Metabolomics Data.” <em>Anal. Chem.</em> 84 (24): 10768–76. <a href="https://doi.org/10.1021/ac302748b">https://doi.org/10.1021/ac302748b</a>.</p>
+<p>De Livera, Alysha M., Daniel A. Dias, David De Souza, Thusitha Rupasinghe, James Pyke, Dedreia Tull, Ute Roessner, Malcolm McConville, and Terence P. Speed. 2012. “Normalizing and Integrating Metabolomics Data.” <em>Anal. Chem.</em> 84 (24): 10768–76. doi:<a href="https://doi.org/10.1021/ac302748b">10.1021/ac302748b</a>.</p>
 </div>
 <div id="ref-thonusin2017">
-<p>Thonusin, Chanisa, Heidi B. IglayReger, Tanu Soni, Amy E. Rothberg, Charles F. Burant, and Charles R. Evans. 2017. “Evaluation of Intensity Drift Correction Strategies Using MetaboDrift, a Normalization Tool for Multi-Batch Metabolomics Data.” <em>Journal of Chromatography A</em>, Pushing the boundaries of chromatography and electrophoresis, 1523 (Supplement C): 265–74. <a href="https://doi.org/10.1016/j.chroma.2017.09.023">https://doi.org/10.1016/j.chroma.2017.09.023</a>.</p>
+<p>Thonusin, Chanisa, Heidi B. IglayReger, Tanu Soni, Amy E. Rothberg, Charles F. Burant, and Charles R. Evans. 2017. “Evaluation of Intensity Drift Correction Strategies Using MetaboDrift, a Normalization Tool for Multi-Batch Metabolomics Data.” <em>Journal of Chromatography A</em>, Pushing the boundaries of chromatography and electrophoresis, 1523 (Supplement C): 265–74. doi:<a href="https://doi.org/10.1016/j.chroma.2017.09.023">10.1016/j.chroma.2017.09.023</a>.</p>
 </div>
 <div id="ref-kuligowski2015">
-<p>Kuligowski, Julia, Ángel Sánchez-Illana, Daniel Sanjuán-Herráez, Máximo Vento, and Guillermo Quintás. 2015. “Intra-Batch Effect Correction in Liquid Chromatography-Mass Spectrometry Using Quality Control Samples and Support Vector Regression (QC-SVRC).” <em>Analyst</em> 140 (22): 7810–7. <a href="https://doi.org/10.1039/C5AN01638J">https://doi.org/10.1039/C5AN01638J</a>.</p>
+<p>Kuligowski, Julia, Ángel Sánchez-Illana, Daniel Sanjuán-Herráez, Máximo Vento, and Guillermo Quintás. 2015. “Intra-Batch Effect Correction in Liquid Chromatography-Mass Spectrometry Using Quality Control Samples and Support Vector Regression (QC-SVRC).” <em>Analyst</em> 140 (22): 7810–7. doi:<a href="https://doi.org/10.1039/C5AN01638J">10.1039/C5AN01638J</a>.</p>
 </div>
 <div id="ref-wang2013">
-<p>Wang, San-Yuan, Ching-Hua Kuo, and Yufeng J. Tseng. 2013. “Batch Normalizer: A Fast Total Abundance Regression Calibration Method to Simultaneously Adjust Batch and Injection Order Effects in Liquid Chromatography/Time-of-Flight Mass Spectrometry-Based Metabolomics Data and Comparison with Current Calibration Methods.” <em>Anal. Chem.</em> 85 (2): 1037–46. <a href="https://doi.org/10.1021/ac302877x">https://doi.org/10.1021/ac302877x</a>.</p>
+<p>Wang, San-Yuan, Ching-Hua Kuo, and Yufeng J. Tseng. 2013. “Batch Normalizer: A Fast Total Abundance Regression Calibration Method to Simultaneously Adjust Batch and Injection Order Effects in Liquid Chromatography/Time-of-Flight Mass Spectrometry-Based Metabolomics Data and Comparison with Current Calibration Methods.” <em>Anal. Chem.</em> 85 (2): 1037–46. doi:<a href="https://doi.org/10.1021/ac302877x">10.1021/ac302877x</a>.</p>
 </div>
 <div id="ref-leek2012">
-<p>Leek, Jeffrey T., W. Evan Johnson, Hilary S. Parker, Andrew E. Jaffe, and John D. Storey. 2012. “The Sva Package for Removing Batch Effects and Other Unwanted Variation in High-Throughput Experiments.” <em>Bioinformatics</em> 28 (6): 882–83. <a href="https://doi.org/10.1093/bioinformatics/bts034">https://doi.org/10.1093/bioinformatics/bts034</a>.</p>
+<p>Leek, Jeffrey T., W. Evan Johnson, Hilary S. Parker, Andrew E. Jaffe, and John D. Storey. 2012. “The Sva Package for Removing Batch Effects and Other Unwanted Variation in High-Throughput Experiments.” <em>Bioinformatics</em> 28 (6): 882–83. doi:<a href="https://doi.org/10.1093/bioinformatics/bts034">10.1093/bioinformatics/bts034</a>.</p>
 </div>
 <div id="ref-leek2007">
-<p>Leek, Jeffrey T., and John D. Storey. 2007. “Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis.” <em>PLOS Genet</em> 3 (9): e161. <a href="https://doi.org/10.1371/journal.pgen.0030161">https://doi.org/10.1371/journal.pgen.0030161</a>.</p>
+<p>Leek, Jeffrey T., and John D. Storey. 2007. “Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis.” <em>PLOS Genet</em> 3 (9): e161. doi:<a href="https://doi.org/10.1371/journal.pgen.0030161">10.1371/journal.pgen.0030161</a>.</p>
 </div>
 <div id="ref-leek2008">
-<p>Leek, Jeffrey T., and John D. Storey. 2007. “Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis.” <em>PLOS Genet</em> 3 (9): e161. <a href="https://doi.org/10.1371/journal.pgen.0030161">https://doi.org/10.1371/journal.pgen.0030161</a>.</p> 2008. “A General Framework for Multiple Testing Dependence.” <em>PNAS</em> 105 (48): 18718–23. <a href="https://doi.org/10.1073/pnas.0808709105">https://doi.org/10.1073/pnas.0808709105</a>.</p>
+<p>Leek, Jeffrey T., and John D. Storey. 2007. “Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis.” <em>PLOS Genet</em> 3 (9): e161. doi:<a href="https://doi.org/10.1371/journal.pgen.0030161">10.1371/journal.pgen.0030161</a>.</p> 2008. “A General Framework for Multiple Testing Dependence.” <em>PNAS</em> 105 (48): 18718–23. doi:<a href="https://doi.org/10.1073/pnas.0808709105">10.1073/pnas.0808709105</a>.</p>
 </div>
 <div id="ref-karpievitch2014a">
-<p>Karpievitch, Yuliya V., Sonja B. Nikolic, Richard Wilson, James E. Sharman, and Lindsay M. Edwards. 2014. “Metabolomics Data Normalization with EigenMS.” <em>PLOS ONE</em> 9 (12): e116221. <a href="https://doi.org/10.1371/journal.pone.0116221">https://doi.org/10.1371/journal.pone.0116221</a>.</p>
+<p>Karpievitch, Yuliya V., Sonja B. Nikolic, Richard Wilson, James E. Sharman, and Lindsay M. Edwards. 2014. “Metabolomics Data Normalization with EigenMS.” <em>PLOS ONE</em> 9 (12): e116221. doi:<a href="https://doi.org/10.1371/journal.pone.0116221">10.1371/journal.pone.0116221</a>.</p>
 </div>
 <div id="ref-livera2015">
-<p>Livera, Alysha M. De, Marko Sysi-Aho, Laurent Jacob, Johann A. Gagnon-Bartsch, Sandra Castillo, Julie A. Simpson, and Terence P. Speed. 2015. “Statistical Methods for Handling Unwanted Variation in Metabolomics Data.” <em>Anal. Chem.</em> 87 (7): 3606–15. <a href="https://doi.org/10.1021/ac502439y">https://doi.org/10.1021/ac502439y</a>.</p>
+<p>Livera, Alysha M. De, Marko Sysi-Aho, Laurent Jacob, Johann A. Gagnon-Bartsch, Sandra Castillo, Julie A. Simpson, and Terence P. Speed. 2015. “Statistical Methods for Handling Unwanted Variation in Metabolomics Data.” <em>Anal. Chem.</em> 87 (7): 3606–15. doi:<a href="https://doi.org/10.1021/ac502439y">10.1021/ac502439y</a>.</p>
 </div>
 <div id="ref-jr2017">
-<p>Jr, Stephen Salerno, Mahya Mehrmohamadi, Maria V. Liberti, Muting Wan, Martin T. Wells, James G. Booth, and Jason W. Locasale. 2017. “RRmix: A Method for Simultaneous Batch Effect Correction and Analysis of Metabolomics Data in the Absence of Internal Standards.” <em>PLOS ONE</em> 12 (6): e0179530. <a href="https://doi.org/10.1371/journal.pone.0179530">https://doi.org/10.1371/journal.pone.0179530</a>.</p>
+<p>Jr, Stephen Salerno, Mahya Mehrmohamadi, Maria V. Liberti, Muting Wan, Martin T. Wells, James G. Booth, and Jason W. Locasale. 2017. “RRmix: A Method for Simultaneous Batch Effect Correction and Analysis of Metabolomics Data in the Absence of Internal Standards.” <em>PLOS ONE</em> 12 (6): e0179530. doi:<a href="https://doi.org/10.1371/journal.pone.0179530">10.1371/journal.pone.0179530</a>.</p>
 </div>
 </div>
             </section>
@@ -601,7 +572,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapaper": false,
+"instapper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -627,8 +598,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
