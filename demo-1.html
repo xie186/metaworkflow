@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Meta-Workflow</title>
   <meta name="description" content="This is a workflow for metabolomics studies.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Meta-Workflow" />
   <meta property="og:type" content="book" />
@@ -36,6 +36,7 @@
 <link rel="next" href="exposome.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -54,41 +55,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -299,37 +326,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="optimization" class="section level2">
 <h2><span class="header-section-number">11.3</span> Optimization</h2>
 <p>IPO package could be used to optimaze the parameters for XCMS. Try the following code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(IPO)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(IPO)
 <span class="kw">library</span>(xcms)
 peakpickingParameters &lt;-<span class="st"> </span><span class="kw">getDefaultXcmsSetStartingParams</span>(<span class="st">&#39;centWave&#39;</span>)
 path &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&#39;D:/metademo/data/oq/&#39;</span>,<span class="dt">full.names =</span> T,<span class="dt">recursive =</span> T)
 <span class="co"># change to 5 for obitrap</span>
-peakpickingParameters$ppm &lt;-<span class="st"> </span><span class="dv">15</span>
+peakpickingParameters<span class="op">$</span>ppm &lt;-<span class="st"> </span><span class="dv">15</span>
 resultPeakpicking &lt;-<span class="st"> </span>
 <span class="st">  </span><span class="kw">optimizeXcmsSet</span>(<span class="dt">files =</span> path[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)], 
                   <span class="dt">params =</span> peakpickingParameters,
                   <span class="dt">nSlaves =</span> <span class="dv">1</span>,
                   <span class="dt">subdir =</span> <span class="ot">NULL</span>)
 
-optimizedXcmsSetObject &lt;-<span class="st"> </span>resultPeakpicking$best_settings$xset
+optimizedXcmsSetObject &lt;-<span class="st"> </span>resultPeakpicking<span class="op">$</span>best_settings<span class="op">$</span>xset
 retcorGroupParameters &lt;-<span class="st"> </span><span class="kw">getDefaultRetGroupStartingParams</span>()
 resultRetcorGroup &lt;-
 <span class="st">  </span><span class="kw">optimizeRetGroup</span>(<span class="dt">xset =</span> optimizedXcmsSetObject, 
                    <span class="dt">params =</span> retcorGroupParameters, 
                    <span class="dt">subdir =</span> <span class="ot">NULL</span>)
-<span class="kw">writeRScript</span>(resultPeakpicking$best_settings$parameters, 
-             resultRetcorGroup$best_settings)
-para &lt;-<span class="st"> </span><span class="kw">capture.output</span>(<span class="kw">writeRScript</span>(resultPeakpicking$best_settings$parameters, resultRetcorGroup$best_settings), <span class="dt">type =</span> <span class="st">&quot;message&quot;</span>)
+<span class="kw">writeRScript</span>(resultPeakpicking<span class="op">$</span>best_settings<span class="op">$</span>parameters, 
+             resultRetcorGroup<span class="op">$</span>best_settings)
+para &lt;-<span class="st"> </span><span class="kw">capture.output</span>(<span class="kw">writeRScript</span>(resultPeakpicking<span class="op">$</span>best_settings<span class="op">$</span>parameters, resultRetcorGroup<span class="op">$</span>best_settings), <span class="dt">type =</span> <span class="st">&quot;message&quot;</span>)
 <span class="kw">save</span>(para,<span class="dt">file =</span> <span class="st">&#39;para.RData&#39;</span>)
-<span class="kw">sessionInfo</span>()</code></pre></div>
+<span class="kw">sessionInfo</span>()</code></pre>
 </div>
 <div id="wrap-function" class="section level2">
 <h2><span class="header-section-number">11.4</span> Wrap function</h2>
 <p>Here we would use the optimized parameters for peak picking, retention time correction and peaks filling.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xcms)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xcms)
 <span class="kw">library</span>(Rmpi)
 <span class="kw">library</span>(stringr)
-getrtmz &lt;-<span class="st"> </span>function(path,<span class="dt">index =</span> <span class="ot">NULL</span>){
+getrtmz &lt;-<span class="st"> </span><span class="cf">function</span>(path,<span class="dt">index =</span> <span class="ot">NULL</span>){
   <span class="kw">load</span>(<span class="st">&#39;para.RData&#39;</span>)
 peakwidth &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(para[<span class="kw">grepl</span>(<span class="st">&#39;peakwidth&#39;</span>,para)],<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d+</span><span class="ch">\\</span><span class="st">.*</span><span class="ch">\\</span><span class="st">d*&#39;</span>)))
 ppm &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(para[<span class="kw">grepl</span>(<span class="st">&#39;ppm&#39;</span>,para)],<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d+&#39;</span>)))
@@ -352,7 +379,7 @@ minfrac &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span c
 minsamp &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(para[<span class="kw">grepl</span>(<span class="st">&#39;minsamp&#39;</span>,para)],<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d+&#39;</span>)))
 max &lt;-<span class="st">  </span><span class="kw">as.numeric</span>(<span class="kw">unlist</span>(<span class="kw">str_extract_all</span>(para[<span class="kw">grepl</span>(<span class="st">&#39;max&#39;</span>,para)],<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d+&#39;</span>)))
   files &lt;-<span class="st"> </span><span class="kw">list.files</span>(path,<span class="dt">full.names =</span> T,<span class="dt">recursive =</span> T)
-  if(!<span class="kw">is.null</span>(index)){
+  <span class="cf">if</span>(<span class="op">!</span><span class="kw">is.null</span>(index)){
     files &lt;-<span class="st"> </span>files[index]
   }
   xset &lt;-<span class="st"> </span><span class="kw">xcmsSet</span>(files,
@@ -391,12 +418,12 @@ xset &lt;-<span class="st"> </span><span class="kw">group</span>(
 
 xset &lt;-<span class="st"> </span><span class="kw">fillPeaks</span>(xset)
 <span class="kw">return</span>(xset)
-}</code></pre></div>
+}</code></pre>
 <div id="peak-picking-1" class="section level3">
 <h3><span class="header-section-number">11.4.1</span> Peak picking</h3>
 <p>The first step to process the MS data is that find the peaks against the noises. In <strong>xcms</strong>, all of related staffs are handled by <em>xcmsSet</em> function.</p>
 <p>For any functions in <strong>xcms</strong> or <strong>R</strong>, you could get their documents by type <code>?</code> before certain function. Another geek way is input the name of the function in the console of Rstudio and press F1 for help.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?xcmsSet</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">?xcmsSet</code></pre>
 <p>In the document of <em>xcmsset</em>, we could set the sample classes, profmethod, profparam, polarity,etc. In the online version, such configurations are shown in certain windows. In the local analysis environment, such parameters are setup by yourselves. However, I think the default configurations could satisfied most of the analysis because related information should have been recorded in your Raw data and <strong>xcms</strong> could find them. All you need to do is that show the data dictionary for <em>xcmsSet</em>.</p>
 <p>If your data have many groups such as control and treated group, just put them in separate subfolder of the data folder and <em>xcmsSet</em> would read them as separated groups.</p>
 </div>
@@ -412,94 +439,94 @@ xset &lt;-<span class="st"> </span><span class="kw">fillPeaks</span>(xset)
 <div id="peaks-list" class="section level2">
 <h2><span class="header-section-number">11.5</span> Peaks list</h2>
 <p>Then we could extract the peaks list from <code>xcmsSet</code> objects.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(enviGCMS)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(enviGCMS)
 <span class="co"># get the xcmsset object</span>
 neg &lt;-<span class="st"> </span><span class="kw">getrtmz</span>(<span class="st">&#39;D:/metademo/data/&#39;</span>)
 <span class="co"># back up the xcmsset object</span>
 <span class="kw">save</span>(neg,<span class="dt">file =</span> <span class="st">&#39;neg.Rdata&#39;</span>)
 <span class="co"># get the number</span>
-npeaks &lt;-<span class="st"> </span><span class="kw">nrow</span>(neg@groups)
+npeaks &lt;-<span class="st"> </span><span class="kw">nrow</span>(neg<span class="op">@</span>groups)
 <span class="co"># get the EIC, boxplot and diffreport, eixmax should be equal to the numbers of peaks groups in the pos objects </span>
-report &lt;-<span class="st"> </span>CAMERA::<span class="kw">annotateDiffreport</span>(neg,<span class="dt">filebase =</span> <span class="st">&#39;peaklistneg&#39;</span>,<span class="dt">metlin =</span> T, <span class="dt">eicmax =</span> npeaks, <span class="dt">classeic =</span> neg@phenoData$class)
+report &lt;-<span class="st"> </span>CAMERA<span class="op">::</span><span class="kw">annotateDiffreport</span>(neg,<span class="dt">filebase =</span> <span class="st">&#39;peaklistneg&#39;</span>,<span class="dt">metlin =</span> T, <span class="dt">eicmax =</span> npeaks, <span class="dt">classeic =</span> neg<span class="op">@</span>phenoData<span class="op">$</span>class)
 <span class="co"># save the report as a csv file</span>
-<span class="kw">write.csv</span>(report,<span class="dt">file =</span> <span class="st">&#39;all.csv&#39;</span>)</code></pre></div>
+<span class="kw">write.csv</span>(report,<span class="dt">file =</span> <span class="st">&#39;all.csv&#39;</span>)</code></pre>
 </div>
 <div id="peaks-filtering" class="section level2">
 <h2><span class="header-section-number">11.6</span> Peaks filtering</h2>
 <p>After we get the peaks list, it’s nessary to filter the peaks list to retain the peaks with high quality for further analysis. Normally, we could use the relative standard deviation of blank and pooled QC samples to control the peaks list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&#39;neg.Rdata&#39;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&#39;neg.Rdata&#39;</span>)
 <span class="co"># get the peak intensity, m/z, retention time and group information as list</span>
-mzrt &lt;-<span class="st"> </span>enviGCMS::<span class="kw">getmzrt</span>(neg)
+mzrt &lt;-<span class="st"> </span>enviGCMS<span class="op">::</span><span class="kw">getmzrt</span>(neg)
 <span class="co"># get the mean and rsd for each group</span>
-mzrtm &lt;-<span class="st"> </span>enviGCMS::<span class="kw">getdoe</span>(mzrt)
-gm &lt;-<span class="st"> </span>mzrtm$groupmean
-gr &lt;-<span class="st"> </span>mzrtm$grouprsd
+mzrtm &lt;-<span class="st"> </span>enviGCMS<span class="op">::</span><span class="kw">getdoe</span>(mzrt)
+gm &lt;-<span class="st"> </span>mzrtm<span class="op">$</span>groupmean
+gr &lt;-<span class="st"> </span>mzrtm<span class="op">$</span>grouprsd
 <span class="co"># find the blank group and pool QC group</span>
 blk &lt;-<span class="st"> </span><span class="kw">grepl</span>(<span class="st">&#39;k&#39;</span>,<span class="kw">colnames</span>(gm))
 pqc &lt;-<span class="st"> </span><span class="kw">grepl</span>(<span class="st">&#39;q&#39;</span>,<span class="kw">colnames</span>(gm))
 <span class="co"># filter by pool QC and blank&#39;s group mean intensity(pool QC should larger than three times of blank), return numbers and index</span>
-<span class="kw">sum</span>(indexmean &lt;-<span class="st"> </span><span class="kw">apply</span>(gm,<span class="dv">1</span>,function(x) <span class="kw">all</span>(x[pqc]&gt;=<span class="st"> </span><span class="dv">3</span>*x[blk])))
+<span class="kw">sum</span>(indexmean &lt;-<span class="st"> </span><span class="kw">apply</span>(gm,<span class="dv">1</span>,<span class="cf">function</span>(x) <span class="kw">all</span>(x[pqc]<span class="op">&gt;=</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span>x[blk])))
 <span class="co"># filt by pool qc rsd%, return numbers and index</span>
 rsdcf &lt;-<span class="st"> </span><span class="dv">30</span>
-<span class="kw">sum</span>(indexrsd &lt;-<span class="st"> </span><span class="kw">apply</span>(gr,<span class="dv">1</span>,function(x) <span class="kw">ifelse</span>(<span class="kw">is.na</span>(x[pqc]),T,x[pqc]&lt;rsdcf)))
+<span class="kw">sum</span>(indexrsd &lt;-<span class="st"> </span><span class="kw">apply</span>(gr,<span class="dv">1</span>,<span class="cf">function</span>(x) <span class="kw">ifelse</span>(<span class="kw">is.na</span>(x[pqc]),T,x[pqc]<span class="op">&lt;</span>rsdcf)))
 <span class="co"># overlap with rsd% and mean filter</span>
-<span class="kw">sum</span>(index &lt;-<span class="st"> </span>indexmean&amp;indexrsd)
+<span class="kw">sum</span>(index &lt;-<span class="st"> </span>indexmean<span class="op">&amp;</span>indexrsd)
 
 <span class="co"># new list, update group and remove pool qc/blk</span>
-qcindex &lt;-<span class="st"> </span><span class="kw">grepl</span>(<span class="st">&#39;k&#39;</span>,mzrt$group$class) |<span class="st"> </span><span class="kw">grepl</span>(<span class="st">&#39;q&#39;</span>,mzrt$group$class)
-mzrtfilter &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">data =</span> mzrt$data[index,!qcindex],
-                   <span class="dt">mz =</span> mzrt$mz[index],
-                   <span class="dt">rt =</span> mzrt$rt[index],
-                   <span class="dt">group =</span> <span class="kw">droplevels</span>(mzrt$group$class[!qcindex,<span class="dt">drop =</span>T]))
+qcindex &lt;-<span class="st"> </span><span class="kw">grepl</span>(<span class="st">&#39;k&#39;</span>,mzrt<span class="op">$</span>group<span class="op">$</span>class) <span class="op">|</span><span class="st"> </span><span class="kw">grepl</span>(<span class="st">&#39;q&#39;</span>,mzrt<span class="op">$</span>group<span class="op">$</span>class)
+mzrtfilter &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">data =</span> mzrt<span class="op">$</span>data[index,<span class="op">!</span>qcindex],
+                   <span class="dt">mz =</span> mzrt<span class="op">$</span>mz[index],
+                   <span class="dt">rt =</span> mzrt<span class="op">$</span>rt[index],
+                   <span class="dt">group =</span> <span class="kw">droplevels</span>(mzrt<span class="op">$</span>group<span class="op">$</span>class[<span class="op">!</span>qcindex,<span class="dt">drop =</span>T]))
 <span class="co"># get the filtered csv</span>
-enviGCMS::<span class="kw">getupload</span>(mzrtfilter,<span class="dt">name =</span> <span class="st">&#39;peakfilter&#39;</span>)</code></pre></div>
+enviGCMS<span class="op">::</span><span class="kw">getupload</span>(mzrtfilter,<span class="dt">name =</span> <span class="st">&#39;peakfilter&#39;</span>)</code></pre>
 </div>
 <div id="normalization-optional" class="section level2">
 <h2><span class="header-section-number">11.7</span> Normalization (Optional)</h2>
 <p>Normailizaiton is nesscery if you data are collected at different batch or runned in differen instrument parameters.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># visulize the batch effect</span>
-mzrtsim::<span class="kw">rlaplot</span>(mzrt$data,<span class="dt">lv =</span> mzrt$group$class)
-mzrtsim::<span class="kw">ridgesplot</span>(mzrt$data,<span class="dt">lv =</span> mzrt$group$class)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># visulize the batch effect</span>
+mzrtsim<span class="op">::</span><span class="kw">rlaplot</span>(mzrt<span class="op">$</span>data,<span class="dt">lv =</span> mzrt<span class="op">$</span>group<span class="op">$</span>class)
+mzrtsim<span class="op">::</span><span class="kw">ridgesplot</span>(mzrt<span class="op">$</span>data,<span class="dt">lv =</span> mzrt<span class="op">$</span>group<span class="op">$</span>class)
 <span class="co"># get the simulation data and test on NOREVA</span>
-sim &lt;-<span class="st"> </span>mzrtsim::<span class="kw">simmzrt</span>(mzrt$data)
-mzrtsim::<span class="kw">simdata</span>(sim)
+sim &lt;-<span class="st"> </span>mzrtsim<span class="op">::</span><span class="kw">simmzrt</span>(mzrt<span class="op">$</span>data)
+mzrtsim<span class="op">::</span><span class="kw">simdata</span>(sim)
 <span class="co"># correct the batch effect by sva</span>
-mzrtcor &lt;-<span class="st"> </span>mzrtsim::<span class="kw">svacor</span>(mzrt$data,<span class="dt">lv =</span> mzrt$group$class)
+mzrtcor &lt;-<span class="st"> </span>mzrtsim<span class="op">::</span><span class="kw">svacor</span>(mzrt<span class="op">$</span>data,<span class="dt">lv =</span> mzrt<span class="op">$</span>group<span class="op">$</span>class)
 <span class="co"># visulize the batch effect correction</span>
-li &lt;-<span class="st"> </span>mzrtsim::<span class="kw">limmaplot</span>(mzrtcor,<span class="dt">lv =</span> mzrt$group$class)
+li &lt;-<span class="st"> </span>mzrtsim<span class="op">::</span><span class="kw">limmaplot</span>(mzrtcor,<span class="dt">lv =</span> mzrt<span class="op">$</span>group<span class="op">$</span>class)
 <span class="co"># return the corrected data</span>
-mzrt$data &lt;-<span class="st"> </span>mzrtcor$dataCorrected</code></pre></div>
+mzrt<span class="op">$</span>data &lt;-<span class="st"> </span>mzrtcor<span class="op">$</span>dataCorrected</code></pre>
 </div>
 <div id="statistic-analysis" class="section level2">
 <h2><span class="header-section-number">11.8</span> Statistic analysis</h2>
 <p>Here we could use <code>caret</code> package to perform statistical analysis.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)
-## Spliting data
-trainIndex &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(mzrtfilter$data, <span class="dt">p =</span> .<span class="dv">8</span>, 
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)
+<span class="co">## Spliting data</span>
+trainIndex &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(mzrtfilter<span class="op">$</span>data, <span class="dt">p =</span> <span class="fl">.8</span>, 
                                   <span class="dt">list =</span> <span class="ot">FALSE</span>, 
                                   <span class="dt">times =</span> <span class="dv">1</span>)
-## Get the training and testing datasets
+<span class="co">## Get the training and testing datasets</span>
 Train &lt;-<span class="st"> </span>data[ trainIndex,]
-Test  &lt;-<span class="st"> </span>data[-trainIndex,]
-## Set the cross validation method
-fitControl &lt;-<span class="st"> </span><span class="kw">trainControl</span>(## 10-fold CV
+Test  &lt;-<span class="st"> </span>data[<span class="op">-</span>trainIndex,]
+<span class="co">## Set the cross validation method</span>
+fitControl &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="co">## 10-fold CV</span>
                            <span class="dt">method =</span> <span class="st">&quot;repeatedcv&quot;</span>,
                            <span class="dt">number =</span> <span class="dv">10</span>,
-                           ## repeated ten times
+                           <span class="co">## repeated ten times</span>
                            <span class="dt">repeats =</span> <span class="dv">10</span>)
 <span class="co"># extra papameters for GBM </span>
 gbmGrid &lt;-<span class="st">  </span><span class="kw">expand.grid</span>(<span class="dt">interaction.depth =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>), 
-                        <span class="dt">n.trees =</span> (<span class="dv">1</span>:<span class="dv">30</span>)*<span class="dv">50</span>, 
+                        <span class="dt">n.trees =</span> (<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)<span class="op">*</span><span class="dv">50</span>, 
                         <span class="dt">shrinkage =</span> <span class="fl">0.1</span>,
                         <span class="dt">n.minobsinnode =</span> <span class="dv">20</span>)
 
 <span class="kw">set.seed</span>(<span class="dv">825</span>)
-gbmFit &lt;-<span class="st"> </span><span class="kw">train</span>(mzrtfilter$group ~<span class="st"> </span>., <span class="dt">data =</span> training, 
+gbmFit &lt;-<span class="st"> </span><span class="kw">train</span>(mzrtfilter<span class="op">$</span>group <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> training, 
                  <span class="dt">method =</span> <span class="st">&quot;gbm&quot;</span>, 
                  <span class="dt">trControl =</span> fitControl, 
                  <span class="dt">verbose =</span> <span class="ot">FALSE</span>, 
-                 ## Now specify the exact models 
-                 ## to evaluate:
+                 <span class="co">## Now specify the exact models </span>
+                 <span class="co">## to evaluate:</span>
                  <span class="dt">tuneGrid =</span> gbmGrid)
 <span class="co"># show the fitting process</span>
 <span class="kw">plot</span>(gbmFit)  
@@ -507,31 +534,31 @@ gbmFit &lt;-<span class="st"> </span><span class="kw">train</span>(mzrtfilter$gr
 <span class="kw">anova</span>(fit1,fit2)
 <span class="co"># find the important variables</span>
 Imp &lt;-<span class="st"> </span><span class="kw">varImp</span>(fit)
-<span class="kw">plot</span>(Imp)</code></pre></div>
+<span class="kw">plot</span>(Imp)</code></pre>
 </div>
 <div id="annotation-1" class="section level2">
 <h2><span class="header-section-number">11.9</span> Annotation</h2>
 <p>Here I use <code>xMSannotator</code> package to make annotation with HMDB as reference database.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xMSannotator)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xMSannotator)
 num_nodes =<span class="st"> </span><span class="dv">10</span>
 <span class="kw">data</span>(<span class="st">&quot;adduct_weights&quot;</span>)
 negsub &lt;-<span class="st"> </span><span class="kw">getrtmz</span>(<span class="st">&#39;D:/metademo/data/oq/&#39;</span>)
-anno &lt;-<span class="st"> </span>xsetplus::<span class="kw">fanno</span>(negsub,<span class="dt">outloc =</span> <span class="st">&#39;D:/metademo/anno&#39;</span>,<span class="dt">mode =</span> <span class="st">&#39;neg&#39;</span>)</code></pre></div>
+anno &lt;-<span class="st"> </span>xsetplus<span class="op">::</span><span class="kw">fanno</span>(negsub,<span class="dt">outloc =</span> <span class="st">&#39;D:/metademo/anno&#39;</span>,<span class="dt">mode =</span> <span class="st">&#39;neg&#39;</span>)</code></pre>
 </div>
 <div id="pathway-analysis-1" class="section level2">
 <h2><span class="header-section-number">11.10</span> Pathway Analysis</h2>
 <p>We could output the files for online pathway analysis with mummichog algorithm.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get the file</span>
-xsetplus::<span class="kw">mumdata</span>(neg,<span class="dt">lv =</span> mzrt$group$class)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get the file</span>
+xsetplus<span class="op">::</span><span class="kw">mumdata</span>(neg,<span class="dt">lv =</span> mzrt<span class="op">$</span>group<span class="op">$</span>class)
 <span class="co"># http://mummichog.org/index.html</span>
-<span class="co"># mummichog1 -f &#39;test.txt&#39; -o myResult</span></code></pre></div>
+<span class="co"># mummichog1 -f &#39;test.txt&#39; -o myResult</span></code></pre>
 </div>
 <div id="metaboanalyst" class="section level2">
 <h2><span class="header-section-number">11.11</span> MetaboAnalyst</h2>
 <p>Actully, after you perform data correction, you have got the data matrix for statistic analysis. You might choose <a href="http://www.metaboanalyst.ca/MetaboAnalyst/faces/docs/Contact.xhtml"><strong>MetaboAnalyst</strong></a> online or offline to make furthor analysis, which supplied more statistical choices than xcms.</p>
 <p>The input data format for <strong>MetaboAnalyst</strong> should be rows for peaks and colomns for samples. You could also add groups infomation if possible. Use the following code to get the data for analysis.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get the csv file for Metaboanalyst.ca</span>
-enviGCMS::<span class="kw">getupload</span>(neg,<span class="dt">name =</span> <span class="st">&#39;metabo&#39;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get the csv file for Metaboanalyst.ca</span>
+enviGCMS<span class="op">::</span><span class="kw">getupload</span>(neg,<span class="dt">name =</span> <span class="st">&#39;metabo&#39;</span>)</code></pre>
 </div>
 <div id="summary" class="section level2">
 <h2><span class="header-section-number">11.12</span> Summary</h2>
@@ -566,7 +593,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -592,8 +619,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
