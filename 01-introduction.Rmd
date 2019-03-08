@@ -129,6 +129,7 @@ Here is the slides for metabolomics data analysis workshop and I have made prese
 ## Trends in Metabolomics
 
 ```{r gtrends}
+
 library(gtrendsR)
 res <- gtrends(c("metabolomics", "metabolomics"), geo = c("CA","US"))
 plot(res)

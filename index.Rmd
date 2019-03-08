@@ -1,6 +1,6 @@
 --- 
-title: "Meta-Workflow"
-author: "Miao YU"
+title: "Notes on metabolomics"
+author: "Shaojun Xie"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -38,3 +38,12 @@ This is a book written in **Bookdown**. You could contribute it by a pull reques
   ga('send', 'pageview');
 
 </script>
+
+
+```{r}
+# https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
+list.of.packages <- c("gtrendsR", "rentrez", "DiagrammeR")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+```
